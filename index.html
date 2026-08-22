@@ -3,23 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mr赵的支出小测试</title>
+<title>Mr赵的支出小测试 · 财政系统蓝</title>
 <style>
-  :root{--paper:#F4F5F1;--card:#FFFFFF;--ink:#1C221E;--ink-soft:#5B655E;--line:#DCDED6;
-    --pine:#17513C;--pine-deep:#0E3A2A;--pine-tint:#EAF1EC;--zhu:#A62A2A;--zhu-tint:#FBEDEC;
-    --gold:#B08A3E;--field:#F8F9F6;--blue:#1D4E6B;--blue-tint:#E9F0F4}
+  :root{--paper:#F2F5F8;--card:#FFFFFF;--ink:#1F2D3D;--ink-soft:#66788A;--line:#D7E0E8;
+    --pine:#1F4E79;--pine-deep:#173B5C;--pine-tint:#EAF1F7;--zhu:#B33A3A;--zhu-tint:#FBEDED;
+    --gold:#C6A15B;--field:#F8FAFC;--blue:#2F75B5;--blue-tint:#EDF4FA}
   *{box-sizing:border-box;margin:0;padding:0}
   html{-webkit-text-size-adjust:100%}
   body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;
     background:var(--paper);color:var(--ink);line-height:1.6;padding:18px 20px 56px;font-variant-numeric:tabular-nums}
   .wrap{max-width:none;width:100%;margin:0 auto}
   @media(min-width:1100px){.grid{grid-template-columns:1fr 1fr}}
-  header.masthead{background:var(--pine);color:#F4F5F1;border-radius:14px 14px 0 0;padding:22px 26px 20px;position:relative;overflow:hidden;border-bottom:3px solid var(--gold)}
-  header.masthead::after{content:"测算";position:absolute;right:20px;top:38px;transform:rotate(-8deg);border:2.5px solid rgba(244,245,241,.32);color:rgba(244,245,241,.32);font-family:"Songti SC","SimSun",serif;font-size:24px;letter-spacing:4px;padding:5px 9px;border-radius:6px}
+  header.masthead{background:var(--pine);color:#F7FBFE;border-radius:14px 14px 0 0;padding:22px 26px 20px;position:relative;overflow:hidden;border-bottom:3px solid var(--gold)}
+  header.masthead::after{content:"测算";position:absolute;right:20px;top:38px;transform:rotate(-8deg);border:2.5px solid rgba(247,251,254,.45);color:rgba(247,251,254,.45);font-family:"Songti SC","SimSun",serif;font-size:24px;letter-spacing:4px;padding:5px 9px;border-radius:6px}
   .masthead h1{font-family:"Songti SC","SimSun",serif;font-weight:600;font-size:25px;letter-spacing:2px}
   .masthead .sub{font-size:12.5px;opacity:.82;margin-top:6px;max-width:660px}
   nav.tabs{display:flex;background:var(--pine-deep);flex-wrap:wrap}
-  nav.tabs button{flex:1;min-width:76px;border:none;background:transparent;color:rgba(244,245,241,.62);font-family:inherit;font-size:13.5px;padding:12px 4px;cursor:pointer;position:relative;transition:.15s;letter-spacing:1px}
+  nav.tabs button{flex:1;min-width:76px;border:none;background:transparent;color:rgba(247,251,254,.72);font-family:inherit;font-size:13.5px;padding:12px 4px;cursor:pointer;position:relative;transition:.15s;letter-spacing:1px}
   nav.tabs button:hover{color:#fff}
   nav.tabs button.on{color:var(--pine);font-weight:600;background:var(--card)}
   nav.tabs button.on::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold)}
@@ -48,10 +48,10 @@
   .slider::before{content:"";position:absolute;height:16px;width:16px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s;box-shadow:0 1px 2px rgba(0,0,0,.2)}
   .switch input:checked + .slider{background:var(--zhu)}.switch input:checked + .slider::before{transform:translateX(18px)}
   .peak-months{color:var(--zhu);font-weight:600}
-  .ref{background:var(--pine-tint);border:1px solid #d5e3d8;border-radius:10px;padding:12px 14px;margin-top:6px;font-size:12.5px;color:var(--pine-deep)}
+  .ref{background:var(--pine-tint);border:1px solid #DCE7F0;border-radius:10px;padding:12px 14px;margin-top:6px;font-size:12.5px;color:var(--pine-deep)}
   .ref .row{display:flex;justify-content:space-between;gap:10px;padding:3px 0}
   .ref .row span:last-child{font-weight:600}
-  .ref .hd{font-weight:700;color:var(--pine);border-bottom:1px solid #d5e3d8;padding-bottom:5px;margin-bottom:4px}
+  .ref .hd{font-weight:700;color:var(--pine);border-bottom:1px solid #DCE7F0;padding-bottom:5px;margin-bottom:4px}
   .result-title{font-family:"Songti SC","SimSun",serif;font-size:19px;letter-spacing:1px;margin-bottom:4px}
   .result-meta{font-size:12px;color:var(--ink-soft);margin-bottom:16px;min-height:18px}
   .line{display:flex;justify-content:space-between;align-items:baseline;padding:11px 0;border-bottom:1px dashed var(--line)}
@@ -63,28 +63,28 @@
   .total{display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;padding:15px 16px;background:var(--pine);color:#fff;border-radius:10px}
   .total.warn{background:var(--zhu)}.total .lbl{font-size:14px;letter-spacing:1px}
   .total .amt{font-family:"Songti SC","SimSun",serif;font-size:26px;font-weight:600}
-  .selfpay{display:flex;justify-content:space-between;margin-top:10px;padding:10px 16px;background:var(--zhu-tint);border:1px solid #edd3d1;border-radius:10px;font-size:13px;color:var(--zhu)}
+  .selfpay{display:flex;justify-content:space-between;margin-top:10px;padding:10px 16px;background:var(--zhu-tint);border:1px solid #F3DCDD;border-radius:10px;font-size:13px;color:var(--zhu)}
   .selfpay .amt{font-weight:700}
   .flags{margin-top:16px;font-size:12px;color:var(--ink-soft);line-height:1.7}
   .flags .f{display:flex;gap:7px;padding:2px 0}.flags .f::before{content:"·";color:var(--pine);font-weight:700}
   /* OCR */
-  .ocr-box{background:var(--blue-tint);border:1px dashed #b6cdd9;border-radius:10px;padding:14px;margin-bottom:16px}
+  .ocr-box{background:var(--blue-tint);border:1px dashed #C6DDF0;border-radius:10px;padding:14px;margin-bottom:16px}
   .ocr-box .hd{font-size:12px;color:var(--blue);font-weight:700;letter-spacing:1px;margin-bottom:9px;display:flex;align-items:center;gap:6px}
   .up-row{display:flex;gap:8px;flex-wrap:wrap}
   .up-btn{flex:1;min-width:96px;text-align:center;border:1px solid var(--blue);color:var(--blue);background:#fff;border-radius:8px;padding:9px 6px;font-size:12.5px;cursor:pointer;transition:.15s}
   .up-btn:hover{background:var(--blue);color:#fff}
   .ocr-status{font-size:12px;color:var(--blue);margin-top:9px;min-height:16px}
   .ocr-manual{display:flex;gap:8px;margin-top:9px}
-  .ocr-manual input{flex:1;padding:8px 10px;border:1px solid #cfe0e8;border-radius:7px;font-size:12.5px;font-family:inherit}
+  .ocr-manual input{flex:1;padding:8px 10px;border:1px solid #DCE7F0;border-radius:7px;font-size:12.5px;font-family:inherit}
   .ocr-manual button{background:#fff;border:1px solid var(--blue);color:var(--blue);border-radius:7px;padding:0 12px;font-size:12.5px;font-family:inherit;cursor:pointer;white-space:nowrap}
   .ocr-manual button:hover{background:var(--blue);color:#fff}
   /* 下拉导航 */
   .mainnav{margin-top:14px;display:flex;gap:6px;flex-wrap:wrap}
-  .mainnav button{flex:1;min-width:120px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#F4F5F1;font-family:inherit;font-size:13.5px;padding:10px 8px;border-radius:8px;cursor:pointer;transition:.15s;letter-spacing:1px}
+  .mainnav button{flex:1;min-width:120px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.18);color:#F7FBFE;font-family:inherit;font-size:13.5px;padding:10px 8px;border-radius:8px;cursor:pointer;transition:.15s;letter-spacing:1px}
   .mainnav button:hover{background:rgba(255,255,255,.18)}
   .mainnav button.on{background:#fff;color:var(--pine);font-weight:700;border-color:#fff}
-  .navbar{margin-top:14px;display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.12);border-radius:10px;padding:8px 12px}
-  .navlabel{font-size:12.5px;color:#F4F5F1;opacity:.85;letter-spacing:1px;white-space:nowrap}
+  .navbar{margin-top:14px;display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.22);border-radius:10px;padding:8px 12px}
+  .navlabel{font-size:12.5px;color:#F7FBFE;opacity:.85;letter-spacing:1px;white-space:nowrap}
   #navsel{flex:1;padding:9px 11px;border:none;border-radius:7px;background:#fff;color:var(--ink);font-size:14.5px;font-family:inherit;font-weight:600;cursor:pointer}
   #navsel:focus{outline:none;box-shadow:0 0 0 3px rgba(176,138,62,.5)}
   /* 主目录首页 */
@@ -94,15 +94,15 @@
   @media(max-width:600px){.home-grid{grid-template-columns:1fr}}
   .hcard{text-align:left;border:1px solid var(--line);border-radius:12px;padding:18px;background:var(--field);cursor:pointer;font-family:inherit;transition:.15s;position:relative;overflow:hidden}
   .hcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--pine);opacity:.75}
-  .hcard:hover{border-color:var(--pine);background:#fff;transform:translateY(-2px);box-shadow:0 6px 18px rgba(14,58,42,.1)}
+  .hcard:hover{border-color:var(--pine);background:#fff;transform:translateY(-2px);box-shadow:0 6px 18px rgba(31,78,121,.12)}
   .hcard-wide{grid-column:1/-1}
   .hcard-wide::before{background:var(--gold)}
   .hi{font-size:26px;margin-bottom:8px}
   .hn{font-family:"Songti SC","SimSun",serif;font-size:18px;font-weight:600;color:var(--pine);margin-bottom:4px}
   .hd2{font-size:12.5px;color:var(--ink);margin-bottom:6px}
   .hf{font-size:11px;color:var(--ink-soft)}
-  .ocr-card{background:#fff;border:1px solid #cfe0e8;border-radius:8px;padding:10px 12px;margin-top:9px;font-size:12px}
-  .ocr-card .r{display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px dotted #e3ecf0}
+  .ocr-card{background:#fff;border:1px solid #DCE7F0;border-radius:8px;padding:10px 12px;margin-top:9px;font-size:12px}
+  .ocr-card .r{display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px dotted #E7F2F9}
   .ocr-card .r span:last-child{font-weight:600}
   .mini{margin-top:8px;padding:7px 12px;background:var(--blue);color:#fff;border:none;border-radius:7px;font-size:12.5px;font-family:inherit;cursor:pointer}
   .mini:hover{opacity:.9}
@@ -141,13 +141,13 @@
   .btn{flex:1;min-width:140px;border:none;border-radius:9px;padding:12px;font-size:14px;font-family:inherit;cursor:pointer;font-weight:600;letter-spacing:1px}
   .btn-primary{background:var(--pine);color:#fff}.btn-primary:hover{background:var(--pine-deep)}
   .btn-ghost{background:#fff;color:var(--pine);border:1px solid var(--pine)}
-  .cert{margin-top:16px;background:var(--pine-tint);border:1px solid #cfe0d5;border-radius:10px;padding:14px 16px;display:none}
+  .cert{margin-top:16px;background:var(--pine-tint);border:1px solid #DEE9F2;border-radius:10px;padding:14px 16px;display:none}
   .cert.show{display:block}
   .cert .ct{font-weight:700;color:var(--pine);font-size:13px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
   .cert .kv{font-size:11.5px;color:var(--ink-soft);margin:4px 0;word-break:break-all;font-family:ui-monospace,Menlo,Consolas,monospace}
   .cert .kv b{color:var(--ink);font-family:inherit}
   .verify-badge{font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px}
-  .vb-ok{background:#d9ead9;color:var(--pine)}.vb-bad{background:var(--zhu-tint);color:var(--zhu)}
+  .vb-ok{background:#EAF1F7;color:var(--pine)}.vb-bad{background:var(--zhu-tint);color:var(--zhu)}
   .sig-img{max-height:70px;background:#fff;border:1px solid var(--line);border-radius:6px;padding:4px;margin-top:6px}
   /* 支付审批：逐级签名 + 电子章 */
   .appr-wrap{border:1px solid var(--line);border-radius:12px;padding:14px;margin-top:16px;background:var(--field)}
@@ -185,7 +185,7 @@
   .seal-stamp .s1{font-size:12px;letter-spacing:1px;padding:0 6px;line-height:1.3}
   .seal-stamp .s2{font-size:18px;margin:2px 0}
   .seal-stamp .s3{font-size:9px;letter-spacing:1px}
-  .appr-cert{margin-top:12px;background:var(--pine-tint);border:1px solid #cfe0d5;border-radius:10px;padding:12px 14px;font-size:11.5px;color:var(--ink-soft);display:none;word-break:break-all;font-family:ui-monospace,Menlo,Consolas,monospace}
+  .appr-cert{margin-top:12px;background:var(--pine-tint);border:1px solid #DEE9F2;border-radius:10px;padding:12px 14px;font-size:11.5px;color:var(--ink-soft);display:none;word-break:break-all;font-family:ui-monospace,Menlo,Consolas,monospace}
   .appr-cert.show{display:block}
   .appr-cert b{color:var(--ink);font-family:inherit}
   .appr-cert .cert-row{margin:4px 0}
@@ -227,9 +227,9 @@
   .att-item .att-x{position:absolute;top:3px;right:3px;background:rgba(0,0,0,.55);color:#fff;border:none;border-radius:50%;width:18px;height:18px;cursor:pointer;font-size:11px;line-height:1;padding:0}
   .att-item .att-ocrtag{padding:3px 6px 6px;color:var(--pine);font-size:10.5px;line-height:1.35;border-top:1px dashed var(--line)}
   /* AI 审批摘要 */
-  .ai-summary{background:var(--blue-tint);border:1px solid #b6cdd9;border-radius:10px;padding:12px 14px;font-size:13px;margin-top:12px}
+  .ai-summary{background:var(--blue-tint);border:1px solid #C6DDF0;border-radius:10px;padding:12px 14px;font-size:13px;margin-top:12px}
   .ai-summary .ais-t{font-weight:700;color:var(--blue);margin-bottom:8px}
-  .ai-summary .ais-row{display:flex;gap:10px;padding:5px 0;border-top:1px dashed #cddbe4}
+  .ai-summary .ais-row{display:flex;gap:10px;padding:5px 0;border-top:1px dashed #D7E9F6}
   .ai-summary .ais-row:first-of-type{border-top:none}
   .ai-summary .ais-row .k{flex:none;width:64px;color:var(--ink-soft);font-size:12px}
   .ai-summary .ais-row .v{flex:1;line-height:1.55}
@@ -246,7 +246,7 @@
   .mod-tools button:hover{border-color:var(--pine);color:var(--pine)}
   .mod-tools button:disabled{opacity:.45;cursor:default}
   .mod-tools.glob{margin:0}
-  .mod-tools.glob button{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.32);color:#F4F5F1}
+  .mod-tools.glob button{background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.32);color:#F7FBFE}
   .mod-tools.glob button:hover{background:#fff;color:var(--pine)}
   table.group{width:100%;border-collapse:collapse;font-size:13px;border:1px solid var(--line);border-radius:8px;overflow:hidden}
   table.group th,table.group td{padding:8px 12px;border-bottom:1px solid var(--line);text-align:left}
@@ -263,13 +263,13 @@
   .quickq button:hover{background:var(--blue);color:#fff}
   .quickq button.risk{border-color:var(--gold);color:var(--gold)}
   .quickq button.risk:hover{background:var(--gold);color:#fff}
-  .mchat-out{max-height:300px;overflow-y:auto;padding:4px 2px 6px;margin-bottom:8px;background:#fff;border:1px solid #d6e2ea;border-radius:10px}
+  .mchat-out{max-height:300px;overflow-y:auto;padding:4px 2px 6px;margin-bottom:8px;background:#fff;border:1px solid #DCEBF6;border-radius:10px}
   .mchat-out .chat-msg{margin:10px 12px}
-  .mchat-pane .chat-input{border:1px solid #d6e2ea;border-radius:24px;padding:5px 5px 5px 6px;background:#fff}
+  .mchat-pane .chat-input{border:1px solid #DCEBF6;border-radius:24px;padding:5px 5px 5px 6px;background:#fff}
   .mchat-pane .chat-input input{border:none}
   .mchat-pane .chat-input input:focus{border:none}
   /* AI floating */
-  #aiFab{position:fixed;right:20px;bottom:22px;z-index:40;background:var(--pine);color:#fff;border:none;border-radius:26px;padding:13px 20px;font-size:14px;font-family:inherit;font-weight:600;cursor:pointer;box-shadow:0 6px 20px rgba(14,58,42,.35);display:flex;align-items:center;gap:8px}
+  #aiFab{position:fixed;right:20px;bottom:22px;z-index:40;background:var(--pine);color:#fff;border:none;border-radius:26px;padding:13px 20px;font-size:14px;font-family:inherit;font-weight:600;cursor:pointer;box-shadow:0 6px 20px rgba(23,59,92,.28);display:flex;align-items:center;gap:8px}
   #aiFab:hover{background:var(--pine-deep)}
   #aiPanel{position:fixed;right:20px;bottom:22px;z-index:41;width:380px;max-width:calc(100vw - 32px);height:560px;max-height:calc(100vh - 44px);background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,.22);display:none;flex-direction:column;overflow:hidden}
   #aiPanel.show{display:flex}
@@ -285,7 +285,7 @@
   .risk-item{border:1px solid var(--line);border-left-width:4px;border-radius:8px;padding:10px 12px;margin-bottom:9px;font-size:12.5px}
   .risk-item.高{border-left-color:var(--zhu)}.risk-item.中{border-left-color:var(--gold)}.risk-item.低{border-left-color:var(--pine)}
   .risk-item .lv{font-weight:700;font-size:11px;padding:1px 8px;border-radius:10px;display:inline-block;margin-bottom:5px}
-  .lv.高{background:var(--zhu-tint);color:var(--zhu)}.lv.中{background:#f6efdc;color:var(--gold)}.lv.低{background:var(--pine-tint);color:var(--pine)}
+  .lv.高{background:var(--zhu-tint);color:var(--zhu)}.lv.中{background:#EEF6FC;color:var(--gold)}.lv.低{background:var(--pine-tint);color:var(--pine)}
   .risk-item .p{font-weight:600;margin-bottom:3px}
   .risk-item .b{color:var(--ink-soft);font-size:11.5px}
   .risk-item .a{color:var(--pine);font-size:11.5px;margin-top:3px}
@@ -316,20 +316,20 @@
   .pay-src button:hover{background:var(--blue);color:#fff}
   .pay-src .pull-all{flex:1;min-width:220px;background:var(--pine);border-color:var(--pine);color:#fff;font-weight:600}
   .pay-src .pull-all:hover{background:var(--pine-deep);border-color:var(--pine-deep);color:#fff}
-  .pay-break{margin-top:8px;font-size:12px;color:var(--pine-deep);background:var(--pine-tint);border:1px solid #d5e3d8;border-radius:8px;padding:8px 12px;line-height:1.6}
+  .pay-break{margin-top:8px;font-size:12px;color:var(--pine-deep);background:var(--pine-tint);border:1px solid #DCE7F0;border-radius:8px;padding:8px 12px;line-height:1.6}
   .pay-break:empty{display:none}
-  .pay-summary{background:var(--blue-tint);border:1px solid #b6cdd9;border-radius:10px;padding:12px 14px;margin-bottom:14px}
+  .pay-summary{background:var(--blue-tint);border:1px solid #C6DDF0;border-radius:10px;padding:12px 14px;margin-bottom:14px}
   .pay-summary .ps-hd{font-size:12px;color:var(--blue);font-weight:700;letter-spacing:1px;margin-bottom:9px;display:flex;justify-content:space-between;align-items:center;gap:8px}
   .pay-summary .ps-hd button{background:#fff;border:1px solid var(--blue);color:var(--blue);border-radius:7px;padding:5px 12px;font-family:inherit;font-size:12px;cursor:pointer;white-space:nowrap}
   .pay-summary .ps-hd button:hover{background:var(--blue);color:#fff}
   .pay-summary .ps-grid{display:flex;flex-wrap:wrap;gap:8px}
-  .pay-summary .ps-item{flex:1;min-width:88px;background:#fff;border:1px solid #cfe0e8;border-radius:8px;padding:8px 10px}
+  .pay-summary .ps-item{flex:1;min-width:88px;background:#fff;border:1px solid #DCE7F0;border-radius:8px;padding:8px 10px}
   .pay-summary .ps-item .k{color:var(--ink-soft);font-size:11px;margin-bottom:2px}
   .pay-summary .ps-item .v{font-weight:700;font-size:14px;color:var(--ink);font-variant-numeric:tabular-nums}
   .pay-summary .ps-item.zero{opacity:.45}
   .pay-summary .ps-item.ps-total{background:var(--blue);border-color:var(--blue)}
   .pay-summary .ps-item.ps-total .k,.pay-summary .ps-item.ps-total .v{color:#fff}
-  table.ledger tr.grp td{background:var(--pine-tint);font-weight:600;color:var(--pine-deep);border-top:2px solid #cfe0d4}
+  table.ledger tr.grp td{background:var(--pine-tint);font-weight:600;color:var(--pine-deep);border-top:2px solid #DCE7F0}
   table.ledger tr.grp .del-app{color:var(--zhu);cursor:pointer;background:none;border:none;font-family:inherit;font-size:12px}
   table.ledger tr.grp-item td:first-child{color:var(--ink-soft);padding-left:20px}
   table.ledger tr.grp-item td:first-child::before{content:"└";color:var(--pine);margin-right:5px}
@@ -365,8 +365,8 @@
   .ledger-empty{padding:18px;text-align:center;color:var(--ink-soft);font-size:12.5px}
   /* ===== 台账 AI 分析 ===== */
   .ana-card{border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-top:14px;background:var(--card)}
-  .ana-card.pine{border-color:#cfe0d4;background:linear-gradient(180deg,var(--pine-tint),#fff 60%)}
-  .ana-card.blue{border-color:#cfe0e8;background:linear-gradient(180deg,var(--blue-tint),#fff 60%)}
+  .ana-card.pine{border-color:#DCE7F0;background:linear-gradient(180deg,var(--pine-tint),#fff 60%)}
+  .ana-card.blue{border-color:#DCE7F0;background:linear-gradient(180deg,var(--blue-tint),#fff 60%)}
   .ana-ctrls{display:flex;flex-wrap:wrap;gap:9px 12px;align-items:center;margin-bottom:12px}
   .ana-ctrls label{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink-soft)}
   .ana-ctrls select,.ana-ctrls input{border:1px solid var(--line);border-radius:7px;padding:6px 9px;font-family:inherit;font-size:13px;background:#fff;color:var(--ink)}
@@ -403,7 +403,7 @@
   .ana-sub-hd{font-size:12.5px;font-weight:700;color:var(--pine-deep);margin:14px 0 6px;display:flex;align-items:center;gap:6px}
   .ana-sub-hd.blue{color:var(--blue)}
   .kind-chips{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 10px}
-  .kind-chip{border:1px solid #cfe0e8;background:#fff;border-radius:20px;padding:5px 12px;font-size:12px;color:var(--blue)}
+  .kind-chip{border:1px solid #DCE7F0;background:#fff;border-radius:20px;padding:5px 12px;font-size:12px;color:var(--blue)}
   .kind-chip b{font-family:"Songti SC","SimSun",serif;font-size:14px}
   .ana-report{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin-top:10px;font-size:13.5px;line-height:1.75;color:var(--ink)}
   .ana-report h3{font-family:"Songti SC","SimSun",serif;font-size:16px;color:var(--pine-deep);margin:14px 0 6px;border-left:3px solid var(--gold);padding-left:9px}
@@ -429,23 +429,13 @@
     .pay-doc{border-color:#000}
     .pay-table,.pay-table th,.pay-table td{border-color:#000!important;color:#000}
     .pay-doc-meta .doc-in{border-bottom-color:#000;color:#000}
-    .tbl-seal{border-color:#a62a2a;color:#a62a2a}
-  }
-  @media print{
-    body{padding:0;background:#fff}
-    .navbar,footer.notes,.mchat-pane,.ocr-box,.btn-row,.quickq,.pay-src,.pay-add,.pay-del,.pc-ai,.pc-note,.pay-summary,.mini-pad-hd,.step-btns,.appr-note,#apprVerify,.mini-pad,.masthead .sub,#aiFab,#aiPanel{display:none!important}
-    .panel:not(.on){display:none!important}
-    .sheet{border:none}
-    header.masthead{border-radius:0;background:#fff;color:#000;border-bottom:2px solid #000;padding:8px 0}
-    header.masthead::after{display:none}
-    .masthead h1{color:#000;font-size:18px}
-    .gov-cell input,.gov-cell select{color:#000}
+    .tbl-seal{border-color:#B45A5A;color:#B45A5A}
   }
   /* ===== 登录壳 + 一体化端口 ===== */
   #loginShell{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;
-    background:radial-gradient(1200px 600px at 50% -10%,rgba(23,81,60,.30),transparent),linear-gradient(160deg,#0E3A2A,#123f2e 40%,#0b2c20);overflow:auto}
-  .lg-card{width:100%;max-width:440px;background:var(--card);border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.06)}
-  .lg-head{background:var(--pine);color:#F4F5F1;padding:22px 24px 18px;border-bottom:3px solid var(--gold);position:relative}
+    background:radial-gradient(1200px 600px at 50% -10%,rgba(47,117,181,.18),transparent),linear-gradient(160deg,#173B5C,#1F4E79 46%,#163A5A);overflow:auto}
+  .lg-card{width:100%;max-width:440px;background:var(--card);border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.12)}
+  .lg-head{background:var(--pine);color:#F7FBFE;padding:22px 24px 18px;border-bottom:3px solid var(--gold);position:relative}
   .lg-head::after{content:"内部试用";position:absolute;right:18px;top:20px;font-family:"Songti SC","SimSun",serif;font-size:12px;letter-spacing:2px;border:1.5px solid rgba(244,245,241,.4);color:rgba(244,245,241,.55);padding:3px 7px;border-radius:5px;transform:rotate(-6deg)}
   .lg-title{font-family:"Songti SC","SimSun",serif;font-weight:600;font-size:20px;letter-spacing:1.5px}
   .lg-sub{font-size:11.5px;opacity:.82;margin-top:6px;line-height:1.5;max-width:320px}
@@ -467,30 +457,68 @@
   .lg-sso>summary::before{content:"▸ ";color:var(--blue)}
   .lg-sso[open]>summary::before{content:"▾ "}
   .lg-sso-body{padding:4px 14px 14px}
-  .lg-sso-note{font-size:11.5px;color:var(--ink-soft);line-height:1.65;background:var(--blue-tint);border:1px solid #cfe0e8;border-radius:8px;padding:9px 11px;margin-bottom:12px}
+  .lg-sso-note{font-size:11.5px;color:var(--ink-soft);line-height:1.65;background:var(--blue-tint);border:1px solid #DCE7F0;border-radius:8px;padding:9px 11px;margin-bottom:12px}
   .lg-sso-note b{color:var(--blue)}
   .lg-sso-row{display:flex;align-items:center;gap:10px;margin-top:6px}
   .lg-btn{border:1px solid var(--blue);color:var(--blue);background:#fff;border-radius:8px;padding:8px 14px;font-size:12.5px;font-family:inherit;cursor:pointer;font-weight:600}
   .lg-btn:hover{background:var(--blue);color:#fff}
   .lg-stat{font-size:11.5px;color:var(--ink-soft)}
-  .lg-sso-detect{margin-top:11px;font-size:12px;color:var(--pine-deep);background:var(--pine-tint);border:1px solid #cfe0d4;border-radius:8px;padding:9px 11px;line-height:1.6}
+  .lg-sso-detect{margin-top:11px;font-size:12px;color:var(--pine-deep);background:var(--pine-tint);border:1px solid #DCE7F0;border-radius:8px;padding:9px 11px;line-height:1.6}
   /* 身份标识 + 退出 */
-  .id-chip{position:absolute;top:16px;right:16px;display:flex;align-items:center;gap:8px;background:rgba(244,245,241,.14);border:1px solid rgba(244,245,241,.28);border-radius:20px;padding:5px 6px 5px 12px;font-size:11.5px;color:#F4F5F1;backdrop-filter:blur(2px);z-index:5}
+  .id-chip{position:absolute;top:16px;right:16px;display:flex;align-items:center;gap:8px;background:rgba(244,245,241,.14);border:1px solid rgba(244,245,241,.28);border-radius:20px;padding:5px 6px 5px 12px;font-size:11.5px;color:#F7FBFE;backdrop-filter:blur(2px);z-index:5}
   .id-chip .who{max-width:210px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;opacity:.95}
   .id-chip .who b{font-weight:600}
   .id-chip .logout{border:none;background:rgba(244,245,241,.9);color:var(--pine-deep);border-radius:16px;padding:4px 11px;font-size:11.5px;font-family:inherit;cursor:pointer;font-weight:600;white-space:nowrap}
   .id-chip .logout:hover{background:#fff}
   @media(max-width:560px){.id-chip{position:static;margin-top:12px;justify-content:space-between}.id-chip .who{max-width:none}}
   @media print{#loginShell,.id-chip{display:none!important}}
+  /* ===== 财政系统式导航 ===== */
+  header.masthead{padding:0;overflow:visible;position:relative;z-index:50}
+  header.masthead::after{display:none!important}
+  .sys-topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;
+    background:linear-gradient(90deg,#173B5C,#1F4E79 72%);padding:14px 22px;border-radius:14px 14px 0 0}
+  .sys-brand{display:flex;align-items:center;gap:13px;min-width:0}
+  .sys-emblem{width:42px;height:42px;flex:none;border-radius:50%;background:radial-gradient(circle at 35% 30%,#F1D89A,var(--gold));
+    color:var(--pine-deep);font-family:"Songti SC","SimSun",serif;font-weight:700;font-size:23px;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 2px 8px rgba(0,0,0,.25),inset 0 0 0 2px rgba(255,255,255,.35)}
+  .sys-brandtext{min-width:0}
+  .sys-name{font-family:"Songti SC","SimSun",serif;font-weight:600;font-size:20px;letter-spacing:1.5px;color:#F7FBFE;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sys-name-sub{font-size:11px;color:rgba(247,251,254,.75);letter-spacing:.5px;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sys-menu{display:flex;align-items:stretch;gap:2px;background:rgba(23,59,92,.20);padding:0 10px;overflow-x:auto;overflow-y:visible}
+  .sys-menu::-webkit-scrollbar{height:0}
+  .sys-mi{position:relative}
+  .sys-mlabel{border:none;background:none;color:rgba(247,251,254,.95);font-family:inherit;font-size:14.5px;letter-spacing:1px;
+    padding:14px 20px;cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;transition:.15s}
+  .sys-mlabel i{font-style:normal;font-size:11px;opacity:.7;margin-left:1px}
+  .sys-mlabel:hover{background:rgba(255,255,255,.20);color:#fff}
+  .sys-mi.active .sys-mlabel{color:#fff;font-weight:700;border-bottom-color:var(--gold);background:rgba(255,255,255,.12)}
+  .sys-dd{position:absolute;top:100%;left:0;min-width:216px;background:#fff;border:1px solid var(--line);border-top:2px solid var(--gold);
+    border-radius:0 0 12px 12px;box-shadow:0 16px 36px rgba(23,59,92,.20);padding:6px;opacity:0;visibility:hidden;transform:translateY(-6px);
+    transition:.15s;z-index:200}
+  .sys-mi:hover .sys-dd,.sys-mi.open .sys-dd{opacity:1;visibility:visible;transform:translateY(0)}
+  .sys-dd a{display:block;padding:10px 14px;font-size:13.5px;color:var(--ink);border-radius:7px;cursor:pointer;white-space:nowrap}
+  .sys-dd a:hover{background:var(--pine-tint);color:var(--pine-deep);font-weight:600}
+  .sys-dd-sep{font-size:11px;color:var(--ink-soft);letter-spacing:1px;padding:9px 14px 4px;margin-top:4px;border-top:1px dashed var(--line)}
+  /* 上下文工具条（支出测算的类别选择） */
+  #catbar{margin:0;border-radius:0;padding:11px 22px;background:rgba(255,255,255,.20);gap:12px}
+  /* 身份标识放入顶栏（改为静态定位） */
+  header.masthead .id-chip{position:static;top:auto;right:auto;flex:none}
+  @media(max-width:640px){
+    .sys-name{font-size:16px;letter-spacing:1px}.sys-name-sub{display:none}
+    .sys-emblem{width:36px;height:36px;font-size:19px}
+    .sys-mlabel{padding:12px 14px;font-size:13.5px}
+    .sys-topbar{flex-wrap:wrap}
+  }
+  @media print{.sys-menu,#catbar,.sys-name-sub{display:none!important}.sys-topbar{background:#fff;color:#000;padding:6px 0}.sys-name{color:#000}.sys-emblem{display:none}}
 </style>
 </head>
 <body>
-<!-- ===================== 登录壳（前端演示，不校验真实账号） ===================== -->
+<!-- ===================== 登录壳（前端演示：单位级 + 指定全区账号） ===================== -->
 <div id="loginShell">
   <div class="lg-card">
     <div class="lg-head">
       <div class="lg-title">财政支出测算与支付台账系统</div>
-      <div class="lg-sub">内部试用版 · 演示登录。本界面仅为前端外壳，不校验真实账号；真实鉴权与权限由后端/一体化提供。</div>
+      <div class="lg-sub">内部试用版 · 默认按单位隔离数据；仅指定财政局“全区数据账号”可查看全区台账与 AI 分析。正式鉴权与权限应由后端/一体化提供。</div>
     </div>
     <div class="lg-body">
       <div class="seg lg-mode" id="lgMode">
@@ -507,9 +535,10 @@
 
       <!-- 账号密码 -->
       <div id="lg-account" style="display:none">
-        <label class="lg-fld"><span>用户名</span><input id="lgUser" class="lg-in" placeholder="如 zhaogl（演示，任意）"></label>
+        <label class="lg-fld"><span>用户名</span><input id="lgUser" class="lg-in" placeholder="普通账号按所选单位；指定财政账号可获全区权限"></label>
         <label class="lg-fld"><span>预算单位</span><select id="lgUnit2"></select></label>
-        <label class="lg-fld"><span>密码</span><input id="lgPwd" type="password" class="lg-in" placeholder="演示环境任意密码"></label>
+        <label class="lg-fld"><span>密码</span><input id="lgPwd" type="password" class="lg-in" placeholder="普通演示账号任意；全区账号需匹配密码"></label>
+        <div class="lg-sso-note" style="margin-top:2px;margin-bottom:10px">权限说明：财政局普通人员也仅查看财政局本单位；只有指定“全区数据账号”可查看全部预算单位并生成全区 AI 分析。</div>
       </div>
 
       <label class="lg-remember"><input type="checkbox" id="lgRemember" checked> 记住本次身份（仅存于本机浏览器）</label>
@@ -540,14 +569,39 @@
 
 <div class="wrap">
   <header class="masthead">
-    <h1>Mr赵的支出小测试</h1>
-    <div class="id-chip" id="idChip" style="display:none"></div>
-    <div class="sub">支出测算 · 票据/附件 OCR · AI 摘要与风险检测 · 逐级电子签名与电子章。覆盖差旅/培训/会议/工会等基本支出，以及项目、专项、政府采购、工程款等各类财政支出。</div>
-    <nav class="mainnav" id="mainnav">
-      <button data-s="calc" class="on">支出测算</button>
-      <button data-s="ap">公务出行审批单</button>
-      <button data-s="pay">支付申请单 · 台账</button>
-      <button data-s="sg">领导签批</button>
+    <div class="sys-topbar">
+      <div class="sys-brand">
+        <div class="sys-emblem">财</div>
+        <div class="sys-brandtext">
+          <div class="sys-name">相城区财政支出测算与台账管理系统</div>
+          <div class="sys-name-sub">Expenditure Calculation &amp; Ledger Management · 内部试用版</div>
+        </div>
+      </div>
+      <div class="id-chip" id="idChip" style="display:none"></div>
+    </div>
+    <nav class="sys-menu" id="sysMenu">
+      <div class="sys-mi" data-s="calc">
+        <button type="button" class="sys-mlabel" data-s="calc">支出测算 <i>▾</i></button>
+        <div class="sys-dd">
+          <a data-cat="cl">差旅费测算</a>
+          <a data-cat="px">培训费测算</a>
+          <a data-cat="hy">会议费测算</a>
+          <a data-cat="gh">工会经费测算</a>
+        </div>
+      </div>
+      <div class="sys-mi" data-s="ap"><button type="button" class="sys-mlabel" data-s="ap">公务出行审批单</button></div>
+      <div class="sys-mi" data-s="pay">
+        <button type="button" class="sys-mlabel" data-s="pay">支付申请单 · 台账 <i>▾</i></button>
+        <div class="sys-dd">
+          <a data-pv="form">填写申请单</a>
+          <a data-pv="ledger">台账明细统计</a>
+          <div class="sys-dd-sep">台账 · AI 智能分析</div>
+          <a data-pv="ledger" data-anchor="secAna">趋势 · 同比环比 · 预测</a>
+          <a data-pv="ledger" data-anchor="secOcr">附件 OCR 分析统计</a>
+          <a data-pv="ledger" data-anchor="secReport">一键生成分析报告</a>
+        </div>
+      </div>
+      <div class="sys-mi" data-s="sg"><button type="button" class="sys-mlabel" data-s="sg">领导签批</button></div>
     </nav>
     <div class="navbar" id="catbar">
       <span class="navlabel">支出类别</span>
@@ -815,6 +869,7 @@
 
         <!-- 子页2：台账统计 -->
         <div id="payv-ledger" style="display:none">
+          <div id="accessScopeNote" style="margin:0 0 12px;padding:10px 12px;border:1px solid #C8D8EA;border-radius:8px;background:#F2F7FC;color:#315A82;font-size:12.5px;line-height:1.6"></div>
           <div class="ledger-filters">
             <label>单位<select id="fUnit"></select></label>
             <label>支出类别<select id="fType"></select></label>
@@ -841,7 +896,7 @@
           <div class="btn-row"><button class="btn btn-ghost" id="ledgerExport">⬇ 导出 CSV（按当前筛选）</button></div>
 
           <!-- ========== AI 智能分析与预测（对当前筛选/分类后的台账） ========== -->
-          <div class="eyebrow" style="margin-top:28px">📈 AI 智能分析与预测 · 基于上方筛选/分类结果</div>
+          <div class="eyebrow" id="secAna" style="margin-top:28px;scroll-margin-top:16px">📈 AI 智能分析与预测 · 基于上方筛选/分类结果</div>
           <div class="ana-card pine">
             <div class="ana-ctrls">
               <label>时间粒度
@@ -879,7 +934,7 @@
           </div>
 
           <!-- ========== 附件 OCR 实时分析统计（数据 + 附件一并分析） ========== -->
-          <div class="eyebrow" style="margin-top:26px">🗂 附件 OCR 实时分析统计 · 数据与票据一并统计</div>
+          <div class="eyebrow" id="secOcr" style="margin-top:26px;scroll-margin-top:16px">🗂 附件 OCR 实时分析统计 · 数据与票据一并统计</div>
           <div class="ana-card blue">
             <div class="ana-ctrls">
               <label>统计范围
@@ -897,7 +952,7 @@
           </div>
 
           <!-- ========== 一键成文：综合分析报告 ========== -->
-          <div class="eyebrow" style="margin-top:26px">📝 一键生成分析报告（数据 + 附件，供预算 / 审计 / 成文）</div>
+          <div class="eyebrow" id="secReport" style="margin-top:26px;scroll-margin-top:16px">📝 一键生成分析报告（数据 + 附件，供预算 / 审计 / 成文）</div>
           <div class="ana-card">
             <div class="ana-ctrls">
               <label>报告用途
@@ -973,13 +1028,13 @@
           <div class="f">本模块为演示：密钥在本次会话内生成。正式部署应对接符合《电子签名法》的 CA 数字证书与电子签章系统。</div>
         </div>
         <div class="appr-wrap" style="margin-top:16px;background:var(--field)">
-          <div class="appr-hd" style="font-size:14px">⚙ 模型接口配置（附件 OCR 与 AI 摘要）</div>
-          <div class="appr-note">填写 OpenAI 兼容接口后，附件「OCR识别」与「AI 审批摘要」即可启用；仅保存在本机浏览器，不上传。留空则这两项功能不可用（其余功能不受影响）。</div>
+          <div class="appr-hd" style="font-size:14px">⚙ 模型接口配置（统一用于 OCR、科目识别、AI 摘要、答疑与分析报告）</div>
+          <div class="appr-note">填写 OpenAI 兼容接口后，所有联网 AI 功能统一走该接口。接口地址与模型名保存在本机；API Key 仅保存在当前浏览器会话，关闭会话后需重新填写。正式部署请改由单位后端代理模型请求，避免前端暴露密钥及敏感财务数据。</div>
           <div class="cfg-grid">
             <input id="cfgUrl" placeholder="接口地址，如 https://xxx/v1/chat/completions">
             <input id="cfgKey" type="password" placeholder="API Key">
             <input id="cfgModel" placeholder="模型名，如 gpt-4o / qwen-vl-max（需支持图片以做 OCR）">
-            <div class="btn-row" style="margin-top:2px"><button type="button" class="btn btn-ghost" id="cfgSave">保存接口配置</button><span id="cfgStat" style="align-self:center;font-size:12px;color:var(--ink-soft)"></span></div>
+            <div class="btn-row" style="margin-top:2px"><button type="button" class="btn btn-ghost" id="cfgSave">保存接口配置（Key仅本次会话）</button><span id="cfgStat" style="align-self:center;font-size:12px;color:var(--ink-soft)"></span></div>
           </div>
         </div>
       </section>
@@ -994,7 +1049,7 @@
       <li>会议费：财行〔2016〕214号 及补充通知 财行〔2023〕86号</li>
       <li>工会经费：总工办发〔2017〕32号；经费2%、会费5‰</li>
     </ul>
-    <div class="disc">本测算仅供内部参考；综合定额为上限、各项可调剂；工会慰问金额以本省细则为准。OCR 与 AI 助手在 Claude.ai 环境内调用模型接口；数字签名为浏览器本地密码学演示。实际报销以本单位财务规定和最新政策为准。</div>
+    <div class="disc">本测算仅供内部参考；综合定额为上限、各项可调剂；工会慰问金额以本省细则为准。联网 AI 功能统一调用用户配置的 OpenAI 兼容模型接口；API Key 仅保存在当前浏览器会话。数字签名仍为浏览器本地密码学演示，正式部署应对接后端身份、数据库及 CA/电子签章系统。实际报销以本单位财务规定和最新政策为准。</div>
   </footer>
 </div>
 
@@ -1097,6 +1152,69 @@ function switchTo(p){if(['cl','px','hy','gh'].includes(p)){mainNav('calc');showC
 const UNITS=[{"c":"农林水系统","items":[["相城区农业农村局",[]],["相城区园林绿化建设管理中心",["田恬"]],["相城区水务局",["王秋"]],["苏州市自然资源和规划局相城分局",["张勇杰","朱程英"]],["苏州市自然资源和规划局相城分局工会",["骆进良"]],["苏州市相城区土地储备中心",["骆进良"]],["苏州市相城区土地储备中心工会",["骆进良"]],["苏州市自然资源和规划局相城分局阳澄湖中心所",["蔡佳丽"]],["苏州市自然资源和规划局相城分局黄桥所",["颜丽凭"]],["苏州市自然资源和规划局相城分局望亭中心所",["钱志刚"]],["苏州市自然资源和规划局相城分局高铁新城所",["张美娟"]],["苏州市自然资源和规划局相城分局元和中心所",["俞菊珍"]],["苏州市自然资源和规划局相城分局渭塘中心所",["钦薪"]],["苏州市自然资源和规划局相城分局黄埭中心所",["钱莉"]],["苏州市自然资源和规划局相城分局开发区中心所",["顾琼"]],["苏州市自然资源和规划局相城分局漕湖所",["姜晓冬"]],["苏州市不动产登记中心相城分中心",["骆进良"]],["苏州市相城区城乡空间规划编制研究中心",["骆进良"]],["苏州市相城区林业站",["骆进良"]]]},{"c":"工业交通系统","items":[["相城区交通运输局",["施晓华"]],["相城区公路事业发展中心",["戴红燕"]],["相城区铁路建设发展中心",["顾岑"]],["相城区交通运输保障服务中心",["沈丹菲"]],["相城区港行事业发展中心",[]],["相城区交通工程和市政道路质量监督中心",["吴晓玲"]],["相城区交通运输综合执法大队",["张兰"]],["相城区应急管理局",[]]]},{"c":"商业流通系统","items":[["相城区工业和信息化局",["朱莉"]],["相城区商务局",["蔡菲霏"]],["相城区市场监督管理局",[]]]},{"c":"科教文系统","items":[["相城区科学技术局",["张秋莹"]],["相城区文化体育和旅游局",["阮青琴"]],["相城区教育局",["郁会英"]],["相城区陆慕高级中学",["钱少华"]],["相城区实验中学",["黄冬红"]],["相城区黄埭高中",["陈娟"]],["相城区中等专业学校",["惠晓燕"]],["特殊学校",["顾盈盈"]],["第一实验小学",["沈燕婷"]],["第一实验幼儿园",["杨志超"]],["第三实验中学",["翁洁"]],["相城中学",["庄媛媛"]]]},{"c":"卫生系统","items":[["相城区卫生健康委员会",["郭峰"]],["相城区疾病预防控制中心",["乔庭"]]]},{"c":"抚恤社保系统","items":[["相城区人力资源和社会保障局",["吴妍蕾"]],["相城区残疾人联合会",[]],["相城区民政局",["朱佳燕"]],["相城区社会福利事业发展中心",["施永芳"]],["相城区民政事务服务中心",["周琦"]]]},{"c":"城建系统","items":[["相城区住房和城乡建设局",["马湘琴"]],["相城区城市管理局",["刘蕾"]],["相城区集成指挥中心",["曹丽琴"]],["相城区生态环境局",["刘华瑜"]]]},{"c":"其他","items":[["相城区财政局",["胡冰"]],["相城区审计局",["王天颖"]],["支农直拨",[]],["农业综合",["庄梦婷"]],["农业保险",[]],["国有资产监督管理办公室",["尤企璠"]]]},{"c":"行政管理","items":[["相城区人大办公室",["陈婷"]],["相城区新农村建设研究会",["高雪琴"]],["相城区行政审批局",["王玉婷"]],["相城区人民政府办公室",["朱静华"]],["相城区级机关事务管理中心",["王未吉"]],["市民服务中心和市民活动中心",[]],["后勤账户",[]],["相城区委员会宣传部",["余梦瑶"]],["相城区委员会组织部",["宋桂翔"]],["相城区委员会统一战线工作部",["陈欣润"]],["相城区发展和改革委员会",[]],["相城区政协办",["王蓓静"]],["相城区团委",["王琪"]],["相城区妇女联合会",["吴榜蓓"]],["相城区总工会",[]],["相城区委办公室",["吴嘉颖"]],["相城区纪委",["姚罗宇"]],["相城区关心下一代工作委员会",["徐龙海"]],["相城区委党校",["王祎晨"]],["相城区信访局",["孟繁昌"]],["相城区金融局",["佟易航"]]]},{"c":"公检法司系统","items":[["相城区检察院",["邹祎婷"]],["相城区法院",["王晓盼"]],["相城区司法局",["杨元斌"]],["相城区公安消防大队",["宋晓蕾、张学松"]],["相城区综合治理委员会",["沈媛婷"]],["气象局",["王裕萍"]],["退役军人事务局",["朱文婷"]],["相城区人民武装部",["韦文娟"]],["相城区信息中心",["周纯敏"]]]}];
 function unitStaff(u){for(const g of UNITS)for(const it of g.items)if(it[0]===u)return it[1].slice();return [];}
 function curUnit(){const s=document.getElementById('payUnit');if(!s)return '';return s.value==='__custom'?((document.getElementById('payUnitInput')||{}).value||'').trim():(s.value||'');}
+/* ================= 数据权限：单位隔离 + 指定财政局全区账号 ================= */
+const FINANCE_UNIT='相城区财政局';
+// 前端演示账号：正式上线时必须移到后端用户/角色权限表，不能在 HTML 中保存密码。
+const DISTRICT_VIEW_ACCOUNTS={
+  'xc_fin_qx01':{password:'XcFin#2601',name:'全区分析账号01',role:'district'},
+  'xc_fin_qx02':{password:'XcFin#2602',name:'全区分析账号02',role:'district'},
+  'xc_fin_qx03':{password:'XcFin#2603',name:'全区监督账号03',role:'district'}
+};
+function accessIdentity(){
+  let idn=null;
+  try{idn=JSON.parse(sessionStorage.getItem('shell_identity_v2')||'null');}catch(_){}
+  if(!idn)try{idn=JSON.parse(localStorage.getItem('demo_login_v1')||'null');}catch(_){}
+  return idn||null;
+}
+function accessOwnUnit(){const idn=accessIdentity();return idn&&idn.unit?idn.unit:'';}
+function isDistrictAccess(){const idn=accessIdentity();return !!(idn&&idn.role==='district'&&idn.unit===FINANCE_UNIT);}
+function accessRows(rs){
+  rs=Array.isArray(rs)?rs:[];
+  if(isDistrictAccess())return rs.slice();
+  const u=accessOwnUnit();
+  return u?rs.filter(r=>r.unit===u):[];
+}
+function applyAccessScope(){
+  const district=isDistrictAccess(),own=accessOwnUnit();
+  // 录单权限始终限定本单位；即使是全区查看账号，也不能替其他单位录入。
+  const payUnit=document.getElementById('payUnit');
+  if(payUnit&&own){
+    if(payUnit.dataset.scopeMode!=='unit'||payUnit.value!==own){
+      payUnit.innerHTML='<option value="'+esc(own)+'">'+esc(own)+'</option>';
+      payUnit.value=own;payUnit.dataset.prev=own;
+    }
+    payUnit.dataset.scopeMode='unit';
+    payUnit.disabled=true;
+    payUnit.title=district?'全区账号仅可查看全区数据；支付申请仍限定财政局本单位':'仅可使用本单位';
+    const pi=document.getElementById('payUnitInput');if(pi)pi.style.display='none';
+  }
+  // 台账/统计/AI：只有指定 district 角色账号才可查看全部单位。
+  const fu=document.getElementById('fUnit');
+  if(fu){
+    if(district){
+      if(fu.dataset.scopeMode!=='district'){
+        fu.innerHTML='<option value="__all">全部单位</option>'+UNITS.map(g=>`<optgroup label="${esc(g.c)}">`+g.items.map(it=>`<option>${esc(it[0])}</option>`).join('')+'</optgroup>').join('');
+        fu.value='__all';
+      }
+      fu.dataset.scopeMode='district';fu.disabled=false;fu.title='全区账号：可查看全部单位或筛选单个单位';
+    }else if(own){
+      if(fu.dataset.scopeMode!=='unit'||fu.value!==own){
+        fu.innerHTML='<option value="'+esc(own)+'">'+esc(own)+'</option>';fu.value=own;
+      }
+      fu.dataset.scopeMode='unit';fu.disabled=true;fu.title='仅显示本单位台账';
+    }
+  }
+  const gb=document.querySelector('#groupSeg button[data-g="unit"]');
+  if(gb){gb.style.display=district?'':'none';if(!district&&gb.classList.contains('on')){gb.classList.remove('on');const n=document.querySelector('#groupSeg button[data-g="none"]');if(n)n.classList.add('on');groupBy='none';}}
+  const ao=document.querySelector('#anaDim option[value="unit"]');
+  if(ao){ao.disabled=!district;ao.hidden=!district;if(!district&&document.getElementById('anaDim')&&document.getElementById('anaDim').value==='unit')document.getElementById('anaDim').value='cat';}
+  const note=document.getElementById('accessScopeNote');
+  if(note)note.innerHTML=district
+    ?'<b>全区数据权限：</b>该财政局账号可查看全区所有预算单位台账、统计、导出与 AI 分析；支付申请录入仍限定为财政局本单位。'
+    :'<b>本单位权限：</b>当前仅可查看 <strong>'+esc(own||'本单位')+'</strong> 的台账、统计、导出与 AI 分析数据。';
+  const anaTitle=document.getElementById('secAna');
+  if(anaTitle)anaTitle.textContent=district?'📈 全区 AI 智能分析与预测 · 基于当前筛选结果':'📈 本单位 AI 智能分析与预测 · 仅基于本单位台账';
+}
 /* ================= 支出类别（a 预算/资金性质层；不同类别显示不同字段） ================= */
 const EXP_TYPES=[
   {v:'基本支出报销',modules:true,fields:[]},
@@ -1128,6 +1246,9 @@ function onTypeChange(){const s=document.getElementById('payType');try{localStor
 // 填充预算单位下拉（按系统分组）
 function fillUnitSelect(){
   const sel=document.getElementById('payUnit');if(!sel)return;
+  const own=accessOwnUnit();
+  if(own){sel.innerHTML=`<option selected>${esc(own)}</option>`;sel.value=own;sel.disabled=true;sel.dataset.prev=own;sel.dataset.scopeMode='unit';return;}
+  sel.disabled=false;
   const saved=localStorage.getItem('pay_cur_unit')||'';
   let h='<option value="">— 请选择预算单位 —</option>';
   h+=UNITS.map(g=>`<optgroup label="${g.c}">`+g.items.map(it=>`<option${it[0]===saved?' selected':''}>${it[0]}</option>`).join('')+'</optgroup>').join('');
@@ -1157,11 +1278,13 @@ function resetFormForNewUnit(){
 }
 function syncLedgerUnitFilter(){
   const fu=$('fUnit');if(!fu||!fu.options.length)return;
-  const u=curUnit();
-  fu.value=(u&&[...fu.options].some(o=>o.value===u))?u:'__all';       // 台账筛选跟随当前单位；自定义单位则回到全部
+  if(isDistrictAccess()){if(![...fu.options].some(o=>o.value===fu.value))fu.value='__all';return;}
+  const u=accessOwnUnit();
+  if(u){fu.value=u;fu.disabled=true;}
 }
 function onUnitChange(){
   const sel=document.getElementById('payUnit'),inp=document.getElementById('payUnitInput');
+  if(!isDistrictAccess()){const own=accessOwnUnit();if(own&&sel.value!==own){sel.value=own;sel.dataset.prev=own;if(inp)inp.style.display='none';return;}}
   const custom=sel.value==='__custom';
   const prev=sel.dataset.prev||'';
   if(sel.value!==prev&&formHasData()){
@@ -1332,20 +1455,24 @@ function undoPay(){if(!payUndo.length)return;const snap=payUndo.pop();$('payRows
   if(snap.length)snap.forEach(d=>payAddRow(d));else payAddRow();
   payCalc();refreshPaySummary&&refreshPaySummary();updatePayUndoBtn();}
 
-async function callClaude(messages,system,maxTok){
-  // 系统提示并入消息（artifact 接口对顶层 system 支持不稳定）
-  const msgs=system?[{role:"user",content:"请遵循以下设定回答：\n"+system},{role:"assistant",content:"好的，我明白了。"},...messages]:messages;
-  const body={model:"claude-sonnet-4-6",max_tokens:maxTok||1000,messages:msgs};
+async function callModel(messages,system,maxTok,opts){
+  // 统一的 OpenAI 兼容模型入口：OCR、科目识别、答疑、审批摘要与分析报告均走这里。
+  if(typeof CFG==='undefined'||!CFG.url||!CFG.key)throw new Error('请先在「领导签批」页配置模型接口与 API Key');
+  opts=opts||{};
+  const msgs=system?[{role:"system",content:system},...messages]:messages;
+  const body={model:CFG.model||"gpt-4o",max_tokens:maxTok||1000,messages:msgs};
+  if(opts.temperature!=null)body.temperature=opts.temperature;
   let r;
-  try{r=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});}
+  try{r=await fetch(CFG.url,{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+CFG.key},body:JSON.stringify(body)});}
   catch(err){throw new Error("网络请求失败："+err.message);}
   const raw=await r.text();
-  if(!r.ok)throw new Error("接口 "+r.status+"："+raw.slice(0,160));
-  let d;try{d=JSON.parse(raw);}catch(_){throw new Error("返回解析失败："+raw.slice(0,120));}
+  if(!r.ok)throw new Error("接口 "+r.status+"："+raw.slice(0,180));
+  let d;try{d=JSON.parse(raw);}catch(_){throw new Error("返回解析失败："+raw.slice(0,140));}
   if(d.error)throw new Error(d.error.message||JSON.stringify(d.error));
-  const t=(d.content||[]).filter(b=>b.type==="text").map(b=>b.text).join("\n");
-  if(!t)throw new Error("模型未返回文本");
-  return t;
+  let c=(d.choices&&d.choices[0]&&d.choices[0].message&&d.choices[0].message.content);
+  if(Array.isArray(c))c=c.map(x=>typeof x==='string'?x:(x&&x.text)||'').join('\n');
+  if(c==null||c==='')throw new Error('模型未返回文本');
+  return String(c);
 }
 // 读取并压缩图片：最长边≤1400，JPEG 质量 0.82，降低请求体积
 function fileToImage(file){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>{const img=new Image();img.onload=()=>{
@@ -1354,15 +1481,7 @@ function fileToImage(file){return new Promise((res,rej)=>{const r=new FileReader
   res(c.toDataURL('image/jpeg',0.82).split(',')[1]);};img.onerror=rej;img.src=r.result;};r.onerror=rej;r.readAsDataURL(file);});}
 const OCR_PROMPT="你是财务票据识别助手。识别这张中国发票或行程单，只返回一个JSON对象，不要任何解释或markdown代码块。字段：{\"type\":\"住宿\"或\"交通\"或\"其他\",\"title\":\"开票单位或票据名称\",\"total\":价税合计金额数字,\"tax\":税额数字或null,\"date\":\"YYYY-MM-DD\"或null,\"invoiceNo\":\"发票号码\"或null,\"nights\":住宿间夜数数字或null,\"from\":\"出发地\"或null,\"to\":\"到达地\"或null,\"seat\":\"座位或舱位等级\"或null}。金额只要数字。";
 async function ocrExtract(b64){
-  if(typeof CFG!=='undefined'&&CFG.url&&CFG.key){
-    // 走自配 OpenAI 兼容视觉模型
-    const body={model:CFG.model||"gpt-4o",max_tokens:600,messages:[{role:"user",content:[{type:"text",text:OCR_PROMPT},{type:"image_url",image_url:{url:"data:image/jpeg;base64,"+b64}}]}]};
-    const r=await fetch(CFG.url,{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+CFG.key},body:JSON.stringify(body)});
-    const t=await r.text();if(!r.ok)throw new Error(r.status+" "+t.slice(0,120));
-    const j=JSON.parse(t);const c=(j.choices&&j.choices[0]&&j.choices[0].message&&j.choices[0].message.content)||"";
-    return JSON.parse(c.replace(/```json|```/g,"").trim());
-  }
-  const txt=await callClaude([{role:"user",content:[{type:"image",source:{type:"base64",media_type:"image/jpeg",data:b64}},{type:"text",text:OCR_PROMPT}]}],null,600);
+  const txt=await callModel([{role:"user",content:[{type:"text",text:OCR_PROMPT},{type:"image_url",image_url:{url:"data:image/jpeg;base64,"+b64}}]}],null,600);
   return JSON.parse(txt.replace(/```json|```/g,"").trim());
 }
 function fillFromOCR(mod,j,forceKind){
@@ -1414,6 +1533,7 @@ const chatHist={cl:[],px:[],hy:[],gh:[]};
 
 function moutPush(k,cls,html){const o=$('mout-'+k);const d=document.createElement('div');d.className='chat-msg '+cls;d.innerHTML='<div class="bubble">'+html+'</div>';o.appendChild(d);o.scrollTop=9e9;return d;}
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function escAttr(s){return esc(s==null?'':s).replace(/"/g,'&quot;').replace(/'/g,'&#39;').replace(/>/g,'&gt;');}
 function liveData(k){return (REPORT.mod===k)?{meta:REPORT.meta,raw:REPORT.raw||{},total:REPORT.total,self:REPORT.self}:{meta:'',raw:{},total:0,self:0};}
 
 /* ---- 内置离线知识库（零配置、必可用） ---- */
@@ -1483,16 +1603,29 @@ function riskRules(k){
   }
   return out;
 }
-/* ---- 可选：接入自有大模型（OpenAI 兼容），用于附件OCR与AI摘要 ---- */
-function loadCfg(){try{return JSON.parse(localStorage.getItem('pay_cfg'))||{url:'',key:'',model:''}}catch(_){return{url:'',key:'',model:''}}}
+/* ---- 统一模型配置：URL/模型名可持久化；API Key 仅保存在当前会话 ---- */
+const CFG_KEY_SESSION='pay_cfg_key_session_v2';
+function loadCfg(){
+  let p={url:'',model:''},key='';
+  try{
+    const legacy=JSON.parse(localStorage.getItem('pay_cfg')||'null')||{};
+    p.url=legacy.url||'';p.model=legacy.model||'';
+    key=sessionStorage.getItem(CFG_KEY_SESSION)||legacy.key||'';
+    // 自动迁移旧版：从 localStorage 移除持久化 API Key。
+    localStorage.setItem('pay_cfg',JSON.stringify({url:p.url,model:p.model}));
+    if(legacy.key)sessionStorage.setItem(CFG_KEY_SESSION,legacy.key);
+  }catch(_){}
+  return {url:p.url,key,model:p.model};
+}
+function saveCfg(){
+  try{localStorage.setItem('pay_cfg',JSON.stringify({url:CFG.url||'',model:CFG.model||''}));}catch(_){}
+  try{if(CFG.key)sessionStorage.setItem(CFG_KEY_SESSION,CFG.key);else sessionStorage.removeItem(CFG_KEY_SESSION);}catch(_){}
+}
 let CFG=loadCfg();
 async function extAsk(k){
   const d=liveData(k);
   const sys=`你是「${CHAT_NAME[k]}」报销答疑助手，面向报销经办人，简洁中文回答，给出标准数字与依据文号，提醒地方细则差异。适用政策：${POLICY_CTX[k]}。当前单据：${d.meta}；数据 ${JSON.stringify(d.raw)}；测算合计 ${d.total}元${d.self>0?`（超标自理${d.self}元）`:''}。`;
-  const body={model:CFG.model||"gpt-3.5-turbo",messages:[{role:"system",content:sys},...chatHist[k].slice(-8)],temperature:0.3};
-  const r=await fetch(CFG.url,{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+CFG.key},body:JSON.stringify(body)});
-  const t=await r.text();if(!r.ok)throw new Error(r.status+" "+t.slice(0,120));
-  const j=JSON.parse(t);return (j.choices&&j.choices[0]&&j.choices[0].message&&j.choices[0].message.content)||"（无内容）";
+  return callModel(chatHist[k].slice(-8),sys,1000,{temperature:0.3});
 }
 
 async function moduleAsk(k,q){
@@ -1522,11 +1655,10 @@ function moduleRisk(k){
   inp.onkeydown=e=>{if(e.key==='Enter'){const v=inp.value.trim();if(v){inp.value='';moduleAsk(k,v);}}};
 });
 document.querySelectorAll('.msend').forEach(b=>{b.onclick=()=>{const k=b.dataset.k,inp=$('min-'+k),v=inp.value.trim();if(v){inp.value='';moduleAsk(k,v);}};});
-/* 可选：接入自有大模型配置区 */
+/* 模型接口只保留一个配置入口，避免重复 DOM id。 */
 (function(){const f=document.querySelector('footer.notes');if(!f)return;const d=document.createElement('details');d.className='cfg';
- d.innerHTML='<summary>⚙ 接入自有大模型（可选，OpenAI 兼容——用于开放式对话）</summary><div class="cfgbody"><input id="cfgUrl" placeholder="接口地址，如 https://api.deepseek.com/v1/chat/completions"><input id="cfgKey" placeholder="API Key"><input id="cfgModel" placeholder="模型名，如 deepseek-chat / qwen-plus / 本单位模型"><div class="cfgnote">不填则各答疑窗口使用内置离线知识库（零配置、必可用）。填写后答疑将改走该接口，问题与当前单据数据会发送至你配置的服务。</div></div>';
+ d.innerHTML='<summary>⚙ AI 模型接口说明</summary><div class="cfgbody"><div class="cfgnote">统一接口配置位于「领导签批」页面底部。未配置时，各费用答疑仍可使用内置离线知识库；OCR、科目 AI 识别、审批摘要和分析报告需要配置接口。正式部署建议通过单位后端代理调用模型。</div></div>';
  f.appendChild(d);
- ['Url','Key','Model'].forEach(x=>{$('cfg'+x).oninput=()=>{CFG[x.toLowerCase()]=$('cfg'+x).value.trim();};});
 })();
 
 /* ================= 工具：快照 / 编码 ================= */
@@ -1579,8 +1711,8 @@ function renderSig(){
   if($('cfgUrl')&&!$('cfgUrl').dataset.b){
     $('cfgUrl').value=CFG.url||'';$('cfgKey').value=CFG.key||'';$('cfgModel').value=CFG.model||'';
     $('cfgSave').onclick=()=>{CFG={url:$('cfgUrl').value.trim(),key:$('cfgKey').value.trim(),model:$('cfgModel').value.trim()};
-      try{localStorage.setItem('pay_cfg',JSON.stringify(CFG));}catch(_){}
-      $('cfgStat').textContent=(CFG.url&&CFG.key)?'✓ 已保存，OCR 与 AI 摘要已启用':'已清空';};
+      saveCfg();
+      $('cfgStat').textContent=(CFG.url&&CFG.key)?'✓ 已保存：URL/模型名持久化，API Key 仅本次会话有效':'已清空';};
     $('aiSummaryBtn').onclick=aiSummary;
     $('cfgUrl').dataset.b='1';
   }
@@ -1597,10 +1729,7 @@ async function aiSummary(){
   box.innerHTML='<span class="dim">AI 生成中…</span>';
   const sys='你是政府财务审批助手，为单位负责人审批「支付申请单」生成结构化审阅要点，简明中文。只返回一个JSON对象，不要解释或markdown：{"事由":"一句话说明这笔支出的用途","收款方":"主要收款人","金额":"合计及主要构成","科目":"涉及的功能/经济科目","依据":"报销依据或政策（如差旅费财行531号等；若附件含合同/发文请注明）","风险提示":["逐条列出可能的合规风险或需核对事项，如无写\\"未见明显异常\\""]}';
   try{
-    const body={model:CFG.model||"gpt-4o",max_tokens:700,messages:[{role:"system",content:sys},{role:"user",content:'支付申请单数据：'+JSON.stringify(doc)}]};
-    const r=await fetch(CFG.url,{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+CFG.key},body:JSON.stringify(body)});
-    const t=await r.text();if(!r.ok)throw new Error(r.status+' '+t.slice(0,100));
-    const j=JSON.parse(t);const c=(j.choices&&j.choices[0]&&j.choices[0].message&&j.choices[0].message.content)||'';
+    const c=await callModel([{role:'user',content:'支付申请单数据：'+JSON.stringify(doc)}],sys,700);
     renderSummary(JSON.parse(c.replace(/```json|```/g,'').trim()));
   }catch(e){box.innerHTML='<span class="err">生成失败：'+esc(e.message)+'</span>';}
 }
@@ -1620,15 +1749,30 @@ let APPR={agent:null,audit:null,head:null}; // 每级：{name,sig(图片),time,h
 let apprKeys={}; // 每级独立密钥（演示；正式应对接各签署人 CA 证书）
 async function getApprKey(role){if(!apprKeys[role])apprKeys[role]=await crypto.subtle.generateKey({name:"ECDSA",namedCurve:"P-256"},true,["sign","verify"]);return apprKeys[role];}
 const apprPads={}; // role -> {canvas,ctx,hasInk}
-// 当前支付单据规范化文本（用于数字指纹，任一字段变动即改变指纹）
-function payCanonical(){
-  const rows=[...document.querySelectorAll('#payRows .pay-row')].map(r=>({
-    内容:r.querySelector('.pd').value,科目:rowCode(r),金额:parseFloat(r.querySelector('.pm').value)||0,
-    收款人:r.querySelector('.pn').value,凭证:r.querySelector('.pv').value}));
-  let total=0;rows.forEach(x=>total+=x.金额);
-  return JSON.stringify({单号:$('payNo').value,日期:$('payDate').value,单位:curUnit(),类别:$('payCat').value,明细:rows,合计:total});
+// 当前支付单据规范化文本：签名覆盖全部关键支付字段，并对附件内容做 SHA-256 指纹。
+async function attachmentFingerprint(a){
+  const raw=String((a&&a.d)||'');
+  const digest=hex(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(raw)));
+  return {名称:(a&&a.n)||'',类型:(a&&a.t)||'',SHA256:digest,OCR:(a&&a.ocr)||''};
 }
-async function payDocHash(){return hex(await crypto.subtle.digest("SHA-256",new TextEncoder().encode(payCanonical())));}
+async function payCanonical(){
+  const domRows=[...document.querySelectorAll('#payRows .pay-row')];
+  const rows=[];
+  for(const r of domRows){
+    const atts=[];for(const a of (r._atts||[]))atts.push(await attachmentFingerprint(a));
+    rows.push({
+      支付凭证号:r.querySelector('.pv').value,资金性质:r.querySelector('.pf').value,科目:rowCode(r),
+      预算项目:r.querySelector('.pp').value,支出内容:r.querySelector('.pd').value,收款人:r.querySelector('.pn').value,
+      开户行:r.querySelector('.pb').value,账号:r.querySelector('.pa').value,金额:parseFloat(r.querySelector('.pm').value)||0,附件:atts
+    });
+  }
+  let total=0;rows.forEach(x=>total+=x.金额);
+  return JSON.stringify({
+    单号:$('payNo').value,日期:$('payDate').value,预算单位:curUnit(),支出类型:($('payType')||{}).value||'',
+    费用类别:($('payCat')||{}).value||'',项目:curProj(),补充字段:typeExtras(),明细:rows,合计:total
+  });
+}
+async function payDocHash(){const canonical=await payCanonical();return hex(await crypto.subtle.digest("SHA-256",new TextEncoder().encode(canonical)));}
 // 初始化三个签名板
 function initApprPads(){
   document.querySelectorAll('#apprWrap .appr-step').forEach(step=>{
@@ -1802,7 +1946,7 @@ function subjectOptionsHTML(cur){
 function rowCode(r){const sel=r.querySelector('.pc-sel');if(!sel)return((r.querySelector('.pc')||{}).value)||'';
   return sel.value==='__custom__'?((r.querySelector('.pc-custom').value||'').trim()):(sel.value||'');}
 // 离线关键词预填（免调用，支出内容含关键词时自动填经济科目）
-const SUBJECT_KW=[['差旅','30211'],['会议','30215'],['培训','30216'],['工会','30228'],['接待','30217'],['办公','30201'],['维修','30213'],['劳务','30226'],['印刷','30216']];
+const SUBJECT_KW=[['差旅','30211'],['会议','30215'],['培训','30216'],['工会','30228'],['接待','30217'],['办公','30201'],['维修','30213'],['劳务','30226'],['印刷','30202']];
 function subjectLocalGuess(row){
   if(rowCode(row))return; // 已有值不覆盖
   const pd=row.querySelector('.pd').value||'';const hit=SUBJECT_KW.find(([k])=>pd.indexOf(k)>=0);
@@ -1820,7 +1964,7 @@ async function aiSubject(row){
     +'参考：差旅费=经济30211，会议费=30215，培训费=30216，工会经费=30228，办公费=30201，公务接待费=30217，维修(护)费=30213；功能分类如行政运行2010301、一般行政管理事务2010302。报销类明细通常应填经济分类科目。'
     +'\n支出内容：'+(content||'（未填）')+'\n报销类别：'+(cat||'（未选）')+'\n当前已填代码：'+(cur||'（空）');
   try{
-    const txt=await callClaude([{role:'user',content:prompt}],null,400);
+    const txt=await callModel([{role:'user',content:prompt}],null,400);
     const j=JSON.parse(txt.replace(/```json|```/g,'').trim());
     const code=(j.code||'').toString().trim();
     const sel=row.querySelector('.pc-sel'),cust=row.querySelector('.pc-custom');
@@ -1876,18 +2020,18 @@ function genAppNo(date){
 function payRowHTML(d){d=d||{};return `<div class="pay-row"><button class="pay-del">删除</button>`
  +`<div class="mod-tools row-tools"><button type="button" class="rt-undo">↶ 撤销本行</button><button type="button" class="rt-clear">清空本行</button></div>`
  +`<div class="prg">`
- +`<div><label>支付凭证号</label><input class="pv" value="${d.pv||''}" placeholder="如 2025直000035169号"></div>`
- +`<div><label>资金性质</label><select class="pf">${FUND_OPTS.map(o=>`<option${d.pf===o?' selected':''}>${o}</option>`).join('')}</select></div>`
+ +`<div><label>支付凭证号</label><input class="pv" value="${escAttr(d.pv||'')}" placeholder="如 2025直000035169号"></div>`
+ +`<div><label>资金性质</label><select class="pf">${FUND_OPTS.map(o=>`<option${d.pf===o?' selected':''}>${esc(o)}</option>`).join('')}</select></div>`
  +`<div class="pc-cell"><label>功能/经济科目代码 <button type="button" class="pc-ai" title="根据支出内容用 AI 判断并纠正科目代码">✨ AI识别纠错</button></label>`
  +`<select class="pc-sel">${subjectOptionsHTML(d.pc||'')}</select>`
- +`<input class="pc-custom" value="${SUBJECT_ISCUSTOM(d.pc)?d.pc:''}" placeholder="输入代码，如 2010301 / 30211" style="margin-top:6px;${SUBJECT_ISCUSTOM(d.pc)?'':'display:none'}">`
+ +`<input class="pc-custom" value="${escAttr(SUBJECT_ISCUSTOM(d.pc)?d.pc:'')}" placeholder="输入代码，如 2010301 / 30211" style="margin-top:6px;${SUBJECT_ISCUSTOM(d.pc)?'':'display:none'}">`
  +`<div class="pc-note"></div></div>`
- +`<div><label>预算项目</label><input class="pp" value="${d.pp||''}" placeholder="如 行政运行"></div>`
- +`<div><label>支出内容</label><input class="pd" value="${d.pd||''}" placeholder="如 差旅费报销"></div>`
- +`<div><label>收款人全称</label><input class="pn" value="${d.pn||''}"></div>`
- +`<div><label>开户行</label><input class="pb" value="${d.pb||''}"></div>`
- +`<div><label>账号</label><input class="pa" value="${d.pa||''}"></div>`
- +`<div><label>申请金额(元)</label><input class="pm" type="number" min="0" value="${d.pm||''}"></div>`
+ +`<div><label>预算项目</label><input class="pp" value="${escAttr(d.pp||'')}" placeholder="如 行政运行"></div>`
+ +`<div><label>支出内容</label><input class="pd" value="${escAttr(d.pd||'')}" placeholder="如 差旅费报销"></div>`
+ +`<div><label>收款人全称</label><input class="pn" value="${escAttr(d.pn||'')}"></div>`
+ +`<div><label>开户行</label><input class="pb" value="${escAttr(d.pb||'')}"></div>`
+ +`<div><label>账号</label><input class="pa" value="${escAttr(d.pa||'')}"></div>`
+ +`<div><label>申请金额(元)</label><input class="pm" type="number" min="0" value="${escAttr(d.pm||'')}"></div>`
  +`</div>`
  +`<div class="atts"><div class="atts-hd">📎 附件（发文 / 合同 / 发票等）<span class="atts-btns"><button type="button" class="att-up">＋ 上传附件</button><button type="button" class="att-ocr">🔍 OCR识别</button><input type="file" class="att-input" accept="image/*,application/pdf" multiple style="display:none"></span></div><div class="att-list"></div></div>`
  +`</div>`;}
@@ -1958,10 +2102,7 @@ function renderAtts(row){
 // —— 附件 OCR（需配置模型接口；PDF 暂不支持本地识别） ——
 const DOC_OCR_PROMPT='你是财务附件识别助手。识别这张图片属于哪类材料并提取要点，只返回一个JSON对象，不要解释或markdown：{"kind":"发票"或"合同"或"发文"或"其他","title":"名称或抬头","no":"发票号/合同编号/文号或null","date":"YYYY-MM-DD或null","amount":金额数字或null,"party":"对方单位/供应商或null","summary":"一句话内容摘要"}';
 async function docOcr(b64){
-  const body={model:CFG.model||"gpt-4o",max_tokens:500,messages:[{role:"user",content:[{type:"text",text:DOC_OCR_PROMPT},{type:"image_url",image_url:{url:"data:image/jpeg;base64,"+b64}}]}]};
-  const r=await fetch(CFG.url,{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+CFG.key},body:JSON.stringify(body)});
-  const t=await r.text();if(!r.ok)throw new Error(r.status+" "+t.slice(0,100));
-  const j=JSON.parse(t);const c=(j.choices&&j.choices[0]&&j.choices[0].message&&j.choices[0].message.content)||'';
+  const c=await callModel([{role:'user',content:[{type:'text',text:DOC_OCR_PROMPT},{type:'image_url',image_url:{url:'data:image/jpeg;base64,'+b64}}]}],null,500);
   return JSON.parse(c.replace(/```json|```/g,'').trim());
 }
 function summarizeOcr(j){return [j.kind,j.title,j.no?('No.'+j.no):'',j.amount!=null?('¥'+j.amount):'',j.party,j.summary].filter(Boolean).join(' · ');}
@@ -2046,7 +2187,7 @@ $('payPull').onclick=()=>{
 };
 $('paySave').onclick=()=>{
   const rows=[...document.querySelectorAll('#payRows .pay-row')];
-  const date=$('payDate').value||new Date().toISOString().slice(0,10),headCat=$('payCat').value,unit=curUnit(),agent=APPR.agent?APPR.agent.name:'',audit=APPR.audit?APPR.audit.name:'';
+  const date=$('payDate').value||new Date().toISOString().slice(0,10),headCat=$('payCat').value,unit=accessOwnUnit()||curUnit(),agent=APPR.agent?APPR.agent.name:'',audit=APPR.audit?APPR.audit.name:'';
   let appNo=($('payNo').value||'').trim();if(!appNo){appNo=genAppNo(date);$('payNo').value=appNo;}
   const batch='b'+Date.now();
   const sealed=apprActiveIndex()===APPR_ROLES.length;
@@ -2054,14 +2195,23 @@ $('paySave').onclick=()=>{
   const head=APPR.head?APPR.head.name:'';
   const expType=($('payType')||{}).value||'基本支出报销',extras=typeExtras(),projName=curProj();
   let saved=0;
+  const ledgerStart=LEDGER.length;
+  // 完整签名证据仅在本申请单第一条有效明细保存一次，避免每行重复占用空间。
+  const approvalEvidence=Object.fromEntries(APPR_ROLES.map(r=>[r,APPR[r]?JSON.parse(JSON.stringify(APPR[r])):null]));
   rows.forEach(r=>{const amount=parseFloat(r.querySelector('.pm').value)||0;if(amount<=0)return;
     const content=r.querySelector('.pd').value,code=rowCode(r);
     LEDGER.push({id:'p'+Date.now()+Math.random().toString(36).slice(2,6),appNo,batch,date,cat:lineCat(content,code,headCat),headCat,expType,proj:projName||r.querySelector('.pp').value||'',extra:extras,unit,agent,audit,head,sealed,apprStatus,
+      approvalEvidence:saved===0?approvalEvidence:null,
       voucher:r.querySelector('.pv').value,fund:r.querySelector('.pf').value,code,
       project:r.querySelector('.pp').value,content,payee:r.querySelector('.pn').value,
       bank:r.querySelector('.pb').value,acct:r.querySelector('.pa').value,amount,atts:(r._atts||[])});saved++;});
   if(!saved){alert('请至少填写一行有金额的明细');return;}
-  try{ledgerSave();}catch(e){alert('保存成功但附件较大，本地存储可能已接近上限。建议减少附件或改用后端归档。');}
+  try{ledgerSave();}
+  catch(e){
+    LEDGER.splice(ledgerStart); // 回滚本次写入，避免内存中残留导致重试重复。
+    alert('保存失败：浏览器本地存储空间不足或不可用。当前表单不会被清空，请减少附件后重试，正式部署建议使用后端数据库/文件存储。');
+    return;
+  }
   $('payRows').innerHTML='';payAddRow();$('payNo').value='';
   APPR={agent:null,audit:null,head:null};renderAppr(); // 新单重置签批
   $('paySave').textContent='✓ 已保存 1 张申请单（'+saved+' 项明细）到台账';setTimeout(()=>$('paySave').textContent='＋ 保存到台账',2000);
@@ -2080,16 +2230,19 @@ function onTimeSel(){statType=$('fTime').value;
 function initLedgerFilters(){
   if(!ledgerFiltersReady){
     ledgerFiltersReady=true;
-    const fu=$('fUnit');fu.innerHTML='<option value="__all">全部单位</option>'+UNITS.map(g=>`<optgroup label="${g.c}">`+g.items.map(it=>`<option>${it[0]}</option>`).join('')+'</optgroup>').join('');
-    fu.value=curUnit()||'__all';
+    const fu=$('fUnit'),district=isDistrictAccess(),own=accessOwnUnit();
+    if(district){fu.innerHTML='<option value="__all">全部单位</option>'+UNITS.map(g=>`<optgroup label="${g.c}">`+g.items.map(it=>`<option>${it[0]}</option>`).join('')+'</optgroup>').join('');fu.value='__all';fu.disabled=false;fu.dataset.scopeMode='district';}
+    else{fu.innerHTML=`<option value="${esc(own)}">${esc(own)}</option>`;fu.value=own;fu.disabled=true;fu.dataset.scopeMode='unit';}
     $('fType').innerHTML='<option value="__all">全部支出类别</option>'+EXP_TYPES.map(t=>`<option>${t.v}</option>`).join('');
     ['fUnit','fType','fProj','fCat'].forEach(id=>$(id).onchange=renderLedger);
     $('fKw').oninput=renderLedger;$('fTime').onchange=onTimeSel;
     seg('groupSeg',()=>{groupBy=document.querySelector('#groupSeg button.on').dataset.g;renderLedger();});
   }
-  // 项目、费用类别下拉：从已有台账数据动态收集（保留当前选择）
-  const projs=[...new Set(LEDGER.map(r=>r.proj||r.project).filter(Boolean))].sort();
-  const cats=[...new Set(LEDGER.map(r=>r.cat).filter(Boolean))].sort();
+  applyAccessScope();
+  // 项目、费用类别下拉：仅从当前身份有权访问的台账数据动态收集
+  const base=accessRows(LEDGER);
+  const projs=[...new Set(base.map(r=>r.proj||r.project).filter(Boolean))].sort();
+  const cats=[...new Set(base.map(r=>r.cat).filter(Boolean))].sort();
   const fp=$('fProj'),fc=$('fCat'),pv=fp.value,cv=fc.value;
   fp.innerHTML='<option value="__all">全部项目</option>'+projs.map(p=>`<option${p===pv?' selected':''}>${esc(p)}</option>`).join('');
   fc.innerHTML='<option value="__all">全部费用类别</option>'+cats.map(c=>`<option${c===cv?' selected':''}>${esc(c)}</option>`).join('');
@@ -2097,7 +2250,8 @@ function initLedgerFilters(){
 function ledgerFiltered(){
   const u=$('fUnit')?$('fUnit').value:'__all',ty=$('fType')?$('fType').value:'__all',
     pj=$('fProj')?$('fProj').value:'__all',fc=$('fCat')?$('fCat').value:'__all',kw=($('fKw')?$('fKw').value:'').trim();
-  return LEDGER.filter(r=>{
+  const base=accessRows(LEDGER); // 权限先于任何页面筛选，普通单位永远无法越权取数
+  return base.filter(r=>{
     if(u&&u!=='__all'&&r.unit!==u)return false;
     if(ty&&ty!=='__all'&&(r.expType||'基本支出报销')!==ty)return false;
     if(pj&&pj!=='__all'&&(r.proj||r.project||'')!==pj)return false;
@@ -2218,7 +2372,7 @@ mainNav('calc');
     const p=(cur-prev)/Math.abs(prev)*100, s=(p>=0?'+':'')+p.toFixed(1)+'%';
     return {t:(p>0.5?'▲':p<-0.5?'▼':'')+s,c:p>0.5?'up':p<-0.5?'down':'flat'};
   }
-  const rows=()=>{ try{return ledgerFiltered();}catch(_){return LEDGER.slice();} };
+  const rows=()=>{ try{return ledgerFiltered();}catch(_){return accessRows(LEDGER);} };
   const gran=()=>g('anaGran')?g('anaGran').value:'month';
   const dim=()=>g('anaDim')?g('anaDim').value:'cat';
 
@@ -2375,7 +2529,7 @@ mainNav('calc');
   function attAmount(a){ if(a.ocrData&&a.ocrData.amount!=null)return num(a.ocrData.amount);
     const m=(a.ocr||'').match(/¥\s*([\d,\.]+)/);return m?num(m[1].replace(/,/g,'')):0; }
   function collectAtts(scope,kind,kw){
-    const src=scope==='all'?LEDGER:rows();const out=[];let imgTot=0,imgOcr=0;
+    const src=scope==='all'?accessRows(LEDGER):rows();const out=[];let imgTot=0,imgOcr=0;
     src.forEach(r=>{(r.atts||[]).forEach(a=>{
       const isImg=(a.t||'').startsWith('image/');if(isImg)imgTot++;
       if(a.ocr){if(isImg)imgOcr++;
@@ -2408,7 +2562,7 @@ mainNav('calc');
   async function scanOcr(){
     const st=g('anaOcrStatus');
     if(!(CFG.url&&CFG.key)){st.className='ana-status err';st.textContent='需先在「领导签批」页底部配置模型接口（含支持图片的模型）才能识别。';return;}
-    const scope=g('anaOcrScope').value,src=scope==='all'?LEDGER:rows();
+    const scope=g('anaOcrScope').value,src=scope==='all'?accessRows(LEDGER):rows();
     const todo=[];src.forEach(r=>(r.atts||[]).forEach(a=>{if((a.t||'').startsWith('image/')&&!a.ocr&&a.d)todo.push(a);}));
     if(!todo.length){st.className='ana-status';st.textContent='没有待识别的图片附件（PDF 暂不支持本地识别）。';return;}
     const btn=g('anaOcrScan');btn.disabled=true;st.className='ana-status';
@@ -2479,10 +2633,7 @@ mainNav('calc');
       +'要求：直接引用数据中的具体金额、笔数、百分比、同比/环比与预测；结论审慎，涉及疑点用"需核实/建议关注"等表述，不要下定性结论；'
       +'用 Markdown 输出（## 或 ### 作小标题，- 作要点，**加粗**关键结论），不要输出代码块或额外说明。';
     try{
-      const body={model:CFG.model||'gpt-4o',max_tokens:1800,messages:[{role:'system',content:sys},{role:'user',content:'台账统计与附件数据（JSON）：\n'+JSON.stringify(payload)}]};
-      const r=await fetch(CFG.url,{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+CFG.key},body:JSON.stringify(body)});
-      const tx=await r.text();if(!r.ok)throw new Error(r.status+' '+tx.slice(0,120));
-      const j=JSON.parse(tx);const c=(j.choices&&j.choices[0]&&j.choices[0].message&&j.choices[0].message.content)||'';
+      const c=await callModel([{role:'user',content:'台账统计与附件数据（JSON）：\n'+JSON.stringify(payload)}],sys,1800);
       const md=c.replace(/```[a-z]*|```/g,'').trim();
       box._md=md;box.innerHTML=mdToHtml(md);box.style.display='block';st.textContent='已生成（AI 辅助草稿，请人工复核）。';
       ['anaCopyReport','anaDlReport','anaPrintReport'].forEach(id=>g(id).disabled=false);
@@ -2540,7 +2691,7 @@ mainNav('calc');
 <script>
 /* ============ 登录壳（前端演示） + 江苏一体化接入端口（预留） ============ */
 (function(){
-  const LKEY='demo_login_v1', SKEY='shell_session_v1', SSOKEY='sso_cfg_v1';
+  const LKEY='demo_login_v1', SKEY='shell_session_v1', SIDKEY='shell_identity_v2', SSOKEY='sso_cfg_v1';
   const el=id=>document.getElementById(id);
   const escH=s=>String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 
@@ -2573,7 +2724,8 @@ mainNav('calc');
   function showChip(idn){
     const c=el('idChip');if(!c)return;
     const who=idn.name?(idn.unit?escH(idn.unit)+' · ':'')+'<b>'+escH(idn.name)+'</b>':escH(idn.unit||'已登录');
-    c.innerHTML='<span class="who">'+who+'</span><button type="button" class="logout" id="lgLogout">退出</button>';
+    const badge=idn.role==='district'?' <span style="margin-left:6px;padding:2px 7px;border-radius:10px;background:rgba(255,255,255,.22);font-size:10.5px">全区权限</span>':'';
+    c.innerHTML='<span class="who">'+who+badge+'</span><button type="button" class="logout" id="lgLogout">退出</button>';
     c.style.display='flex';
     el('lgLogout').onclick=logout;
   }
@@ -2590,11 +2742,16 @@ mainNav('calc');
   /* ---- 进入系统 ---- */
   function enter(idn){
     try{if(el('lgRemember').checked)localStorage.setItem(LKEY,JSON.stringify(idn));else localStorage.removeItem(LKEY);}catch(_){}
-    try{sessionStorage.setItem(SKEY,'1');}catch(_){}
+    try{sessionStorage.setItem(SKEY,'1');sessionStorage.setItem(SIDKEY,JSON.stringify(idn));}catch(_){}
     el('loginShell').style.display='none';
     document.body.style.overflow='';
     showChip(idn);
+    if(typeof applyAccessScope==='function')applyAccessScope();
     applyUnit(idn.unit);
+    // 新身份登录后重置台账单位口径：指定全区账号=全部单位；其他账号=本单位
+    const fu=document.getElementById('fUnit');
+    if(fu){if(idn.role==='district'&&[...fu.options].some(o=>o.value==='__all'))fu.value='__all';else fu.value=idn.unit;}
+    if(typeof renderLedger==='function')renderLedger();
   }
   function doEnter(){
     const err=el('lgErr');err.textContent='';
@@ -2605,17 +2762,26 @@ mainNav('calc');
       let name=el('lgName').value;
       if(name==='__custom'||el('lgNameCustom').style.display!=='none')name=(el('lgNameCustom').value||'').trim();
       if(!name){err.textContent='请选择或填写姓名';return;}
-      enter({mode:'quick',unit:u,name:name,user:'',t:Date.now()});
+      // 免密进入一律只有本单位权限，包括财政局。
+      enter({mode:'quick',unit:u,name:name,user:'',role:'unit',t:Date.now()});
     }else{
-      const user=(el('lgUser').value||'').trim(), u=el('lgUnit2').value;
+      const user=(el('lgUser').value||'').trim(),pwd=(el('lgPwd').value||''),u=el('lgUnit2').value;
       if(!user){err.textContent='请输入用户名';return;}
+      const priv=typeof DISTRICT_VIEW_ACCOUNTS!=='undefined'?DISTRICT_VIEW_ACCOUNTS[user]:null;
+      if(priv){
+        if(pwd!==priv.password){err.textContent='全区数据账号密码不正确';return;}
+        enter({mode:'account',unit:FINANCE_UNIT,name:priv.name,user:user,role:'district',t:Date.now()});
+        return;
+      }
       if(!u||u==='__custom'){err.textContent='请选择预算单位';return;}
-      // 演示：密码不校验
-      enter({mode:'account',unit:u,name:user,user:user,t:Date.now()});
+      // 普通演示账号按所选单位隔离；正式版应由后端验证账号密码并返回单位与角色。
+      enter({mode:'account',unit:u,name:user,user:user,role:'unit',t:Date.now()});
     }
   }
   function logout(){
-    try{sessionStorage.removeItem(SKEY);}catch(_){}
+    try{sessionStorage.removeItem(SKEY);sessionStorage.removeItem(SIDKEY);}catch(_){}
+    const pu=document.getElementById('payUnit'),fu=document.getElementById('fUnit');
+    if(pu)delete pu.dataset.scopeMode;if(fu)delete fu.dataset.scopeMode;
     el('idChip').style.display='none';
     el('loginShell').style.display='flex';
     document.body.style.overflow='hidden';
@@ -2682,13 +2848,74 @@ mainNav('calc');
     let logged=false;try{logged=sessionStorage.getItem(SKEY)==='1';}catch(_){}
     if(logged){
       el('loginShell').style.display='none';document.body.style.overflow='';
-      let idn=null;try{idn=JSON.parse(localStorage.getItem(LKEY)||'null');}catch(_){}
-      showChip(idn||{unit:'',name:'已登录'});
+      let idn=null;
+      try{idn=JSON.parse(sessionStorage.getItem(SIDKEY)||'null')||JSON.parse(localStorage.getItem(LKEY)||'null');}catch(_){}
+      if(idn&&!idn.role)idn.role='unit';
+      showChip(idn||{unit:'',name:'已登录',role:'unit'});
+      if(typeof applyAccessScope==='function')applyAccessScope();
+      if(idn&&idn.unit)applyUnit(idn.unit);
+      const fu=document.getElementById('fUnit');
+      if(fu&&idn){if(idn.role==='district'&&[...fu.options].some(o=>o.value==='__all'))fu.value='__all';else fu.value=idn.unit;}
+      if(typeof renderLedger==='function')renderLedger();
     }else{
       document.body.style.overflow='hidden';
     }
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+
+<script>
+/* ============ 财政系统式导航控制 ============ */
+(function(){
+  const menu=document.getElementById('sysMenu');if(!menu)return;
+
+  function closeAll(){menu.querySelectorAll('.sys-mi.open').forEach(m=>m.classList.remove('open'));}
+  function setActive(sec){menu.querySelectorAll('.sys-mi').forEach(m=>m.classList.toggle('active',m.dataset.s===sec));}
+
+  // 进入「支付申请单·台账」的某个子视图，并可滚动到分析区块
+  function goPay(view,anchor){
+    if(typeof mainNav==='function')mainNav('pay');
+    const want=(view==='form')?'form':'ledger';
+    const btn=document.querySelector('#paySub button[data-v="'+want+'"]');
+    if(btn){if(!btn.classList.contains('on'))btn.click();else if(want==='ledger'&&typeof renderLedger==='function')renderLedger();}
+    if(anchor){setTimeout(()=>{const t=document.getElementById(anchor);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});},140);}
+  }
+  // 进入「支出测算」的某个费用类别（自动切回基本支出报销口径）
+  function goCalcCat(c){
+    if(typeof mainNav==='function')mainNav('calc');
+    const s=document.getElementById('calcExpType');
+    if(s){s.value='基本支出报销';try{localStorage.setItem('calc_exptype','基本支出报销')}catch(_){}if(typeof calcTypeChange==='function')calcTypeChange();}
+    if(typeof showCat==='function')showCat(c);
+  }
+
+  // 顶级菜单标签点击
+  menu.querySelectorAll('.sys-mlabel').forEach(lab=>{
+    const mi=lab.closest('.sys-mi'), hasDD=!!mi.querySelector('.sys-dd'), sec=lab.dataset.s;
+    lab.addEventListener('click',e=>{
+      e.stopPropagation();
+      if(typeof mainNav==='function')mainNav(sec);          // 点标签即进入该模块默认页
+      if(hasDD){const open=mi.classList.contains('open');closeAll();if(!open)mi.classList.add('open');} // 触屏可点开下拉
+      else closeAll();
+    });
+  });
+  // 下拉项点击
+  menu.querySelectorAll('.sys-dd a').forEach(a=>{
+    a.addEventListener('click',e=>{
+      e.stopPropagation();closeAll();
+      if(a.dataset.cat)goCalcCat(a.dataset.cat);
+      else if(a.dataset.pv)goPay(a.dataset.pv,a.dataset.anchor||'');
+    });
+  });
+  // 点击别处关闭下拉
+  document.addEventListener('click',e=>{if(!menu.contains(e.target))closeAll();});
+
+  // 同步高亮：包裹 mainNav
+  if(typeof mainNav==='function'){
+    const _mn=mainNav;
+    mainNav=function(sec){const r=_mn.apply(this,arguments);try{setActive(sec);closeAll();}catch(_){}return r;};
+  }
+  setActive('calc'); // 初始
 })();
 </script>
 
