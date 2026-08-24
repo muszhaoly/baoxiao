@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>相城区财政支出测算与台账管理系统</title>
+<title>智凭链——AI财政电子凭证全生命周期智能管理系统</title>
 <style>
   :root{--paper:#F2F5F8;--card:#FFFFFF;--ink:#1F2D3D;--ink-soft:#66788A;--line:#D7E0E8;
     --pine:#1F4E79;--pine-deep:#173B5C;--pine-tint:#EAF1F7;--zhu:#B33A3A;--zhu-tint:#FBEDED;
@@ -762,6 +762,36 @@
   @media print{
     html,body{height:auto;overflow:visible}.wrap{display:block;height:auto}.sheet{display:block;overflow:visible;padding:0}.sys-topbar{display:flex}.sys-menu,#catbar,.mobile-nav-toggle,.sys-dialog{display:none!important}
   }
+  /* ===== 一库两中心：电子凭证、智能审核、会计处理与电子档案 ===== */
+  .sys-mi[data-s="audit"] .sys-mlabel::before{content:"◉";font-size:17px;text-shadow:none;color:#C17B00}
+  .sys-mi[data-s="voucher"] .sys-mlabel::before{content:"▣";font-size:17px;text-shadow:none;color:#2266C3}
+  .sys-mi[data-s="account"] .sys-mlabel::before{content:"￥";font-size:17px;text-shadow:none;color:#15805F}
+  .sys-mi[data-s="archive"] .sys-mlabel::before{content:"▥";font-size:17px;text-shadow:none;color:#7B5AA6}
+  .fin-shell{display:grid;gap:12px}
+  .fin-hero{position:relative;overflow:hidden;display:flex;justify-content:space-between;align-items:center;gap:22px;padding:20px 22px;border:1px solid #B8CEE3;border-radius:4px;background:linear-gradient(120deg,#F5FAFF 0%,#E8F2FC 62%,#F7FBFF 100%)}
+  .fin-hero::after{content:"";position:absolute;right:-50px;top:-80px;width:230px;height:230px;border:42px solid rgba(26,100,200,.07);border-radius:50%}
+  .fin-hero-copy{position:relative;z-index:1;max-width:760px}.fin-kicker{font-size:11px;font-weight:700;letter-spacing:2px;color:#1D64C8}.fin-hero h2{margin:5px 0 6px;font-size:22px;color:#123E73}.fin-hero p{margin:0;color:#5C7185;font-size:12.5px;line-height:1.7}
+  .fin-hero-mark{position:relative;z-index:1;display:grid;place-items:center;flex:0 0 92px;height:76px;border-left:1px solid #C5D7E8;color:#0B4DA7}.fin-hero-mark b{font-family:"Songti SC","SimSun",serif;font-size:30px}.fin-hero-mark span{font-size:10px;letter-spacing:2px;color:#6C8398}
+  .fin-tabs{display:flex;gap:0;border:1px solid #BFCFDD;border-radius:3px;background:#EEF4F9;overflow-x:auto}.fin-tab{min-width:138px;border:0;border-right:1px solid #C6D4E0;background:transparent;color:#496176;padding:10px 16px;font:600 13px inherit;cursor:pointer}.fin-tab.on{background:#fff;color:#0B52AC;box-shadow:inset 0 -3px 0 #F0C52B}.fin-tab:hover{background:#F9FCFF}
+  .fin-view{display:none}.fin-view.on{display:block;animation:financePanelIn .16s ease both}
+  .fin-kpis{display:grid;grid-template-columns:repeat(4,minmax(140px,1fr));gap:10px}.fin-kpi{border:1px solid #C8D7E3;border-radius:4px;background:#fff;padding:13px 15px;box-shadow:0 1px 3px rgba(24,67,105,.05)}.fin-kpi .label{color:#6A7E90;font-size:11.5px}.fin-kpi b{display:block;margin:4px 0 1px;color:#164F9C;font-size:24px}.fin-kpi small{color:#8193A3;font-size:10.5px}.fin-kpi.warn b{color:#B56813}.fin-kpi.danger b{color:#B84242}.fin-kpi.good b{color:#167355}
+  .fin-card{border:1px solid #C7D5E1;border-radius:4px;background:#fff;overflow:hidden;box-shadow:0 1px 3px rgba(28,67,103,.05)}.fin-card-hd{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:44px;padding:9px 13px;border-bottom:1px solid #D7E2EB;background:linear-gradient(#FBFDFE,#F1F6FA)}.fin-card-hd b{color:#294E73;font-size:13.5px}.fin-card-bd{padding:13px}.fin-grid-2{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);gap:12px}.fin-grid-even{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .fin-tools{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.fin-tools input,.fin-tools select{height:34px;min-width:150px;border:1px solid #AFC1D0!important;background:#fff;padding:5px 9px;font:12.5px inherit}.fin-btn{border:1px solid #1D64C8;border-radius:3px;background:#fff;color:#1455A6;padding:7px 12px;font:600 12px inherit;cursor:pointer}.fin-btn.primary{background:#155FC1;color:#fff}.fin-btn.gold{border-color:#D6AC18;background:#F3D45B;color:#4A3E08}.fin-btn.good{border-color:#19805F;background:#EAF7F1;color:#176B51}.fin-btn.danger{border-color:#B84747;color:#A33B3B}.fin-btn:disabled{opacity:.46;cursor:not-allowed}.fin-btn:hover:not(:disabled){filter:brightness(.97)}
+  .fin-table-wrap{overflow:auto;border:1px solid #D4DFE8}.fin-table{width:100%;min-width:820px;border-collapse:collapse;font-size:12px}.fin-table th{position:sticky;top:0;z-index:1;padding:9px 8px;background:#E9F1F8;color:#486077;border-bottom:1px solid #BACDDD;text-align:left;white-space:nowrap}.fin-table td{padding:9px 8px;border-bottom:1px solid #E3EAF0;color:#334B60;vertical-align:middle}.fin-table tr[data-fin-id]{cursor:pointer}.fin-table tr[data-fin-id]:hover,.fin-table tr.sel{background:#F1F7FD}.fin-link{color:#0B5BBC;font-weight:700}.fin-money{font-variant-numeric:tabular-nums;font-weight:700;color:#244F7D}.fin-muted{color:#7B8D9C;font-size:11.5px;line-height:1.6}.fin-empty{padding:32px;text-align:center;color:#7B8D9C;background:#FAFCFE}
+  .fin-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:12px;background:#EAF2FA;color:#315F8E;font-size:10.5px;font-weight:700;white-space:nowrap}.fin-badge::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}.fin-badge.good{background:#E7F6EF;color:#177052}.fin-badge.warn{background:#FFF5DE;color:#9D671A}.fin-badge.danger{background:#FDECEC;color:#AD3E3E}.fin-badge.gray{background:#EEF1F4;color:#6B7884}
+  .fin-detail{display:grid;gap:11px}.fin-detail-title{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.fin-detail-title h3{margin:0;color:#173F69;font-size:16px}.fin-detail-title p{margin:3px 0 0;color:#728596;font-size:11.5px}.fin-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:#DCE5EC;border:1px solid #DCE5EC}.fin-meta>div{background:#fff;padding:8px 9px;min-width:0}.fin-meta span{display:block;color:#8292A1;font-size:10.5px}.fin-meta b{display:block;margin-top:3px;color:#354D61;font-size:12px;overflow-wrap:anywhere}.fin-docs{display:flex;gap:6px;flex-wrap:wrap}.fin-doc{padding:6px 8px;border:1px solid #CFDCE6;background:#F8FBFD;color:#496278;font-size:11px;border-radius:3px}
+  .fin-life{display:flex;align-items:flex-start;gap:0;overflow:auto;padding:8px 0 4px}.fin-life-step{position:relative;flex:1;min-width:124px;text-align:center;color:#8392A0}.fin-life-step:not(:last-child)::after{content:"";position:absolute;left:58%;right:-42%;top:16px;height:2px;background:#CED8E1}.fin-life-step.done:not(:last-child)::after{background:#2D79CE}.fin-life-step i{position:relative;z-index:1;display:grid;place-items:center;width:34px;height:34px;margin:0 auto 7px;border:2px solid #C9D4DD;border-radius:50%;background:#fff;color:#8796A3;font-style:normal;font-weight:700}.fin-life-step.done i{border-color:#2D79CE;background:#2D79CE;color:#fff}.fin-life-step.current i{border-color:#E2B728;background:#FFF4C8;color:#795D00;box-shadow:0 0 0 4px rgba(226,183,40,.14)}.fin-life-step b{display:block;font-size:11.5px;color:#53697C}.fin-life-step small{display:block;margin-top:3px;font-size:10px}
+  .fin-event-list{display:grid;gap:0}.fin-event{display:grid;grid-template-columns:116px 14px 1fr;gap:8px;min-height:48px}.fin-event time{font-size:10.5px;color:#7C8D9B;text-align:right;padding-top:2px}.fin-event-dot{position:relative}.fin-event-dot::before{content:"";position:absolute;left:5px;top:4px;width:7px;height:7px;border-radius:50%;background:#1D64C8}.fin-event-dot::after{content:"";position:absolute;left:8px;top:13px;bottom:-4px;width:1px;background:#C9D7E2}.fin-event:last-child .fin-event-dot::after{display:none}.fin-event p{margin:0 0 8px;font-size:11.5px;color:#4B6276;line-height:1.5}.fin-event p b{color:#254D73}
+  .fin-checks{display:grid;gap:7px}.fin-check{display:grid;grid-template-columns:26px 1fr auto;gap:8px;align-items:start;padding:9px;border:1px solid #DAE3EA;background:#FBFDFE}.fin-check-icon{display:grid;place-items:center;width:23px;height:23px;border-radius:50%;background:#E7F6EF;color:#167052;font-weight:700}.fin-check.warn .fin-check-icon{background:#FFF3DA;color:#A5690B}.fin-check.fail .fin-check-icon{background:#FDE8E8;color:#AB3D3D}.fin-check b{display:block;font-size:12px;color:#3E566A}.fin-check p{margin:3px 0 0;color:#768897;font-size:10.8px;line-height:1.5}
+  .fin-score{display:grid;place-items:center;width:96px;height:96px;margin:2px auto 10px;border-radius:50%;background:conic-gradient(#1D64C8 var(--score,0%),#DFE8EF 0);position:relative}.fin-score::after{content:"";position:absolute;inset:9px;background:#fff;border-radius:50%}.fin-score b,.fin-score span{position:relative;z-index:1}.fin-score b{font-size:26px;color:#164F9C}.fin-score span{font-size:10px;color:#748696;margin-top:-24px}
+  .fin-entry{width:100%;border-collapse:collapse;font-size:12px}.fin-entry th,.fin-entry td{padding:8px;border:1px solid #CFDCE6;text-align:left}.fin-entry th{background:#EEF4F8;color:#4D657A}.fin-entry .debit{color:#B34C3F;font-weight:700}.fin-entry .credit{color:#176D55;font-weight:700}.fin-book{display:inline-block;padding:2px 6px;border:1px solid #BFCFE0;background:#F3F8FC;color:#315A82;font-size:10px}
+  .fin-rules{display:grid;gap:8px}.fin-rule{display:grid;grid-template-columns:42px 1fr auto;gap:10px;align-items:center;padding:10px;border:1px solid #D2DEE7;background:#FBFDFE}.fin-rule-no{display:grid;place-items:center;width:34px;height:34px;border-radius:3px;background:#E8F2FC;color:#155DB8;font-weight:700}.fin-rule b{font-size:12px;color:#40596E}.fin-rule p{margin:3px 0 0;color:#7A8B99;font-size:10.5px}.fin-rule em{font-style:normal;font-size:10.5px;color:#177052}
+  .fin-archive-box{display:grid;grid-template-columns:116px 1fr;gap:15px;align-items:center;padding:13px;border:1px solid #D1DEE8;background:#F8FBFD}.fin-archive-seal{display:grid;place-items:center;width:102px;height:102px;border:3px double #9B3B3B;border-radius:50%;color:#9B3B3B;text-align:center;transform:rotate(-7deg);font-family:"SimSun",serif}.fin-archive-seal b{font-size:16px}.fin-archive-seal span{font-size:10px}.fin-hash{word-break:break-all;padding:8px;border:1px dashed #BCCCDD;background:#fff;color:#536B80;font:10.5px Consolas,monospace}
+  .fin-policy-chat{display:grid;gap:9px}.fin-chat-log{min-height:146px;max-height:260px;overflow:auto;padding:11px;border:1px solid #CEDBE5;background:#F7FAFC}.fin-chat-msg{max-width:88%;margin:0 0 9px;padding:8px 10px;border-radius:3px;background:#fff;border:1px solid #D3E0E9;color:#40586C;font-size:11.5px;line-height:1.6}.fin-chat-msg.user{margin-left:auto;background:#E7F1FC;border-color:#BED4EA}.fin-chat-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px}.fin-chat-row input{height:37px;border:1px solid #AFC1D0!important;padding:6px 10px}.fin-chip-row{display:flex;gap:6px;flex-wrap:wrap}.fin-chip{border:1px solid #C7D7E4;background:#F7FBFE;color:#426580;border-radius:13px;padding:4px 9px;font-size:10.5px;cursor:pointer}
+  .fin-note{padding:9px 11px;border-left:3px solid #E4B928;background:#FFF9E8;color:#735C21;font-size:11px;line-height:1.65}.fin-map{display:grid;grid-template-columns:repeat(6,1fr);gap:5px}.fin-map div{padding:8px 5px;text-align:center;border:1px solid #D0DDE7;background:#F8FBFD;color:#688094;font-size:10.5px}.fin-map div.on{background:#E7F2FC;color:#0E58B2;border-color:#9FC0DF;font-weight:700}
+  @media(max-width:1050px){.fin-grid-2,.fin-grid-even{grid-template-columns:1fr}.fin-kpis{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:620px){.fin-hero{align-items:flex-start;padding:15px}.fin-hero-mark{display:none}.fin-kpis{grid-template-columns:1fr 1fr}.fin-card-hd{align-items:flex-start;flex-direction:column}.fin-meta{grid-template-columns:1fr}.fin-event{grid-template-columns:88px 12px 1fr}.fin-archive-box{grid-template-columns:1fr}.fin-map{grid-template-columns:repeat(3,1fr)}}
+  @media print{.fin-tabs,.fin-tools,.fin-btn{display:none!important}.fin-view{display:none!important}.fin-view.on{display:block!important}.fin-card{break-inside:avoid}.fin-hero{border:0;padding:5px 0}.fin-hero::after{display:none}}
 </style>
 </head>
 <body>
@@ -769,7 +799,7 @@
 <div id="loginShell">
   <div class="lg-card">
     <div class="lg-head">
-      <div class="lg-title">财政支出测算与支付台账系统</div>
+      <div class="lg-title">智凭链——AI财政电子凭证全生命周期智能管理系统</div>
       <div class="lg-sub">内部试用版 · 默认按单位隔离数据；仅指定财政局“全区数据账号”可查看全区台账与 AI 分析。正式鉴权与权限应由后端/一体化提供。</div>
     </div>
     <div class="lg-body">
@@ -828,7 +858,7 @@
       <div class="sys-brand">
         <div class="sys-emblem">财</div>
         <div class="sys-brandtext">
-          <div class="sys-name">相城区财政支出测算与台账管理系统</div>
+          <div class="sys-name">智凭链——AI财政电子凭证全生命周期智能管理系统</div>
           <div class="sys-name-sub">Expenditure Calculation &amp; Ledger Management · 内部试用版</div>
         </div>
       </div>
@@ -865,6 +895,37 @@
           <a data-pv="ledger" data-anchor="secAna">趋势 · 同比环比 · 预测</a>
           <a data-pv="ledger" data-anchor="secOcr">附件 OCR 分析统计</a>
           <a data-pv="ledger" data-anchor="secReport">一键生成分析报告</a>
+        </div>
+      </div>
+      <div class="sys-mi" data-s="audit">
+        <button type="button" class="sys-mlabel" data-s="audit">智能审核中心 <i>▾</i></button>
+        <div class="sys-dd">
+          <a data-fv="audit-workbench">智能审核工作台</a>
+          <a data-fv="audit-risk">风险预警清单</a>
+          <a data-fv="audit-policy">NLP 政策规则库</a>
+        </div>
+      </div>
+      <div class="sys-mi" data-s="voucher">
+        <button type="button" class="sys-mlabel" data-s="voucher">电子凭证资源库 <i>▾</i></button>
+        <div class="sys-dd">
+          <a data-fv="voucher-library">凭证总库 · 关联检索</a>
+          <a data-fv="voucher-life">凭证生命周期</a>
+        </div>
+      </div>
+      <div class="sys-mi" data-s="account">
+        <button type="button" class="sys-mlabel" data-s="account">会计凭证中心 <i>▾</i></button>
+        <div class="sys-dd">
+          <a data-fv="account-pending">待制证工作台</a>
+          <a data-fv="account-journal">记账凭证簿</a>
+          <a data-fv="account-rules">科目与分录规则</a>
+        </div>
+      </div>
+      <div class="sys-mi" data-s="archive">
+        <button type="button" class="sys-mlabel" data-s="archive">电子档案中心 <i>▾</i></button>
+        <div class="sys-dd">
+          <a data-fv="archive-auto">自动归档工作台</a>
+          <a data-fv="archive-vault">电子档案总库</a>
+          <a data-fv="archive-access">调阅记录 · 防篡改验证</a>
         </div>
       </div>
       <div class="sys-mi" data-s="sg"><button type="button" class="sys-mlabel" data-s="sg">审批流程</button></div>
@@ -1337,7 +1398,7 @@
           <div class="eyebrow" style="margin-top:20px">分项明细录入 · 编辑后自动汇总到上方申请单</div>
           <div class="pay-src" style="margin-bottom:12px" id="payReimbCtrls">
             <span>费用类别</span>
-            <select id="payCat"><option value="差旅费">差旅费</option><option value="培训费">培训费</option><option value="会议费">会议费</option><option value="工会经费">工会经费</option><option value="医疗补助">医疗补助</option><option value="医疗保险费报销">医疗保险费报销</option><option value="综合(多类)">综合(多类)</option><option value="其他">其他</option></select>
+            <select id="payCat"><option value="差旅费">差旅费</option><option value="因公出国（境）费">因公出国（境）费</option><option value="公务接待费">公务接待费</option><option value="公务用车购置及运行维护费">公务用车购置及运行维护费</option><option value="培训费">培训费</option><option value="会议费">会议费</option><option value="工会经费">工会经费</option><option value="医疗补助">医疗补助</option><option value="医疗保险费报销">医疗保险费报销</option><option value="综合(多类)">综合(多类)</option><option value="其他">其他</option></select>
             <button id="payPullAll" class="pull-all">↩ 一键生成报销明细（总 = 各项报销之和）</button>
             <span>或单项</span>
             <select id="paySrc"><option value="cl">差旅费</option><option value="px">培训费</option><option value="hy">会议费</option><option value="gh">工会经费</option><option value="yl">医疗补助</option><option value="yb">医疗保险费报销</option></select>
@@ -1498,6 +1559,81 @@
             <div class="ana-note">报告调用「审批流程」页底部所配置的模型接口；未配置时可先使用上方本机分析。生成内容为 AI 辅助草稿，务必人工复核后使用。</div>
           </div>
 
+        </div>
+      </section>
+    </div>
+    <!-- 一库：电子凭证资源库 -->
+    <div class="panel" id="p-voucher">
+      <section class="pane" style="border:none">
+        <div class="fin-shell">
+          <div class="fin-hero"><div class="fin-hero-copy"><div class="fin-kicker">一库 · ELECTRONIC VOUCHER REPOSITORY</div><h2>电子凭证资源库</h2><p>汇集原始票据、OCR 元数据、业务申请、审批、支付、会计凭证与电子档案，形成单号贯通、来源可查、过程可追的电子凭证链。</p></div><div class="fin-hero-mark"><b>一库</b><span>全程关联</span></div></div>
+          <div class="fin-tabs" data-fin-tabs="voucher"><button class="fin-tab on" data-fin-view="voucher-library">凭证总库</button><button class="fin-tab" data-fin-view="voucher-life">生命周期管理</button></div>
+          <div class="fin-view on" data-fin-page="voucher-library">
+            <div class="fin-kpis" id="finVoucherKpis"></div>
+            <div class="fin-card"><div class="fin-card-hd"><b>电子凭证统一目录</b><div class="fin-tools"><input id="finVoucherSearch" type="search" placeholder="搜索凭证号、申请单、单位、收款方"><select id="finVoucherStage"><option value="">全部生命周期状态</option><option value="0">采集识别</option><option value="2">智能审核</option><option value="3">会计制证</option><option value="4">已记账</option><option value="5">已归档</option></select><button class="fin-btn" data-fin-action="sync-business">同步业务单据</button><button class="fin-btn" data-fin-action="export-vouchers">导出元数据</button></div></div>
+              <div class="fin-card-bd"><div class="fin-grid-2"><div id="finVoucherTable"></div><div class="fin-detail" id="finVoucherDetail"></div></div></div>
+            </div>
+            <div class="fin-note">演示版使用浏览器本地数据保存新增状态；“同步业务单据”会读取本页已有申请单与审批记录，不上传附件。正式上线应由后端统一生成不可重复的凭证标识并执行权限隔离。</div>
+          </div>
+          <div class="fin-view" data-fin-page="voucher-life">
+            <div class="fin-card"><div class="fin-card-hd"><b>电子凭证全生命周期看板</b><div class="fin-tools"><select id="finLifeSelect" aria-label="选择电子凭证"></select><button class="fin-btn" data-fin-action="print-life">打印凭证链</button></div></div><div class="fin-card-bd" id="finLifeDetail"></div></div>
+            <div class="fin-card"><div class="fin-card-hd"><b>生命周期控制要点</b></div><div class="fin-card-bd"><div class="fin-map"><div class="on">业务发生</div><div class="on">OCR采集</div><div class="on">智能审核</div><div class="on">会计制证</div><div class="on">记账支付</div><div class="on">电子归档</div></div><p class="fin-muted" style="margin:10px 0 0">每次状态变化均记录操作人、时间、动作和关联单号；退回、重审、更正与调阅不会覆盖历史记录。</p></div></div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- 两中心之一：智能审核中心 -->
+    <div class="panel" id="p-audit">
+      <section class="pane" style="border:none">
+        <div class="fin-shell">
+          <div class="fin-hero"><div class="fin-hero-copy"><div class="fin-kicker">两中心之一 · INTELLIGENT AUDIT CENTER</div><h2>智能审核中心</h2><p>在现有 OCR 基础上增加重复票据、金额勾稽、日期一致性、材料完整性、政策标准与收款方异常检查，并保留人工复核结论。</p></div><div class="fin-hero-mark"><b>审</b><span>机器初审</span></div></div>
+          <div class="fin-tabs" data-fin-tabs="audit"><button class="fin-tab on" data-fin-view="audit-workbench">审核工作台</button><button class="fin-tab" data-fin-view="audit-risk">风险预警</button><button class="fin-tab" data-fin-view="audit-policy">NLP 政策规则</button></div>
+          <div class="fin-view on" data-fin-page="audit-workbench">
+            <div class="fin-kpis" id="finAuditKpis"></div>
+            <div class="fin-grid-2"><div class="fin-card"><div class="fin-card-hd"><b>待审核电子凭证</b><div class="fin-tools"><select id="finAuditSelect" aria-label="选择待审核凭证"></select><button class="fin-btn primary" data-fin-action="run-audit">执行七项智能校验</button></div></div><div class="fin-card-bd" id="finAuditChecks"></div></div>
+              <div class="fin-card"><div class="fin-card-hd"><b>风险评估与处置</b></div><div class="fin-card-bd" id="finAuditDecision"></div></div>
+            </div>
+          </div>
+          <div class="fin-view" data-fin-page="audit-risk">
+            <div class="fin-card"><div class="fin-card-hd"><b>全量风险预警清单</b><div class="fin-tools"><select id="finRiskFilter"><option value="">全部风险</option><option value="高">高风险</option><option value="中">中风险</option><option value="低">低风险</option></select><button class="fin-btn" data-fin-action="export-risks">导出风险清单</button></div></div><div class="fin-card-bd" id="finRiskTable"></div></div>
+          </div>
+          <div class="fin-view" data-fin-page="audit-policy">
+            <div class="fin-grid-even"><div class="fin-card"><div class="fin-card-hd"><b>审核规则库 · 当前启用 7 项</b><span class="fin-badge good">规则已同步</span></div><div class="fin-card-bd"><div class="fin-rules" id="finPolicyRules"></div></div></div>
+              <div class="fin-card"><div class="fin-card-hd"><b>NLP 政策问答演示</b><span class="fin-badge gray">内置知识库</span></div><div class="fin-card-bd"><div class="fin-policy-chat"><div class="fin-chip-row"><button class="fin-chip" data-fin-question="住宿费超标准怎么办？">住宿费超标准</button><button class="fin-chip" data-fin-question="培训费需要哪些材料？">培训材料</button><button class="fin-chip" data-fin-question="重复发票如何处理？">重复票据</button></div><div class="fin-chat-log" id="finPolicyChat"><div class="fin-chat-msg">您好，我会结合演示规则库返回政策依据、风险判断和处理建议。请输入问题。</div></div><div class="fin-chat-row"><input id="finPolicyInput" placeholder="例如：住宿费超标准怎么办？"><button class="fin-btn primary" data-fin-action="policy-ask">智能检索</button></div></div></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- 两中心之二：会计凭证中心 -->
+    <div class="panel" id="p-account">
+      <section class="pane" style="border:none">
+        <div class="fin-shell">
+          <div class="fin-hero"><div class="fin-hero-copy"><div class="fin-kicker">两中心之二 · ACCOUNTING VOUCHER CENTER</div><h2>会计凭证中心</h2><p>将审核通过的电子凭证自动映射到政府会计科目，生成财务会计与预算会计分录，支持人工复核、记账编号和打印留痕。</p></div><div class="fin-hero-mark"><b>证</b><span>标准制证</span></div></div>
+          <div class="fin-tabs" data-fin-tabs="account"><button class="fin-tab on" data-fin-view="account-pending">待制证工作台</button><button class="fin-tab" data-fin-view="account-journal">记账凭证簿</button><button class="fin-tab" data-fin-view="account-rules">科目与分录规则</button></div>
+          <div class="fin-view on" data-fin-page="account-pending">
+            <div class="fin-kpis" id="finAccountKpis"></div>
+            <div class="fin-grid-2"><div class="fin-card"><div class="fin-card-hd"><b>待制证业务</b><div class="fin-tools"><select id="finAccountSelect" aria-label="选择待制证凭证"></select><button class="fin-btn primary" data-fin-action="generate-entry">智能生成分录</button></div></div><div class="fin-card-bd" id="finAccountSource"></div></div>
+              <div class="fin-card"><div class="fin-card-hd"><b>会计处理建议</b><span class="fin-badge warn">须人工复核</span></div><div class="fin-card-bd" id="finEntryPreview"></div></div>
+            </div>
+          </div>
+          <div class="fin-view" data-fin-page="account-journal"><div class="fin-card"><div class="fin-card-hd"><b>记账凭证簿</b><div class="fin-tools"><input id="finJournalSearch" type="search" placeholder="搜索记账凭证号、摘要、单位"><button class="fin-btn" data-fin-action="export-journal">导出凭证簿</button><button class="fin-btn" data-fin-action="print-journal">打印当前页</button></div></div><div class="fin-card-bd" id="finJournalTable"></div></div></div>
+          <div class="fin-view" data-fin-page="account-rules"><div class="fin-grid-even"><div class="fin-card"><div class="fin-card-hd"><b>业务事项—会计科目映射</b><span class="fin-badge good">6 条规则生效</span></div><div class="fin-card-bd"><div class="fin-rules" id="finAccountRules"></div></div></div><div class="fin-card"><div class="fin-card-hd"><b>标准化控制</b></div><div class="fin-card-bd"><div class="fin-checks"><div class="fin-check"><span class="fin-check-icon">✓</span><div><b>双分录平衡校验</b><p>财务会计、预算会计分别校验借贷相等。</p></div><span class="fin-badge good">启用</span></div><div class="fin-check"><span class="fin-check-icon">✓</span><div><b>科目适用性校验</b><p>按支出类型、资金来源与预算项目匹配科目。</p></div><span class="fin-badge good">启用</span></div><div class="fin-check warn"><span class="fin-check-icon">!</span><div><b>人工复核闸门</b><p>自动建议不得直接入账，复核后方可生成记账凭证号。</p></div><span class="fin-badge warn">必经</span></div></div><div class="fin-note" style="margin-top:10px">页面中的科目编号与分录用于原型演示，正式上线应以本单位适用的政府会计制度、科目表和一体化平台接口为准。</div></div></div></div></div>
+        </div>
+      </section>
+    </div>
+    <!-- 电子档案中心 -->
+    <div class="panel" id="p-archive">
+      <section class="pane" style="border:none">
+        <div class="fin-shell">
+          <div class="fin-hero"><div class="fin-hero-copy"><div class="fin-kicker">全生命周期末端 · ELECTRONIC ARCHIVE CENTER</div><h2>电子档案中心</h2><p>对已记账凭证自动组卷，登记档案编号、保管期限、归档时间与内容指纹，记录每次查阅并提供防篡改一致性验证。</p></div><div class="fin-hero-mark"><b>档</b><span>长期可信</span></div></div>
+          <div class="fin-tabs" data-fin-tabs="archive"><button class="fin-tab on" data-fin-view="archive-auto">自动归档</button><button class="fin-tab" data-fin-view="archive-vault">档案总库</button><button class="fin-tab" data-fin-view="archive-access">调阅与验证</button></div>
+          <div class="fin-view on" data-fin-page="archive-auto">
+            <div class="fin-kpis" id="finArchiveKpis"></div>
+            <div class="fin-grid-2"><div class="fin-card"><div class="fin-card-hd"><b>待归档记账凭证</b><div class="fin-tools"><select id="finArchiveSelect" aria-label="选择待归档凭证"></select><button class="fin-btn primary" data-fin-action="archive-one">一键组卷归档</button></div></div><div class="fin-card-bd" id="finArchiveSource"></div></div><div class="fin-card"><div class="fin-card-hd"><b>归档预检</b></div><div class="fin-card-bd" id="finArchivePrecheck"></div></div></div>
+          </div>
+          <div class="fin-view" data-fin-page="archive-vault"><div class="fin-card"><div class="fin-card-hd"><b>电子会计档案总库</b><div class="fin-tools"><input id="finArchiveSearch" type="search" placeholder="搜索档案号、凭证号、单位"><button class="fin-btn" data-fin-action="export-archives">下载档案目录</button></div></div><div class="fin-card-bd" id="finArchiveTable"></div></div></div>
+          <div class="fin-view" data-fin-page="archive-access"><div class="fin-grid-2"><div class="fin-card"><div class="fin-card-hd"><b>防篡改验证</b><div class="fin-tools"><select id="finVerifySelect" aria-label="选择档案"></select><button class="fin-btn good" data-fin-action="verify-archive">验证完整性</button><button class="fin-btn" data-fin-action="register-access">登记调阅</button></div></div><div class="fin-card-bd" id="finVerifyDetail"></div></div><div class="fin-card"><div class="fin-card-hd"><b>最近调阅记录</b></div><div class="fin-card-bd" id="finAccessLog"></div></div></div></div>
         </div>
       </section>
     </div>
@@ -2513,7 +2649,7 @@ let payUndo=[];
 function snapshotPayRows(){return [...document.querySelectorAll('#payRows .pay-row')].map(r=>({
   pv:r.querySelector('.pv').value,pf:r.querySelector('.pf').value,pc:rowCode(r),
   pp:r.querySelector('.pp').value,pd:r.querySelector('.pd').value,pn:r.querySelector('.pn').value,
-  pb:r.querySelector('.pb').value,pa:r.querySelector('.pa').value,pm:r.querySelector('.pm').value,atts:(r._atts||[]).slice(),src:r.dataset.mod||'',materialConfirmed:r.dataset.materialConfirmed==='1'}));}
+  pb:r.querySelector('.pb').value,pa:r.querySelector('.pa').value,pm:r.querySelector('.pm').value,atts:(r._atts||[]).slice(),src:r.dataset.mod||'',materialConfirmed:r.dataset.materialConfirmed==='1',threePublicSnapshot:r.dataset.threePublicSnapshot||''}));}
 function pushPayUndo(){payUndo.push(snapshotPayRows());if(payUndo.length>40)payUndo.shift();updatePayUndoBtn();}
 function updatePayUndoBtn(){const b=$('payUndoBtn');if(b)b.disabled=!payUndo.length;const p=$('psUndo');if(p)p.disabled=!payUndo.length;}
 function undoPay(){if(!payUndo.length)return;const snap=payUndo.pop();$('payRows').innerHTML='';
@@ -3329,7 +3465,7 @@ async function payCanonical(){
     rows.push({
       支付凭证号:r.querySelector('.pv').value,资金性质:r.querySelector('.pf').value,科目:rowCode(r),
       预算项目:r.querySelector('.pp').value,支出内容:r.querySelector('.pd').value,收款人:r.querySelector('.pn').value,
-      开户行:r.querySelector('.pb').value,账号:r.querySelector('.pa').value,金额:parseFloat(r.querySelector('.pm').value)||0,职工已确认材料:r.dataset.materialConfirmed==='1',附件:atts
+      开户行:r.querySelector('.pb').value,账号:r.querySelector('.pa').value,金额:parseFloat(r.querySelector('.pm').value)||0,职工已确认材料:r.dataset.materialConfirmed==='1',三公经费规则快照:r.dataset.threePublicSnapshot||'',附件:atts
     });
   }
   let total=0;rows.forEach(x=>total+=x.金额);
@@ -3790,7 +3926,7 @@ function loadWorkflowForEdit(appNo){
   if($('payType')){$('payType').value=w.expType||'基本支出报销';renderTypeFields();}
   Object.entries(w.extra||{}).forEach(([k,v])=>{const e=$('tf_'+k);if(e)e.value=v;});
   if($('payCat')&&[...$('payCat').options].some(o=>o.value===w.headCat))$('payCat').value=w.headCat;
-  const ledgerRows=LEDGER.filter(r=>r.appNo===appNo),sourceRows=(Array.isArray(w.formRows)&&w.formRows.length)?w.formRows:ledgerRows.map(r=>({pv:r.voucher,pf:r.fund,pc:r.code,pp:r.project,pd:r.content,pn:r.payee,pb:r.bank,pa:r.acct,pm:r.amount,src:r.src||'',materialConfirmed:!!r.materialConfirmed}));
+  const ledgerRows=LEDGER.filter(r=>r.appNo===appNo),sourceRows=(Array.isArray(w.formRows)&&w.formRows.length)?w.formRows:ledgerRows.map(r=>({pv:r.voucher,pf:r.fund,pc:r.code,pp:r.project,pd:r.content,pn:r.payee,pb:r.bank,pa:r.acct,pm:r.amount,src:r.src||'',materialConfirmed:!!r.materialConfirmed,threePublicSnapshot:r.threePublicSnapshot||''}));
   $('payRows').innerHTML='';sourceRows.forEach((r,i)=>payAddRow({...r,atts:(ledgerRows[i]&&ledgerRows[i].atts)||[]}));if(!$('payRows').children.length)payAddRow();
   payCalc();renderPayTable();const notice=$('paySaveNotice');if(notice)notice.innerHTML=isReturned?'<b style="color:#A43E3E">已载入退回申请 '+esc(appNo)+'。退回意见：'+esc(w.returnReason||'请按流程意见修改')+'</b>':'<b style="color:var(--blue)">已载入待审核申请 '+esc(appNo)+'。修改保存后将重新送入审核队列，并保留本次修改记录。</b>';
   const saveBtn=$('paySave');if(saveBtn){saveBtn.textContent=isReturned?'✓ 修改后重新提交审核':'✓ 保存修改并重新送审';saveBtn.disabled=false;}
@@ -3913,7 +4049,7 @@ function catalogSubmitApplications(appNos,skipConfirm,testApproveAll){
     const eventTime=now+ix;
     if(status==='draft'){
       if(WORKFLOW.some(w=>w.appNo===x.appNo)||LEDGER.some(r=>r.appNo===x.appNo))throw new Error('申请单号 '+x.appNo+' 已存在');const rows=(x.formRows||[]).filter(r=>Number(r.pm)>0);if(!rows.length)throw new Error('申请单 '+x.appNo+' 没有有效金额明细');
-      rows.forEach((d,i)=>LEDGER.push({id:'p'+now+ix+'_'+i+Math.random().toString(36).slice(2,6),appNo:x.appNo,batch:x.batch,date:x.date,budgetSource:x.budgetSource||'当年预算',cat:lineCat(d.pd,d.pc,x.headCat),headCat:x.headCat,expType:x.expType,proj:x.project||d.pp||'',extra:x.extra||{},unit:x.unit,agent:(x.applicant&&x.applicant.name)||actor.name,audit:'',head:'',sealed:false,apprStatus:'待审核人处理',workflowStatus:'pending_review',approvalEvidence:null,voucher:d.pv,fund:d.pf,code:d.pc,project:d.pp,content:d.pd,payee:d.pn,bank:d.pb,acct:d.pa,amount:Number(d.pm)||0,atts:d.atts||[],src:d.src||'',materialConfirmed:!!d.materialConfirmed,testMaterialBypass:!!d.testMaterialBypass}));
+      rows.forEach((d,i)=>LEDGER.push({id:'p'+now+ix+'_'+i+Math.random().toString(36).slice(2,6),appNo:x.appNo,batch:x.batch,date:x.date,budgetSource:x.budgetSource||'当年预算',cat:lineCat(d.pd,d.pc,x.headCat),headCat:x.headCat,expType:x.expType,proj:x.project||d.pp||'',extra:x.extra||{},unit:x.unit,agent:(x.applicant&&x.applicant.name)||actor.name,audit:'',head:'',sealed:false,apprStatus:'待审核人处理',workflowStatus:'pending_review',approvalEvidence:null,voucher:d.pv,fund:d.pf,code:d.pc,project:d.pp,content:d.pd,payee:d.pn,bank:d.pb,acct:d.pa,amount:Number(d.pm)||0,atts:d.atts||[],src:d.src||'',materialConfirmed:!!d.materialConfirmed,testMaterialBypass:!!d.testMaterialBypass,threePublicSnapshot:d.threePublicSnapshot||''}));
       const storedRows=rows.map(({atts,...r})=>r),testBypass=storedRows.some(r=>r.testMaterialBypass);WORKFLOW.push({appNo:x.appNo,batch:x.batch,unit:x.unit,date:x.date,budgetSource:x.budgetSource||'当年预算',headCat:x.headCat,expType:x.expType,project:x.project,extra:x.extra||{},total:x.total,formRows:storedRows,status:'pending_review',returnReason:'',applicant:x.applicant||{name:actor.name,user:actor.user,time:x.createdAt||eventTime},reviewer:null,leader:null,createdAt:x.createdAt||eventTime,updatedAt:eventTime,history:[{action:testBypass?'从申请单目录提交审核（测试材料校验豁免）':'从申请单目录提交审核',role:'operator',name:actor.name,time:eventTime}]});
       x.status='submitted';x.submittedAt=eventTime;x.updatedAt=eventTime;x.formRows=storedRows;return;
     }
@@ -3960,7 +4096,7 @@ function subjectOptionsHTML(cur){
 function rowCode(r){const sel=r.querySelector('.pc-sel');if(!sel)return((r.querySelector('.pc')||{}).value)||'';
   return sel.value==='__custom__'?((r.querySelector('.pc-custom').value||'').trim()):(sel.value||'');}
 // 离线关键词预填（免调用，支出内容含关键词时自动填经济科目）
-const SUBJECT_KW=[['医疗保险费报销','30307'],['学生医疗保险费','30307'],['医疗补助','30307'],['医药费','30307'],['医疗费','30307'],['差旅','30211'],['会议','30215'],['培训','30216'],['工会','30228'],['接待','30217'],['办公','30201'],['维修','30213'],['劳务','30226'],['印刷','30202']];
+const SUBJECT_KW=[['公务用车购置','31013'],['公务用车运行','30231'],['公车运行','30231'],['因公出国','30212'],['出国(境)','30212'],['出国（境）','30212'],['医疗保险费报销','30307'],['学生医疗保险费','30307'],['医疗补助','30307'],['医药费','30307'],['医疗费','30307'],['差旅','30211'],['会议','30215'],['培训','30216'],['工会','30228'],['接待','30217'],['办公','30201'],['维修','30213'],['劳务','30226'],['印刷','30202']];
 function subjectLocalGuess(row){
   if(rowCode(row))return; // 已有值不覆盖
   const pd=row.querySelector('.pd').value||'';const hit=SUBJECT_KW.find(([k])=>pd.indexOf(k)>=0);
@@ -4013,7 +4149,7 @@ function modPayContent(m,report){
   }
   const count=moduleUploadCount(m);return MOD_INFO[m].content+'（'+count+'份材料'+(moduleUploadReady(m)?'已由职工确认':'待确认')+'）';
 }
-const CODE_CAT={'30211':'差旅费','30215':'会议费','30216':'培训费','30228':'工会经费','30307':'医疗补助','30217':'公务接待费','30201':'办公费'};
+const CODE_CAT={'30211':'差旅费','30212':'因公出国（境）费','30215':'会议费','30216':'培训费','30217':'公务接待费','30228':'工会经费','30231':'公务用车购置及运行维护费','30307':'医疗补助','31013':'公务用车购置及运行维护费','30201':'办公费'};
 // 删除分项时，反向清空对应测算模块的输入（B：整块重置）
 const MOD_RESET={
   cl:()=>{['days','nights','hotelRate','transport','other'].forEach(id=>{const e=$(id);if(e)e.value=0;});resetBasicUploadState('cl',false);resetCLGeo(false);calcCL();},
@@ -4035,7 +4171,7 @@ function payDataModule(d){d=d||{};if(d.src&&MOD_INFO[d.src])return d.src;const p
 function rowModule(row){return (row.dataset.mod&&MOD_INFO[row.dataset.mod])?row.dataset.mod:payDataModule({pd:(row.querySelector('.pd')||{}).value||'',pc:rowCode(row)});}
 function rowMaterialReady(row){if((($('payType')||{}).value||'基本支出报销')!=='基本支出报销')return true;return row.dataset.materialConfirmed==='1'&&(row._atts||[]).length>0;}
 function storedMaterialReady(d){return !!(d&&d.materialConfirmed&&(d.atts||[]).length>0);}
-const CAT_KW=[['医疗保险费','医疗保险费报销'],['学生医保费','医疗保险费报销'],['医疗','医疗补助'],['医药','医疗补助'],['差旅','差旅费'],['会议','会议费'],['培训','培训费'],['工会','工会经费'],['接待','公务接待费'],['办公','办公费']];
+const CAT_KW=[['因公出国','因公出国（境）费'],['出国（境）','因公出国（境）费'],['公务用车购置','公务用车购置及运行维护费'],['公务用车运行','公务用车购置及运行维护费'],['公车','公务用车购置及运行维护费'],['医疗保险费','医疗保险费报销'],['学生医保费','医疗保险费报销'],['医疗','医疗补助'],['医药','医疗补助'],['差旅','差旅费'],['会议','会议费'],['培训','培训费'],['工会','工会经费'],['接待','公务接待费'],['办公','办公费']];
 // 从支出内容/科目代码推断某条明细（分）应归入的类别
 function lineCat(content,code,fallback){
   if((content||'').indexOf('医疗保险费')>=0||(content||'').indexOf('学生医保费')>=0)return '医疗保险费报销';
@@ -4071,6 +4207,7 @@ function payRowHTML(d){d=d||{};return `<div class="pay-row"><button class="pay-d
  +`</div>`;}
 function payAddRow(d){d=d||{};const div=document.createElement('div');div.innerHTML=payRowHTML(d);const row=div.firstChild;$('payRows').appendChild(row);
   row.dataset.mod=d.src||'';row.dataset.materialConfirmed=d.materialConfirmed?'1':'';
+  row.dataset.threePublicSnapshot=typeof d.threePublicSnapshot==='string'?d.threePublicSnapshot:(d.threePublicSnapshot?JSON.stringify(d.threePublicSnapshot):'');
   row._atts=(d.atts||[]).slice(); // 该明细的附件（含base64与OCR）
   row.querySelector('.pay-del').onclick=()=>{
     const mod=rowModule(row);            // 该分项来自哪个测算模块
@@ -4329,7 +4466,7 @@ function saveCurrentAndStartNext(submitNow,testApproveAll){
   const expType=($('payType')||{}).value||'基本支出报销',extras=typeExtras(),projName=curProj();
   const formRows=rows.map(r=>{const amount=parseFloat(r.querySelector('.pm').value)||0;if(amount<=0)return null;return {
     pv:r.querySelector('.pv').value,pf:r.querySelector('.pf').value,pc:rowCode(r),pp:r.querySelector('.pp').value,pd:r.querySelector('.pd').value,
-    pn:r.querySelector('.pn').value,pb:r.querySelector('.pb').value,pa:r.querySelector('.pa').value,pm:amount,atts:(r._atts||[]),src:rowModule(r)||'',materialConfirmed:rowMaterialReady(r),testMaterialBypass:!rowMaterialReady(r)&&testMaterialBypass
+    pn:r.querySelector('.pn').value,pb:r.querySelector('.pb').value,pa:r.querySelector('.pa').value,pm:amount,atts:(r._atts||[]),src:rowModule(r)||'',materialConfirmed:rowMaterialReady(r),testMaterialBypass:!rowMaterialReady(r)&&testMaterialBypass,threePublicSnapshot:r.dataset.threePublicSnapshot||''
   };}).filter(Boolean);
   const saved=formRows.length,total=formRows.reduce((s,r)=>s+Number(r.pm||0),0);if(!saved){saveBtn.disabled=false;if(directBtn)directBtn.disabled=false;alert('请至少填写一行有金额的明细');return;}
   if(WORKFLOW_EDIT_APPNO&&(!workflowExisting||!['pending_review','returned'].includes(workflowExisting.status)||workflowExisting.unit!==unit)){saveBtn.disabled=false;if(directBtn)directBtn.disabled=false;alert('该申请已被审核人处理或状态发生变化，请从申请单目录重新打开。');return;}
@@ -4338,7 +4475,7 @@ function saveCurrentAndStartNext(submitNow,testApproveAll){
   const catBak=JSON.stringify(CATALOG),ledBak=JSON.stringify(LEDGER),wfBak=JSON.stringify(WORKFLOW),storedRows=formRows.map(({atts,...r})=>r);
   if(WORKFLOW_EDIT_APPNO){
     const wasReturned=workflowExisting.status==='returned';
-    LEDGER=LEDGER.filter(r=>r.appNo!==appNo);formRows.forEach((d,i)=>LEDGER.push({id:'p'+now+i+Math.random().toString(36).slice(2,6),appNo,batch,date,budgetSource,cat:lineCat(d.pd,d.pc,headCat),headCat,expType,proj:projName||d.pp||'',extra:extras,unit,agent:(workflowExisting.applicant&&workflowExisting.applicant.name)||actor.name,audit:'',head:'',sealed:false,apprStatus:'待审核人处理',workflowStatus:'pending_review',approvalEvidence:null,voucher:d.pv,fund:d.pf,code:d.pc,project:d.pp,content:d.pd,payee:d.pn,bank:d.pb,acct:d.pa,amount:d.pm,atts:d.atts||[],src:d.src||'',materialConfirmed:!!d.materialConfirmed,testMaterialBypass:!!d.testMaterialBypass}));
+    LEDGER=LEDGER.filter(r=>r.appNo!==appNo);formRows.forEach((d,i)=>LEDGER.push({id:'p'+now+i+Math.random().toString(36).slice(2,6),appNo,batch,date,budgetSource,cat:lineCat(d.pd,d.pc,headCat),headCat,expType,proj:projName||d.pp||'',extra:extras,unit,agent:(workflowExisting.applicant&&workflowExisting.applicant.name)||actor.name,audit:'',head:'',sealed:false,apprStatus:'待审核人处理',workflowStatus:'pending_review',approvalEvidence:null,voucher:d.pv,fund:d.pf,code:d.pc,project:d.pp,content:d.pd,payee:d.pn,bank:d.pb,acct:d.pa,amount:d.pm,atts:d.atts||[],src:d.src||'',materialConfirmed:!!d.materialConfirmed,testMaterialBypass:!!d.testMaterialBypass,threePublicSnapshot:d.threePublicSnapshot||''}));
     Object.assign(workflowExisting,{batch,date,budgetSource,headCat,expType,project:projName,extra:extras,total,formRows:storedRows,status:'pending_review',returnReason:'',reviewer:null,leader:null,updatedAt:now});workflowExisting.history=Array.isArray(workflowExisting.history)?workflowExisting.history:[];const editAction=wasReturned?'按退回意见修改并重新提交审核':'经办人修改待审核申请并重新送审';workflowExisting.history.push({action:storedRows.some(r=>r.testMaterialBypass)?editAction+'（测试材料校验豁免）':editAction,role:'operator',name:actor.name,time:now});
     const ci=CATALOG.find(x=>x.appNo===appNo),base={appNo,batch,unit,date,budgetSource,headCat,expType,project:projName,extra:extras,total,formRows:storedRows,status:'submitted',submittedAt:now,updatedAt:now,applicant:workflowExisting.applicant||{name:actor.name,user:actor.user,time:now}};if(ci)Object.assign(ci,base);else CATALOG.push({...base,createdAt:workflowExisting.createdAt||now});
     try{catalogSave(true);ledgerSave(true);workflowSave(true);notifyDataSync(wasReturned?'resubmit':'operator-edit-resubmit',appNo);}catch(e){CATALOG=JSON.parse(catBak);LEDGER=JSON.parse(ledBak);WORKFLOW=JSON.parse(wfBak);try{catalogSave(true);ledgerSave(true);workflowSave(true);}catch(_){}saveBtn.disabled=false;if(directBtn)directBtn.disabled=false;alert('重新提交失败：'+e.message);return;}
@@ -5028,7 +5165,173 @@ mainNav('calc');
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
 </script>
+<script>
+/* ============ 一库两中心：共享演示数据模型 ============ */
+(function(){
+  const F=window.FIN_DEMO={key:'jg_finance_voucher_center_v1',records:[],seedRecords:[],selected:'EV-2026-000126',views:{voucher:'voucher-library',audit:'audit-workbench',account:'account-pending',archive:'archive-auto'},stages:['材料采集','OCR识别','智能审核','会计制证','记账支付','电子归档']};
+  F.e=s=>String(s==null?'':s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+  F.a=s=>F.e(s).replace(/\n/g,' ');F.money=n=>'¥'+(Number(n)||0).toLocaleString('zh-CN',{minimumFractionDigits:2,maximumFractionDigits:2});
+  F.time=v=>{const d=new Date(v||Date.now());return isNaN(d)?'—':d.toLocaleString('zh-CN',{hour12:false});};F.now=()=>new Date().toISOString();
+  const docs={差旅费:['公务出差审批单','签到定位凭证','签退定位凭证','住宿发票×2','高铁票×2','支付申请单'],培训费:['培训通知','审批单','签到表','培训发票','费用明细','支付申请单'],办公费:['采购申请','验收单','增值税发票','采购明细','支付申请单'],会议费:['会议通知','参会名单','审批单','会议费发票','结算明细','支付申请单','审批记录'],工会经费:['活动方案','审批记录','活动发票','参与名单','支付申请单','记账凭证']};
+  F.make=o=>Object.assign({appNo:'',date:'2026-08-18',ocr:'金额、日期、购买方、发票号码已结构化',docs:docs[o.biz]||['业务申请','原始票据','支付申请单'],stage:2,audit:{status:'待智能审核',score:0,level:'未评估',checks:[]},account:{status:'待审核通过',voucherNo:'',entries:[]},archive:null,events:[]},o);
+  F.save=()=>{try{localStorage.setItem(F.key,JSON.stringify(F.records));}catch(_){}};F.get=id=>F.records.find(r=>r.id===id)||F.records[0];
+  F.visible=()=>{const all=F.records.slice();try{if(typeof isDistrictAccess==='function'&&isDistrictAccess())return all;const u=typeof accessOwnUnit==='function'?accessOwnUnit():'';return u?all.filter(r=>r.unit===u):all;}catch(_){return all;}};
+  F.status=r=>r.stage>=5?'已归档':r.stage===4?'已记账':r.stage===3?(r.account&&r.account.entries&&r.account.entries.length?'待记账':'待制证'):r.stage===2?(r.audit&&r.audit.status||'待智能审核'):r.stage===1?'待智能审核':'待识别';
+  F.badge=r=>r.stage>=5?'good':r.stage===2&&r.audit&&r.audit.level==='高'?'danger':r.stage>=3?'good':r.stage===2?'warn':'gray';
+  F.event=(r,action,note,actor)=>{r.events=r.events||[];r.events.push({time:F.now(),actor:actor||'当前用户',action,note:note||''});};
+})();
+</script>
 
+<script>
+(function(F){F.seedRecords.push(
+  F.make({id:'EV-2026-000126',appNo:'APP-2026-000126',unit:'相城区农业农村局',biz:'差旅费',summary:'南京专题调研差旅费报销',amount:3240,date:'2026-08-18',party:'苏州文化国际旅行社有限公司',invoiceNo:'253220000001226',stage:2,audit:{status:'需人工复核',score:76,level:'高',checks:[]},events:[{time:'2026-08-18T09:21:00',actor:'系统',action:'创建电子凭证',note:'关联申请单 APP-2026-000126'},{time:'2026-08-18T09:22:00',actor:'OCR引擎',action:'完成材料识别',note:'6份材料提取24个字段'},{time:'2026-08-18T09:24:00',actor:'审核引擎',action:'发出高风险预警',note:'住宿标准疑似超限'}]}),
+  F.make({id:'EV-2026-000125',appNo:'APP-2026-000125',unit:'相城区教育局',biz:'培训费',summary:'暑期财务人员业务培训费',amount:5860,date:'2026-08-17',party:'苏州干部培训中心',invoiceNo:'253220000001225',stage:3,audit:{status:'自动审核通过',score:16,level:'低',checks:[]},account:{status:'待生成',voucherNo:'',entries:[]},events:[{time:'2026-08-17T15:10:00',actor:'系统',action:'创建电子凭证',note:'关联申请单 APP-2026-000125'},{time:'2026-08-17T15:12:00',actor:'OCR引擎',action:'完成材料识别',note:'材料完整，金额勾稽一致'},{time:'2026-08-17T15:14:00',actor:'审核引擎',action:'自动审核通过',note:'流转至会计制证'}]})
+);})(window.FIN_DEMO);
+</script>
+<script>
+(function(F){F.seedRecords.push(
+  F.make({id:'EV-2026-000124',appNo:'APP-2026-000124',unit:'相城区财政局',biz:'办公费',summary:'办公耗材集中采购付款',amount:1280,date:'2026-08-16',party:'苏州智采办公用品有限公司',invoiceNo:'253220000001224',stage:3,audit:{status:'人工复核通过',score:22,level:'低',checks:[]},account:{status:'已生成待记账',voucherNo:'',entries:[]},events:[{time:'2026-08-16T11:02:00',actor:'系统',action:'创建电子凭证',note:'关联采购与支付申请'},{time:'2026-08-16T11:05:00',actor:'胡冰',action:'人工复核通过',note:'验收数量与发票明细一致'},{time:'2026-08-16T11:06:00',actor:'会计引擎',action:'生成分录建议',note:'匹配办公费科目，置信度96%'}]}),
+  F.make({id:'EV-2026-000123',appNo:'APP-2026-000123',unit:'相城区卫生健康委员会',biz:'会议费',summary:'公共卫生专题会议费',amount:8600,date:'2026-08-15',party:'苏州会议中心有限公司',invoiceNo:'253220000001223',stage:4,audit:{status:'人工复核通过',score:28,level:'低',checks:[]},account:{status:'已记账',voucherNo:'记-2026-000023',entries:[]},events:[{time:'2026-08-15T10:15:00',actor:'审核人',action:'审核通过',note:'材料齐全'},{time:'2026-08-15T10:22:00',actor:'会计引擎',action:'生成双分录',note:'借贷平衡校验通过'},{time:'2026-08-15T10:28:00',actor:'财务会计',action:'复核并记账',note:'生成记账凭证 记-2026-000023'}]}),
+  F.make({id:'EV-2026-000122',appNo:'APP-2026-000122',unit:'相城区总工会',biz:'工会经费',summary:'职工文体活动支出',amount:4600,date:'2026-08-14',party:'相城文体服务中心',invoiceNo:'253220000001222',stage:5,audit:{status:'自动审核通过',score:12,level:'低',checks:[]},account:{status:'已记账',voucherNo:'记-2026-000022',entries:[]},archive:{no:'DA-2026-会计-000022',retention:'30年',time:'2026-08-14T17:30:00',hash:'',access:[]},events:[{time:'2026-08-14T16:55:00',actor:'审核引擎',action:'审核通过',note:'材料完整、金额一致'},{time:'2026-08-14T17:10:00',actor:'财务会计',action:'复核并记账',note:'生成记账凭证 记-2026-000022'},{time:'2026-08-14T17:30:00',actor:'档案系统',action:'自动组卷归档',note:'生成档案号 DA-2026-会计-000022'}]})
+);F.load=()=>{try{const v=JSON.parse(localStorage.getItem(F.key)||'null');F.records=Array.isArray(v)&&v.length?v:F.seedRecords;}catch(_){F.records=F.seedRecords;}F.selected=F.records.some(r=>r.id===F.selected)?F.selected:(F.records[0]||{}).id;};F.load();F.save();})(window.FIN_DEMO);
+</script>
+<script>
+/* 电子凭证库与生命周期渲染 */
+(function(F){
+  F.options=(el,rows,empty)=>{if(!el)return;const old=el.value;el.innerHTML=(empty?'<option value="">'+F.e(empty)+'</option>':'')+rows.map(r=>'<option value="'+F.a(r.id)+'">'+F.e(r.id+' · '+r.biz+' · '+F.money(r.amount))+'</option>').join('');if([...el.options].some(o=>o.value===old))el.value=old;else if(rows[0])el.value=rows[0].id;};
+  F.meta=r=>'<div class="fin-meta"><div><span>业务申请单</span><b>'+F.e(r.appNo)+'</b></div><div><span>业务类型</span><b>'+F.e(r.biz)+'</b></div><div><span>发生日期</span><b>'+F.e(r.date)+'</b></div><div><span>收款对象</span><b>'+F.e(r.party)+'</b></div><div><span>发票号码</span><b>'+F.e(r.invoiceNo||'—')+'</b></div><div><span>金额</span><b>'+F.money(r.amount)+'</b></div></div>';
+  F.docs=r=>'<div class="fin-docs">'+(r.docs||[]).map(x=>'<span class="fin-doc">📄 '+F.e(x)+'</span>').join('')+'</div>';
+  F.life=r=>'<div class="fin-life">'+F.stages.map((s,i)=>'<div class="fin-life-step '+(i<r.stage?'done':i===r.stage?'current':'')+'"><i>'+(i<r.stage?'✓':i+1)+'</i><b>'+s+'</b><small>'+(i<r.stage?'已完成':i===r.stage?'当前环节':'待流转')+'</small></div>').join('')+'</div>';
+  F.events=r=>'<div class="fin-event-list">'+(r.events||[]).slice().reverse().map(x=>'<div class="fin-event"><time>'+F.e(F.time(x.time))+'</time><span class="fin-event-dot"></span><p><b>'+F.e(x.actor+' · '+x.action)+'</b><br>'+F.e(x.note)+'</p></div>').join('')+'</div>';
+  F.renderVoucher=()=>{const rows=F.visible(),q=((document.getElementById('finVoucherSearch')||{}).value||'').trim().toLowerCase(),st=((document.getElementById('finVoucherStage')||{}).value||'');const list=rows.filter(r=>(!q||[r.id,r.appNo,r.unit,r.biz,r.party,r.summary].join(' ').toLowerCase().includes(q))&&(!st||(st==='0'?r.stage<2:String(r.stage)===st)));
+    const k=document.getElementById('finVoucherKpis');if(k)k.innerHTML='<div class="fin-kpi"><span class="label">凭证总量</span><b>'+rows.length+'</b><small>当前权限范围</small></div><div class="fin-kpi warn"><span class="label">待人工复核</span><b>'+rows.filter(r=>r.audit&&/复核/.test(r.audit.status)&&!/通过/.test(r.audit.status)).length+'</b><small>风险需处置</small></div><div class="fin-kpi"><span class="label">待制证 / 记账</span><b>'+rows.filter(r=>r.stage===3).length+'</b><small>会计处理队列</small></div><div class="fin-kpi good"><span class="label">已归档</span><b>'+rows.filter(r=>r.stage>=5).length+'</b><small>形成可信档案</small></div>';
+    if(!list.some(r=>r.id===F.selected)&&list[0])F.selected=list[0].id;const t=document.getElementById('finVoucherTable');if(t)t.innerHTML=list.length?'<div class="fin-table-wrap"><table class="fin-table"><thead><tr><th>电子凭证号</th><th>单位 / 事项</th><th>金额</th><th>OCR</th><th>状态</th></tr></thead><tbody>'+list.map(r=>'<tr data-fin-id="'+F.a(r.id)+'" class="'+(r.id===F.selected?'sel':'')+'"><td><span class="fin-link">'+F.e(r.id)+'</span><br><span class="fin-muted">'+F.e(r.appNo)+'</span></td><td>'+F.e(r.unit)+'<br><span class="fin-muted">'+F.e(r.summary)+'</span></td><td class="fin-money">'+F.money(r.amount)+'</td><td><span class="fin-badge good">已结构化</span></td><td><span class="fin-badge '+F.badge(r)+'">'+F.e(F.status(r))+'</span></td></tr>').join('')+'</tbody></table></div>':'<div class="fin-empty">没有符合条件的电子凭证</div>';
+    const r=F.get(F.selected),d=document.getElementById('finVoucherDetail');if(d&&r)d.innerHTML='<div class="fin-detail-title"><div><h3>'+F.e(r.id)+'</h3><p>'+F.e(r.summary)+'</p></div><span class="fin-badge '+F.badge(r)+'">'+F.e(F.status(r))+'</span></div>'+F.meta(r)+'<div><b class="fin-muted">关联材料（'+(r.docs||[]).length+'份）</b>'+F.docs(r)+'</div><div class="fin-note">OCR 摘要：'+F.e(r.ocr)+'</div><div class="fin-tools"><button class="fin-btn primary" data-fin-action="open-life">查看完整凭证链</button></div>';
+    F.options(document.getElementById('finLifeSelect'),rows);F.renderLife();
+  };
+  F.renderLife=()=>{const s=document.getElementById('finLifeSelect');if(s&&s.value)F.selected=s.value;const r=F.get(F.selected),box=document.getElementById('finLifeDetail');if(!box||!r)return;const action=r.stage===2?'<button class="fin-btn primary" data-fin-action="go-audit">进入智能审核</button>':r.stage===3?'<button class="fin-btn primary" data-fin-action="go-account">进入会计制证</button>':r.stage===4?'<button class="fin-btn primary" data-fin-action="go-archive">进入电子归档</button>':r.stage>=5?'<button class="fin-btn good" data-fin-action="verify-archive">验证档案完整性</button>':'';
+    box.innerHTML='<div class="fin-detail-title"><div><h3>'+F.e(r.id)+' · '+F.e(r.summary)+'</h3><p>'+F.e(r.unit)+'　'+F.money(r.amount)+'</p></div><span class="fin-badge '+F.badge(r)+'">'+F.e(F.status(r))+'</span></div>'+F.life(r)+'<div class="fin-grid-even" style="margin-top:15px"><div><b class="fin-muted">关联凭证材料</b>'+F.docs(r)+'</div><div><b class="fin-muted">全程留痕</b>'+F.events(r)+'</div></div><div class="fin-tools" style="margin-top:10px">'+action+'</div>';
+  };
+})(window.FIN_DEMO);
+</script>
+<script>
+/* 智能审核工作台渲染 */
+(function(F){
+  F.auditChecks=r=>{const trip=r.biz==='差旅费'&&r.id.endsWith('126'),short=(r.docs||[]).length<4;return[
+    {name:'OCR字段完整性',state:'pass',detail:'金额、日期、发票号码、购销双方字段已提取'},
+    {name:'材料完整性',state:short?'warn':'pass',detail:short?'必要材料数量不足，建议补充':'业务申请、审批与原始票据已关联'},
+    {name:'金额勾稽',state:'pass',detail:'票据合计与支付申请金额一致'},
+    {name:'重复票据',state:trip?'warn':'pass',detail:trip?'发票号码与历史影像相似，需核验原件':'未发现跨单重复号码或影像指纹'},
+    {name:'日期一致性',state:'pass',detail:'票据日期处于业务发生与报销期间'},
+    {name:'政策标准',state:trip?'fail':'pass',detail:trip?'住宿单价疑似超过当前职级限额，建议核定超标金额':'未发现超标准支出'},
+    {name:'收款方一致性',state:trip?'warn':'pass',detail:trip?'部分票据销售方与收款对象不一致，需说明':'合同、发票与收款对象一致'}
+  ];};
+  F.renderAudit=()=>{const all=F.visible(),queue=all.filter(r=>r.stage<=2);F.options(document.getElementById('finAuditSelect'),queue.length?queue:all);const sel=document.getElementById('finAuditSelect');if(sel&&sel.value)F.selected=sel.value;const cur=F.get(F.selected),checks=cur?F.auditChecks(cur):[];
+    const k=document.getElementById('finAuditKpis');if(k)k.innerHTML='<div class="fin-kpi"><span class="label">待机器审核</span><b>'+queue.length+'</b><small>进入规则引擎</small></div><div class="fin-kpi danger"><span class="label">高风险</span><b>'+all.filter(x=>x.audit&&x.audit.level==='高').length+'</b><small>阻断自动流转</small></div><div class="fin-kpi warn"><span class="label">中风险</span><b>'+all.filter(x=>x.audit&&x.audit.level==='中').length+'</b><small>建议人工复核</small></div><div class="fin-kpi good"><span class="label">已审核通过</span><b>'+all.filter(x=>x.stage>=3).length+'</b><small>可进入会计制证</small></div>';
+    const c=document.getElementById('finAuditChecks');if(c&&cur)c.innerHTML='<div class="fin-detail-title"><div><h3>'+F.e(cur.id)+'</h3><p>'+F.e(cur.unit+' · '+cur.summary)+'</p></div><span class="fin-badge '+F.badge(cur)+'">'+F.e(cur.audit.status)+'</span></div><div class="fin-checks" style="margin-top:11px">'+checks.map(x=>'<div class="fin-check '+(x.state==='pass'?'':x.state)+'"><span class="fin-check-icon">'+(x.state==='pass'?'✓':x.state==='warn'?'!':'×')+'</span><div><b>'+F.e(x.name)+'</b><p>'+F.e(x.detail)+'</p></div><span class="fin-badge '+(x.state==='pass'?'good':x.state==='warn'?'warn':'danger')+'">'+(x.state==='pass'?'通过':x.state==='warn'?'提醒':'风险')+'</span></div>').join('')+'</div>';
+    const d=document.getElementById('finAuditDecision');if(d&&cur){const score=Number(cur.audit.score)||0;d.innerHTML='<div class="fin-score" style="--score:'+score+'%"><b>'+score+'</b><span>风险分</span></div><div style="text-align:center;margin-bottom:12px"><span class="fin-badge '+(cur.audit.level==='高'?'danger':cur.audit.level==='中'?'warn':'good')+'">'+F.e(cur.audit.level)+'风险</span></div>'+F.meta(cur)+'<div class="fin-note" style="margin-top:10px">'+(cur.audit.level==='高'?'存在阻断项，须查看原件与政策依据。':'未发现阻断风险，仍须人工复核。')+'</div><div class="fin-tools" style="margin-top:10px"><button class="fin-btn good" data-fin-action="manual-pass" '+(cur.stage!==2?'disabled':'')+'>人工复核通过并流转</button><button class="fin-btn danger" data-fin-action="audit-return" '+(cur.stage!==2?'disabled':'')+'>退回补充材料</button></div>';}
+    if(F.renderRisk)F.renderRisk();if(F.renderRules)F.renderRules();
+  };
+})(window.FIN_DEMO);
+</script>
+<script>
+/* 风险预警与政策规则渲染 */
+(function(F){
+  F.renderRisk=()=>{const lv=((document.getElementById('finRiskFilter')||{}).value||''),rows=F.visible().filter(r=>r.audit&&(!lv||r.audit.level===lv)),box=document.getElementById('finRiskTable');if(!box)return;box.innerHTML=rows.length?'<div class="fin-table-wrap"><table class="fin-table"><thead><tr><th>凭证号</th><th>单位 / 事项</th><th>风险分</th><th>等级</th><th>主要结论</th><th>处置状态</th></tr></thead><tbody>'+rows.map(r=>'<tr data-fin-id="'+F.a(r.id)+'"><td class="fin-link">'+F.e(r.id)+'</td><td>'+F.e(r.unit)+'<br><span class="fin-muted">'+F.e(r.summary)+'</span></td><td>'+r.audit.score+'</td><td><span class="fin-badge '+(r.audit.level==='高'?'danger':r.audit.level==='中'?'warn':'good')+'">'+F.e(r.audit.level)+'</span></td><td>'+F.e(r.audit.level==='高'?'政策标准、收款方一致性需核验':'常规校验未见阻断风险')+'</td><td>'+F.e(r.audit.status)+'</td></tr>').join('')+'</tbody></table></div>':'<div class="fin-empty">暂无该等级风险记录</div>';};
+  F.renderRules=()=>{const box=document.getElementById('finPolicyRules');if(!box)return;const rs=[['R01','重复票据识别','号码、金额、日期与影像指纹跨单比对'],['R02','政策标准校验','标准与人员职级、天数联动'],['R03','材料完整性','按事项检查通知、审批、名单与发票'],['R04','金额勾稽','票据、明细、支付申请与预算核对'],['R05','日期一致性','业务、票据、审批与支付日期检查'],['R06','收款方一致性','合同、发票与实际收款方核验'],['R07','预算合规性','支出分类、指标与会计科目关联']];box.innerHTML=rs.map(x=>'<div class="fin-rule"><span class="fin-rule-no">'+x[0]+'</span><div><b>'+x[1]+'</b><p>'+x[2]+'</p></div><em>已启用</em></div>').join('');};
+})(window.FIN_DEMO);
+</script>
+<script>
+/* 会计凭证与双分录渲染 */
+(function(F){
+  F.makeEntries=r=>{const sub={差旅费:'差旅费',培训费:'培训费',会议费:'会议费',办公费:'办公费',工会经费:'其他商品和服务支出'}[r.biz]||r.biz,a=Number(r.amount)||0;return[
+    {book:'财务会计',dir:'借',code:'500102',subject:'业务活动费用—商品和服务费用—'+sub,amount:a},
+    {book:'财务会计',dir:'贷',code:'400101',subject:'财政拨款收入',amount:a},
+    {book:'预算会计',dir:'借',code:'720102',subject:'事业支出—财政拨款支出—'+sub,amount:a},
+    {book:'预算会计',dir:'贷',code:'610101',subject:'财政拨款预算收入',amount:a}
+  ];};
+  F.entryTable=r=>{const es=(r.account&&r.account.entries)||[];return es.length?'<table class="fin-entry"><thead><tr><th>账套</th><th>方向</th><th>科目</th><th>摘要</th><th>金额</th></tr></thead><tbody>'+es.map(x=>'<tr><td><span class="fin-book">'+F.e(x.book)+'</span></td><td class="'+(x.dir==='借'?'debit':'credit')+'">'+x.dir+'</td><td>'+F.e(x.code)+'</td><td>'+F.e(x.subject)+'</td><td>'+F.money(x.amount)+'</td></tr>').join('')+'</tbody></table>':'';};
+  F.renderAccount=()=>{const all=F.visible(),queue=all.filter(r=>r.stage===3);F.options(document.getElementById('finAccountSelect'),queue.length?queue:all);const sel=document.getElementById('finAccountSelect');if(sel&&sel.value)F.selected=sel.value;const r=F.get(F.selected);if(r&&r.stage>=3&&(!r.account.entries||!r.account.entries.length)&&(r.stage===4||/已生成/.test(r.account.status)))r.account.entries=F.makeEntries(r);
+    const k=document.getElementById('finAccountKpis');if(k)k.innerHTML='<div class="fin-kpi"><span class="label">待制证</span><b>'+queue.filter(x=>!x.account.entries.length).length+'</b><small>审核通过待生成</small></div><div class="fin-kpi warn"><span class="label">待复核记账</span><b>'+queue.filter(x=>x.account.entries.length).length+'</b><small>双分录已生成</small></div><div class="fin-kpi good"><span class="label">本期已记账</span><b>'+all.filter(x=>x.stage>=4).length+'</b><small>已有记账凭证号</small></div><div class="fin-kpi"><span class="label">自动匹配率</span><b>96%</b><small>演示科目规则</small></div>';
+    const s=document.getElementById('finAccountSource');if(s&&r)s.innerHTML='<div class="fin-detail-title"><div><h3>'+F.e(r.id)+'</h3><p>'+F.e(r.summary)+'</p></div><span class="fin-badge '+F.badge(r)+'">'+F.e(F.status(r))+'</span></div>'+F.meta(r)+'<div style="margin-top:10px"><b class="fin-muted">制证依据</b>'+F.docs(r)+'</div>';
+    const p=document.getElementById('finEntryPreview');if(p&&r){const has=r.account.entries&&r.account.entries.length;p.innerHTML=has?'<div class="fin-detail-title"><div><h3>记账凭证'+(r.account.voucherNo?' · '+F.e(r.account.voucherNo):'（草稿）')+'</h3><p>摘要：'+F.e(r.summary)+'</p></div><span class="fin-badge good">借贷平衡</span></div><div style="margin-top:10px">'+F.entryTable(r)+'</div><div class="fin-tools" style="margin-top:10px"><button class="fin-btn good" data-fin-action="post-entry" '+(r.stage!==3?'disabled':'')+'>复核通过并记账</button><button class="fin-btn" data-fin-action="print-voucher">打印凭证</button></div>':'<div class="fin-empty">尚未生成分录。点击左侧“智能生成分录”，系统将按业务类型、资金来源和科目规则生成财务会计与预算会计双分录。</div>';}
+    F.renderJournal();F.renderAccountRules();F.save();
+  };
+  F.renderJournal=()=>{const q=((document.getElementById('finJournalSearch')||{}).value||'').toLowerCase(),rows=F.visible().filter(r=>r.stage>=4&&(!q||[r.account.voucherNo,r.summary,r.unit].join(' ').toLowerCase().includes(q))),b=document.getElementById('finJournalTable');if(!b)return;b.innerHTML=rows.length?'<div class="fin-table-wrap"><table class="fin-table"><thead><tr><th>记账凭证号</th><th>日期</th><th>单位 / 摘要</th><th>附件</th><th>金额</th><th>状态</th></tr></thead><tbody>'+rows.map(r=>'<tr data-fin-id="'+F.a(r.id)+'"><td class="fin-link">'+F.e(r.account.voucherNo)+'</td><td>'+F.e(r.date)+'</td><td>'+F.e(r.unit)+'<br><span class="fin-muted">'+F.e(r.summary)+'</span></td><td>'+(r.docs||[]).length+'张</td><td class="fin-money">'+F.money(r.amount)+'</td><td><span class="fin-badge '+(r.stage>=5?'good':'warn')+'">'+(r.stage>=5?'已归档':'待归档')+'</span></td></tr>').join('')+'</tbody></table></div>':'<div class="fin-empty">暂无记账凭证</div>';};
+  F.renderAccountRules=()=>{const b=document.getElementById('finAccountRules');if(!b)return;const rs=[['30211','差旅费','业务活动费用 / 事业支出—差旅费'],['30216','培训费','业务活动费用 / 事业支出—培训费'],['30215','会议费','业务活动费用 / 事业支出—会议费'],['30201','办公费','业务活动费用 / 事业支出—办公费'],['30299','工会经费','其他商品和服务支出'],['400101','资金来源','财政拨款收入 / 财政拨款预算收入']];b.innerHTML=rs.map(x=>'<div class="fin-rule"><span class="fin-rule-no">'+x[0]+'</span><div><b>'+x[1]+'</b><p>'+x[2]+'</p></div><em>自动匹配</em></div>').join('');};
+})(window.FIN_DEMO);
+</script>
+<script>
+/* 电子档案、调阅记录与完整性状态渲染 */
+(function(F){
+  F.renderArchive=()=>{const all=F.visible(),ready=all.filter(r=>r.stage===4),done=all.filter(r=>r.stage>=5);F.options(document.getElementById('finArchiveSelect'),ready.length?ready:all);const sel=document.getElementById('finArchiveSelect');if(sel&&sel.value)F.selected=sel.value;const r=F.get(F.selected);
+    const k=document.getElementById('finArchiveKpis');if(k)k.innerHTML='<div class="fin-kpi warn"><span class="label">待自动归档</span><b>'+ready.length+'</b><small>已记账待组卷</small></div><div class="fin-kpi good"><span class="label">已归档</span><b>'+done.length+'</b><small>档案号已生成</small></div><div class="fin-kpi"><span class="label">完整性验证</span><b>'+done.filter(x=>x.archive&&x.archive.hash).length+'</b><small>已登记内容指纹</small></div><div class="fin-kpi"><span class="label">调阅次数</span><b>'+done.reduce((n,x)=>n+((x.archive.access||[]).length),0)+'</b><small>全程留痕</small></div>';
+    const s=document.getElementById('finArchiveSource');if(s&&r)s.innerHTML='<div class="fin-detail-title"><div><h3>'+F.e(r.account.voucherNo||r.id)+'</h3><p>'+F.e(r.unit+' · '+r.summary)+'</p></div><span class="fin-badge '+(r.stage===4?'warn':'good')+'">'+(r.stage===4?'待归档':F.status(r))+'</span></div>'+F.meta(r)+'<div style="margin-top:10px"><b class="fin-muted">拟归档材料</b>'+F.docs(r)+'</div>';
+    const p=document.getElementById('finArchivePrecheck');if(p&&r)p.innerHTML='<div class="fin-checks"><div class="fin-check"><span class="fin-check-icon">✓</span><div><b>审批流程已办结</b><p>经办、审核、负责人处理记录完整。</p></div><span class="fin-badge good">通过</span></div><div class="fin-check"><span class="fin-check-icon">✓</span><div><b>记账凭证已生成</b><p>'+F.e(r.account.voucherNo||'完成组卷时登记记账凭证号')+'</p></div><span class="fin-badge good">通过</span></div><div class="fin-check"><span class="fin-check-icon">✓</span><div><b>元数据与附件齐全</b><p>'+(r.docs||[]).length+'份材料将按同一档案号组卷。</p></div><span class="fin-badge good">通过</span></div></div><div class="fin-note" style="margin-top:10px">归档后生成档案号、30年保管期限、归档时间与 SHA-256 内容指纹。</div>';
+    F.renderArchiveTable();F.options(document.getElementById('finVerifySelect'),done);F.renderVerify();
+  };
+  F.renderArchiveTable=()=>{const q=((document.getElementById('finArchiveSearch')||{}).value||'').toLowerCase(),rows=F.visible().filter(r=>r.stage>=5&&(!q||[r.archive.no,r.account.voucherNo,r.unit,r.summary].join(' ').toLowerCase().includes(q))),b=document.getElementById('finArchiveTable');if(!b)return;b.innerHTML=rows.length?'<div class="fin-table-wrap"><table class="fin-table"><thead><tr><th>档案号</th><th>记账凭证</th><th>单位 / 事项</th><th>金额</th><th>保管期限</th><th>归档时间</th><th>完整性</th></tr></thead><tbody>'+rows.map(r=>'<tr data-fin-id="'+F.a(r.id)+'"><td class="fin-link">'+F.e(r.archive.no)+'</td><td>'+F.e(r.account.voucherNo)+'</td><td>'+F.e(r.unit)+'<br><span class="fin-muted">'+F.e(r.summary)+'</span></td><td class="fin-money">'+F.money(r.amount)+'</td><td>'+F.e(r.archive.retention)+'</td><td>'+F.e(F.time(r.archive.time))+'</td><td><span class="fin-badge '+(r.archive.hash?'good':'warn')+'">'+(r.archive.hash?'指纹已登记':'待登记')+'</span></td></tr>').join('')+'</tbody></table></div>':'<div class="fin-empty">暂无已归档电子会计档案</div>';};
+  F.renderVerify=()=>{const sel=document.getElementById('finVerifySelect'),r=F.get((sel&&sel.value)||F.selected),b=document.getElementById('finVerifyDetail'),log=document.getElementById('finAccessLog');if(b)b.innerHTML=r&&r.archive?'<div class="fin-archive-box"><div class="fin-archive-seal"><div><b>电子归档</b><br><span>'+F.e(r.archive.no)+'</span></div></div><div><b>'+F.e(r.summary)+'</b><p class="fin-muted">'+F.e(r.unit)+' · '+F.e(r.account.voucherNo)+' · '+F.money(r.amount)+'</p><div class="fin-hash">'+F.e(r.archive.hash||'内容指纹尚未登记，点击“验证完整性”自动生成。')+'</div><p class="fin-muted">归档时间：'+F.e(F.time(r.archive.time))+'　保管期限：'+F.e(r.archive.retention)+'</p></div></div>':'<div class="fin-empty">请选择已归档档案</div>';
+    if(log){const a=r&&r.archive?(r.archive.access||[]):[];log.innerHTML=a.length?F.events({events:a.map(x=>({time:x.time,actor:x.user,action:'调阅档案',note:x.reason}))}):'<div class="fin-empty">该档案暂无调阅记录</div>';}
+  };
+})(window.FIN_DEMO);
+</script>
+<script>
+/* 新模块导航、导出、摘要指纹与业务同步 */
+(function(F){
+  F.renderAll=()=>{const id=((document.querySelector('.panel.on')||{}).id||'').replace('p-',''),fn={voucher:F.renderVoucher,audit:F.renderAudit,account:F.renderAccount,archive:F.renderArchive}[id];if(fn)fn();};
+  F.activate=(section,view)=>{view=view||F.views[section];F.views[section]=view;const p=document.getElementById('p-'+section);if(!p)return;p.querySelectorAll('[data-fin-page]').forEach(x=>x.classList.toggle('on',x.dataset.finPage===view));p.querySelectorAll('[data-fin-view]').forEach(x=>x.classList.toggle('on',x.dataset.finView===view));F.renderAll();};
+  F.open=(section,view)=>{if(view)F.views[section]=view;if(typeof mainNav==='function')mainNav(section);else{showPanel(section);F.activate(section,view);}};
+  F.csv=(name,rows)=>{const s=rows.map(r=>r.map(v=>'"'+String(v==null?'':v).replace(/"/g,'""')+'"').join(',')).join('\r\n'),u=URL.createObjectURL(new Blob(['\ufeff'+s],{type:'text/csv;charset=utf-8'})),a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),700);};
+  F.payload=r=>JSON.stringify({id:r.id,appNo:r.appNo,unit:r.unit,biz:r.biz,summary:r.summary,amount:r.amount,date:r.date,party:r.party,invoiceNo:r.invoiceNo,docs:r.docs,stage:r.stage,voucherNo:r.account&&r.account.voucherNo,entries:r.account&&r.account.entries,archiveNo:r.archive&&r.archive.no});
+  F.digest=async s=>{if(window.crypto&&crypto.subtle){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');}let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619);}return (('00000000'+(h>>>0).toString(16)).slice(-8)).repeat(8);};
+  F.syncBusiness=()=>{let n=0,ws=[];try{if(typeof WORKFLOW!=='undefined')ws=WORKFLOW.slice();}catch(_){}ws.forEach(w=>{if(!w.appNo||F.records.some(r=>r.appNo===w.appNo))return;const no=String(127+F.records.length).padStart(6,'0'),approved=w.status==='approved';F.records.unshift(F.make({id:'EV-2026-'+no,appNo:w.appNo,unit:w.unit||'当前单位',biz:w.headCat||w.expType||'业务支出',summary:w.project||w.headCat||'支付申请',amount:Number(w.total)||0,date:w.date||new Date().toISOString().slice(0,10),party:'待从附件识别',invoiceNo:'待识别',docs:['支付申请单','审批流转记录','业务附件'],stage:approved?2:1,audit:{status:approved?'待智能审核':'待审批办结',score:0,level:'未评估',checks:[]},events:[{time:F.now(),actor:'业务协同平台',action:'同步业务单据',note:'由 '+w.appNo+' 自动建立电子凭证'}]}));n++;});F.save();F.renderAll();alert(n?'已同步 '+n+' 笔业务单据并建立电子凭证。':'没有发现需要新增的业务单据。');};
+  if(typeof mainNav==='function'){const base=mainNav;mainNav=function(sec){const r=base.apply(this,arguments),names={audit:'智能审核中心',voucher:'电子凭证资源库',account:'会计凭证中心',archive:'电子档案中心'};if(names[sec]){const bar=document.getElementById('catbar');if(bar)bar.dataset.breadcrumb='当前位置：首页 / '+names[sec];F.activate(sec,F.views[sec]);}return r;};}
+})(window.FIN_DEMO);
+</script>
+<script>
+/* 审核—制证—记账—归档状态联动 */
+(function(F){
+  const current=id=>F.get(id||F.selected),pick=id=>{if(id)F.selected=id;F.renderAll();};
+  document.addEventListener('click',async e=>{
+    const tab=e.target.closest('[data-fin-view]');if(tab){const v=tab.dataset.finView;F.open(v.split('-')[0],v);return;}
+    const row=e.target.closest('tr[data-fin-id]');if(row){pick(row.dataset.finId);return;}
+    const b=e.target.closest('[data-fin-action]');if(!b)return;const a=b.dataset.finAction;let r=current();
+    if(a==='open-life'){F.open('voucher','voucher-life');return;}if(a==='go-audit'){F.open('audit','audit-workbench');return;}if(a==='go-account'){F.open('account','account-pending');return;}if(a==='go-archive'){F.open('archive','archive-auto');return;}
+    if(a==='sync-business'){F.syncBusiness();return;}
+    if(a==='run-audit'){const sel=document.getElementById('finAuditSelect');r=current(sel&&sel.value);if(!r)return;const cs=F.auditChecks(r),fail=cs.filter(x=>x.state==='fail').length,warn=cs.filter(x=>x.state==='warn').length,score=Math.min(98,fail*45+warn*15+6);r.audit={status:fail?'需人工复核':warn?'有提醒待复核':'自动审核通过',score,level:score>=60?'高':score>=30?'中':'低',checks:cs};r.stage=fail||warn?2:3;F.event(r,'完成七项智能校验',(fail?'发现'+fail+'项阻断风险；':'')+(warn?'发现'+warn+'项提醒':'未发现异常'),'审核规则引擎');F.save();F.renderAll();alert('智能审核完成：风险分 '+score+'，'+r.audit.level+'风险。');return;}
+    if(a==='manual-pass'){r=current((document.getElementById('finAuditSelect')||{}).value);if(!r||r.stage!==2)return;r.stage=3;r.audit.status='人工复核通过';F.event(r,'人工复核通过','阻断项已核验，流转至会计凭证中心','审核人');F.save();F.renderAll();alert('已复核通过，电子凭证进入会计制证环节。');return;}
+    if(a==='audit-return'){r=current((document.getElementById('finAuditSelect')||{}).value);if(!r||r.stage!==2)return;r.stage=1;r.audit.status='已退回补充';F.event(r,'退回补充材料','请补充说明或更换有效原始凭证','审核人');F.save();F.renderAll();alert('已退回业务经办人补充材料，原审核记录已保留。');return;}
+    if(a==='generate-entry'){r=current((document.getElementById('finAccountSelect')||{}).value);if(!r||r.stage!==3){alert('该业务尚未通过审核，不能制证。');return;}r.account.entries=F.makeEntries(r);r.account.status='已生成待记账';F.event(r,'智能生成双分录','财务会计与预算会计借贷平衡，科目置信度96%','会计规则引擎');F.save();F.renderAll();return;}
+    if(a==='post-entry'){r=current((document.getElementById('finAccountSelect')||{}).value);if(!r||r.stage!==3||!r.account.entries.length)return;const n=String(24+F.records.filter(x=>x.stage>=4).length).padStart(6,'0');r.account.voucherNo='记-2026-'+n;r.account.status='已记账';r.stage=4;F.event(r,'复核并记账','生成记账凭证 '+r.account.voucherNo,'财务会计');F.save();F.renderAll();alert('记账完成：'+r.account.voucherNo+'。可进入电子档案中心归档。');return;}
+    if(a==='archive-one'){r=current((document.getElementById('finArchiveSelect')||{}).value);if(!r||r.stage!==4){alert('仅已记账凭证可以归档。');return;}const tail=(r.account.voucherNo||r.id).match(/\d+$/);r.archive={no:'DA-2026-会计-'+(tail?tail[0]:'000001'),retention:'30年',time:F.now(),hash:'',access:[]};r.stage=5;r.archive.hash=await F.digest(F.payload(r));F.event(r,'自动组卷归档','生成档案号 '+r.archive.no+'，登记 SHA-256 内容指纹','档案系统');F.save();F.renderAll();alert('归档完成：'+r.archive.no);return;}
+    if(a==='verify-archive'){const s=document.getElementById('finVerifySelect');r=current((s&&s.value)||F.selected);if(!r||!r.archive){alert('该电子凭证尚未归档。');return;}const h=await F.digest(F.payload(r));if(!r.archive.hash){r.archive.hash=h;F.save();F.renderAll();alert('内容指纹已首次登记，后续可用于一致性验证。');}else alert(h===r.archive.hash?'完整性验证通过：归档内容与登记指纹一致。':'完整性验证失败：内容与归档指纹不一致，请立即复核。');return;}
+    if(a==='register-access'){const s=document.getElementById('finVerifySelect');r=current((s&&s.value)||F.selected);if(!r||!r.archive)return;const reason=prompt('请输入调阅事由：','财务复核');if(reason===null)return;let user='当前用户';try{const i=typeof accessIdentity==='function'?accessIdentity():null;user=i&&(i.name||i.user)||user;}catch(_){}r.archive.access=r.archive.access||[];r.archive.access.push({time:F.now(),user,reason:reason||'在线查阅'});F.save();F.renderAll();alert('调阅记录已登记。');return;}
+    if(a==='print-life'||a==='print-voucher'||a==='print-journal'){window.print();return;}
+  });
+})(window.FIN_DEMO);
+</script>
+<script>
+/* 检索、导出、政策问答与初始化 */
+(function(F){
+  const bind=(id,event,fn)=>{const x=document.getElementById(id);if(x)x.addEventListener(event,fn);};
+  bind('finVoucherSearch','input',F.renderVoucher);bind('finVoucherStage','change',F.renderVoucher);
+  bind('finLifeSelect','change',e=>{F.selected=e.target.value;F.renderLife();});bind('finAuditSelect','change',e=>{F.selected=e.target.value;F.renderAudit();});
+  bind('finRiskFilter','change',F.renderRisk);bind('finAccountSelect','change',e=>{F.selected=e.target.value;F.renderAccount();});
+  bind('finJournalSearch','input',F.renderJournal);bind('finArchiveSelect','change',e=>{F.selected=e.target.value;F.renderArchive();});
+  bind('finArchiveSearch','input',F.renderArchiveTable);bind('finVerifySelect','change',e=>{F.selected=e.target.value;F.renderVerify();});
+  F.askPolicy=()=>{const inp=document.getElementById('finPolicyInput'),log=document.getElementById('finPolicyChat'),q=(inp&&inp.value||'').trim();if(!q||!log)return;let ans='已在规则库检索到相关条目。请结合业务类型、资金来源、人员身份和最新有效文件，由审核人核定后执行。';if(/住宿|差旅|超标/.test(q))ans='风险判断：住宿费应按出差人员职级、目的地和实际住宿晚数匹配现行限额，限额内据实报销。超过部分原则上由个人承担；特殊情形须补充说明并履行审批。建议核对住宿发票明细、审批单、签到签退和最新地区标准。';else if(/培训|材料/.test(q))ans='材料建议：培训通知、事前审批、课程或日程、参训与签到记录、费用结算明细、发票及支付申请应完整关联；涉及师资费时还应核验授课人员、职称、课时和标准。';else if(/重复|发票/.test(q))ans='风险判断：同一发票号码、金额、日期或影像指纹命中历史单据时，应阻断自动流转，核验原件及既往报销记录。确认重复的不得再次报销；误报应保留人工复核说明。';else if(/会议/.test(q))ans='会议费审核应关联会议通知、事前审批、参会名单或签到、费用结算明细、发票与支付申请，并按会议类别、天数、人数及最新标准进行校验。';log.insertAdjacentHTML('beforeend','<div class="fin-chat-msg user">'+F.e(q)+'</div><div class="fin-chat-msg"><b>政策检索与审核建议</b><br>'+F.e(ans)+'</div>');log.scrollTop=log.scrollHeight;inp.value='';};
+  document.addEventListener('click',e=>{const q=e.target.closest('[data-fin-question]');if(q){const i=document.getElementById('finPolicyInput');if(i)i.value=q.dataset.finQuestion;F.askPolicy();return;}const b=e.target.closest('[data-fin-action]');if(!b)return;const a=b.dataset.finAction,rows=F.visible();
+    if(a==='policy-ask')F.askPolicy();
+    else if(a==='export-vouchers')F.csv('电子凭证元数据.csv',[['电子凭证号','申请单号','单位','业务类型','摘要','金额','日期','收款方','发票号码','状态'],...rows.map(r=>[r.id,r.appNo,r.unit,r.biz,r.summary,r.amount,r.date,r.party,r.invoiceNo,F.status(r)])]);
+    else if(a==='export-risks')F.csv('智能审核风险清单.csv',[['电子凭证号','单位','事项','金额','风险分','风险等级','审核状态'],...rows.map(r=>[r.id,r.unit,r.summary,r.amount,r.audit.score,r.audit.level,r.audit.status])]);
+    else if(a==='export-journal')F.csv('记账凭证簿.csv',[['记账凭证号','电子凭证号','单位','摘要','金额','日期','附件数'],...rows.filter(r=>r.stage>=4).map(r=>[r.account.voucherNo,r.id,r.unit,r.summary,r.amount,r.date,(r.docs||[]).length])]);
+    else if(a==='export-archives')F.csv('电子会计档案目录.csv',[['档案号','记账凭证号','电子凭证号','单位','摘要','金额','保管期限','归档时间','SHA-256'],...rows.filter(r=>r.stage>=5).map(r=>[r.archive.no,r.account.voucherNo,r.id,r.unit,r.summary,r.amount,r.archive.retention,F.time(r.archive.time),r.archive.hash])]);
+  });
+  window.addEventListener('storage',e=>{if(e.key===F.key){F.load();F.renderAll();}});
+  (async()=>{for(const r of F.records)if(r.archive&&!r.archive.hash)r.archive.hash=await F.digest(F.payload(r));F.save();F.renderAll();})();
+})(window.FIN_DEMO);
+</script>
 <script>
 /* ============ 财政系统式导航控制 ============ */
 (function(){
@@ -5069,6 +5372,7 @@ mainNav('calc');
       e.stopPropagation();closeAll();
       if(a.dataset.cat)goCalcCat(a.dataset.cat);
       else if(a.dataset.pv)goPay(a.dataset.pv,a.dataset.anchor||'');
+      else if(a.dataset.fv&&window.FIN_DEMO){const v=a.dataset.fv;FIN_DEMO.open(v.split('-')[0],v);}
     });
   });
   // 点击别处关闭下拉
@@ -5145,6 +5449,584 @@ mainNav('calc');
   window.showSystemDialog=showDialog;
   window.alert=function(text){showDialog(text,'系统提示');};
   if(dialog)dialog.addEventListener('click',e=>{if(e.target===dialog){if(typeof dialog.close==='function')dialog.close();else dialog.removeAttribute('open');}});
+})();
+</script>
+
+<style id="financeFrontendEnhancementStyles">
+/* 前端增强层：敏感字符提示、差异化审核、支付回调自动过账、后端融合契约 */
+.fe-span-2{grid-column:1/-1}.fe-standard-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:11px 13px;margin:0 0 12px;border:1px solid #C7DDEA;border-radius:9px;background:linear-gradient(135deg,#F5FAFD,#EEF7F3);font-size:12px;color:var(--ink-soft)}
+.fe-standard-bar b{color:var(--pine-deep);font-size:13px}.fe-version{display:inline-flex;align-items:center;gap:6px;padding:4px 9px;border-radius:999px;background:#E7F3EC;color:#25684D;font-weight:700}
+.fe-points{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.fe-point{display:flex;align-items:flex-start;gap:9px;padding:10px 11px;border:1px solid #D9E5ED;border-radius:8px;background:#fff}.fe-point i{flex:none;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-style:normal;font-weight:800;background:#E6F4EC;color:#24704E}.fe-point.warn i{background:#FFF3D8;color:#94620E}.fe-point b{display:block;font-size:12.5px;color:var(--ink)}.fe-point p{margin:3px 0 0;font-size:11.5px;line-height:1.5;color:var(--ink-soft)}
+.fe-sensitive-hint{display:none;margin-top:4px;padding:5px 7px;border-left:3px solid #C77A17;border-radius:3px;background:#FFF8E8;color:#84520D;font-size:10.5px;line-height:1.45}.fe-sensitive-hint.on{display:block}.fe-sensitive-mark{outline:2px solid rgba(199,122,23,.28)!important;border-color:#C77A17!important}
+.fe-api-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.fe-api-item{padding:10px 11px;border:1px solid #D9E5ED;border-radius:8px;background:#F9FBFC}.fe-api-item span{display:block;font-size:10.5px;color:var(--ink-soft);margin-bottom:4px}.fe-api-item code{font-size:11px;color:#245A78;word-break:break-all}.fe-contract{margin:10px 0 0;padding:10px 12px;border-radius:7px;background:#102D3F;color:#DDF3FF;font-size:11px;line-height:1.6;white-space:pre-wrap;word-break:break-word;overflow:auto}
+.fe-payment-state{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:9px 0}.fe-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:12px 0}.fe-flow-step{position:relative;padding:10px 7px;border:1px solid #D8E4EC;border-radius:8px;background:#F7FAFC;text-align:center}.fe-flow-step b{display:block;font-size:11.5px}.fe-flow-step small{font-size:10px;color:var(--ink-soft)}.fe-flow-step.done{border-color:#A8D5BD;background:#ECF7F1}.fe-flow-step.done b{color:#246B4D}.fe-flow-step.current{border-color:#8EBBD8;background:#EEF7FD}.fe-flow-step.current b{color:#245E83}
+.fe-callout{padding:10px 12px;border-left:4px solid var(--blue);background:#F2F8FC;border-radius:5px;font-size:11.5px;line-height:1.65;color:var(--ink-soft)}.fe-callout b{color:var(--ink)}
+@media(max-width:760px){.fe-points,.fe-api-grid{grid-template-columns:1fr}.fe-flow{grid-template-columns:1fr 1fr}}
+</style>
+
+<script>
+/* ============ 前端完整演示增强层（后端可替换适配器） ============ */
+(function(){
+  'use strict';
+  const F=window.FIN_DEMO;if(!F)return;
+  const VERSION='FE-2026.08.1',RULE_VERSION='JG-AUDIT-2026.08';
+  const esc=F.e||function(v){return String(v==null?'':v).replace(/[&<>"']/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];});};
+  const money=F.money||function(v){return '¥'+(Number(v)||0).toFixed(2);};
+  const SENSITIVE_RULES=[
+    {term:'购物卡',level:'high'},{term:'礼品卡',level:'high'},{term:'回扣',level:'high'},{term:'套现',level:'high'},
+    {term:'虚假',level:'high'},{term:'私人账户',level:'high'},{term:'个人收款',level:'high'},{term:'拆分报销',level:'high'},
+    {term:'烟酒',level:'warn'},{term:'高档礼品',level:'warn'},{term:'红包',level:'warn'},{term:'娱乐消费',level:'warn'},
+    {term:'现金返利',level:'warn'},{term:'无票',level:'warn'},{term:'白条',level:'warn'},{term:'充值',level:'warn'}
+  ];
+  const RULE_PACKS={
+    '差旅费':{basis:'差旅费管理办法与人员职级标准',required:[['审批'],['签到','定位'],['签退','定位'],['发票','车票','交通'],['支付申请']],points:[
+      ['事前审批与行程','核对审批单、出差人员、地点及计划日期。',['审批','出差']],['签到签退真实性','核对定位、停留时长与审批目的地。',['签到','签退','定位']],['住宿限额','按职级、地区、旺季及实际住宿晚数控制。',['住宿','限额','职级']],['交通与补助','核对交通票、实际天数和补助标准。',['交通','补助','天数']]
+    ]},
+    '培训费':{basis:'培训费管理办法与综合定额标准',required:[['培训通知','通知'],['审批'],['签到','名单'],['发票'],['费用明细','明细'],['支付申请']],points:[
+      ['培训依据','核对通知、事前审批及培训主题。',['通知','审批']],['人数与天数','参训人数、日程、签到与申报天数相互印证。',['签到','日程','名单']],['综合定额','住宿、伙食、场地资料交通费按定额控制。',['定额','费用明细']],['师资费','核验教师职称、课时、标准和签收材料。',['师资','课时','讲课']]
+    ]},
+    '会议费':{basis:'会议费管理办法与分类定额标准',required:[['会议通知','通知'],['审批'],['参会名单','签到'],['发票'],['结算明细','明细'],['支付申请']],points:[
+      ['会议审批','核对会议类别、事由和事前审批。',['会议','审批']],['参会规模','参会名单、签到、天数与费用规模匹配。',['名单','签到']],['分类定额','按会议类别、人数、天数执行综合定额。',['定额','结算明细']],['会议真实性','通知、日程、场地和发票信息相互印证。',['通知','场地','发票']]
+    ]},
+    '办公费':{basis:'政府采购、内控及验收管理规则',required:[['采购申请','申请'],['验收'],['发票'],['采购明细','明细'],['支付申请']],points:[
+      ['采购依据','核对采购申请、预算来源与采购方式。',['采购申请','预算']],['验收数量','验收单、采购明细和发票数量一致。',['验收','明细']],['价格合理性','关注异常单价、拆分采购及超预算。',['单价','预算']],['供应商一致','合同、发票、验收与收款方一致。',['供应商','收款']]
+    ]},
+    '工会经费':{basis:'基层工会经费收支管理规则',required:[['方案','通知'],['审批'],['发票'],['名单','签收'],['支付申请']],points:[
+      ['事项依据','核对活动方案、审批与适用对象。',['方案','审批']],['人员范围','参与名单、签收记录与人数一致。',['名单','签收']],['支出边界','识别购物卡、礼品、娱乐等敏感支出。',['支出','发票']],['额度标准','按项目、对象和现行标准控制金额。',['标准','金额']]
+    ]},
+    '医疗补助':{basis:'医疗补助及个人自费排除规则',required:[['医保结算','结算单'],['费用明细','明细'],['医疗收费票据','发票'],['病历','出院']],points:[
+      ['人员资格','核对申请人身份、亲属关系及适用范围。',['人员','身份']],['个人自付口径','以医保结算单个人自付金额为基数。',['个人自付','结算']],['自费项目排除','逐项排除政策规定的个人自费项目。',['自费','费用明细']],['材料完整性','门诊病历或住院出院材料须与票据对应。',['病历','出院','票据']]
+    ]},
+    '医疗保险费报销':{basis:'学生医疗保险费缴费与报销标准',required:[['缴费凭证','医保'],['支付申请']],points:[
+      ['适用对象','核对学生类别、年度与参保关系。',['学生','年度']],['缴费真实性','核对缴费凭证、缴费人和缴费年度。',['缴费凭证','缴费']],['报销标准','实际缴费金额不得超过文件年度标准。',['年度标准','缴费金额']],['重复报销','核查本人及配偶单位是否重复申报。',['重复','双方单位']]
+    ]},
+    '默认':{basis:'财政支出、预算与内部控制通用规则',required:[['业务申请','申请'],['审批'],['原始票据','发票'],['支付申请']],points:[
+      ['业务真实性','申请、审批、合同或业务依据相互印证。',['申请','审批']],['预算合规','预算项目、资金来源与经济科目匹配。',['预算','科目']],['金额勾稽','原始票据、结算明细与支付申请金额一致。',['票据','支付申请']],['收款一致','合同、发票和实际收款账户一致。',['收款','发票']]
+    ]}
+  };
+
+  function normalizeBiz(r){const s=String(r&&r.biz||'');if(/差旅/.test(s))return '差旅费';if(/培训/.test(s))return '培训费';if(/会议/.test(s))return '会议费';if(/工会/.test(s))return '工会经费';if(/医疗保险|医保/.test(s))return '医疗保险费报销';if(/医疗|医药/.test(s))return '医疗补助';if(/办公|采购/.test(s))return '办公费';return '默认';}
+  function ledgerRows(r){try{return (typeof LEDGER!=='undefined'&&Array.isArray(LEDGER))?LEDGER.filter(function(x){return x.appNo===r.appNo;}):[];}catch(_){return [];}}
+  function allLedgerRows(){try{return (typeof LEDGER!=='undefined'&&Array.isArray(LEDGER))?LEDGER:[];}catch(_){return [];}}
+  function recordAttachments(r){return ledgerRows(r).reduce(function(out,row){return out.concat(Array.isArray(row.atts)?row.atts:[]);},[]);}
+  function materialText(r){const parts=[r.id,r.appNo,r.biz,r.summary,r.party,r.invoiceNo];(r.docs||[]).forEach(function(x){parts.push(typeof x==='string'?x:JSON.stringify(x));});ledgerRows(r).forEach(function(x){parts.push(x.content,x.project,x.payee,x.voucher,x.code);(x.atts||[]).forEach(function(a){parts.push(a.n,a.ocr,a.ocrError,a.ocrData&&JSON.stringify(a.ocrData));});});(r.events||[]).forEach(function(x){parts.push(x.action,x.note);});return parts.filter(Boolean).join(' ');}
+  function cleanToken(v){return String(v==null?'':v).replace(/\s+/g,'').replace(/[（(].*?[）)]/g,'').toLowerCase();}
+  function usable(v){const s=String(v==null?'':v).trim();return !!s&&!/^(待识别|待从附件识别|—|-)$/.test(s);}
+  function stableFingerprint(v){const s=String(v||'');let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619);}return (h>>>0).toString(16).padStart(8,'0')+':'+s.length;}
+  function scanSensitive(text){const s=String(text||''),hits=[];SENSITIVE_RULES.forEach(function(rule){if(s.indexOf(rule.term)>=0)hits.push(rule);});if(/[\u200B-\u200D\uFEFF]/.test(s))hits.push({term:'不可见字符',level:'high'});return hits.filter(function(x,i,a){return a.findIndex(function(y){return y.term===x.term;})===i;});}
+  function missingGroups(text,groups){return (groups||[]).filter(function(group){return !group.some(function(k){return text.indexOf(k)>=0;});});}
+  function balanceEntries(entries){const books={};(entries||[]).forEach(function(x){const b=books[x.book]||(books[x.book]={debit:0,credit:0});if(x.dir==='借')b.debit+=Number(x.amount)||0;if(x.dir==='贷')b.credit+=Number(x.amount)||0;});return Object.keys(books).length>0&&Object.keys(books).every(function(k){return Math.abs(books[k].debit-books[k].credit)<0.005;});}
+  function auditChecks(r){
+    const rows=ledgerRows(r),atts=recordAttachments(r),text=materialText(r),pack=RULE_PACKS[normalizeBiz(r)]||RULE_PACKS['默认'];
+    const ocrFields={amount:Number(r.amount)>0,date:usable(r.date),invoice:usable(r.invoiceNo)||atts.some(function(a){return usable(a.ocrData&&(a.ocrData.invoiceNo||a.ocrData.no));}),party:usable(r.party)||atts.some(function(a){return usable(a.ocrData&&a.ocrData.party);})};
+    const ocrMissing=Object.keys(ocrFields).filter(function(k){return !ocrFields[k];});
+    const missing=missingGroups(text,pack.required),rowSum=rows.reduce(function(n,x){return n+(Number(x.amount)||0);},0),amountMismatch=rows.length&&Math.abs(rowSum-(Number(r.amount)||0))>0.01;
+    const thisInvoices=[r.invoiceNo].concat(atts.map(function(a){return a.ocrData&&(a.ocrData.invoiceNo||a.ocrData.no);})).filter(usable).map(cleanToken);
+    const dupInvoices=[];F.records.forEach(function(other){if(other===r)return;const nums=[other.invoiceNo].concat(recordAttachments(other).map(function(a){return a.ocrData&&(a.ocrData.invoiceNo||a.ocrData.no);})).filter(usable).map(cleanToken);thisInvoices.forEach(function(n){if(nums.indexOf(n)>=0)dupInvoices.push(n);});});
+    const currentPrints=atts.filter(function(a){return a.d;}).map(function(a){return stableFingerprint(a.d);}),otherPrints=[];allLedgerRows().filter(function(x){return x.appNo!==r.appNo;}).forEach(function(x){(x.atts||[]).forEach(function(a){if(a.d)otherPrints.push(stableFingerprint(a.d));});});const imageDup=currentPrints.some(function(x){return otherPrints.indexOf(x)>=0;});
+    const baseDate=Date.parse(r.date),ocrDates=atts.map(function(a){return a.ocrData&&a.ocrData.date;}).filter(usable).map(Date.parse).filter(Number.isFinite),dateBad=Number.isFinite(baseDate)&&ocrDates.some(function(d){return Math.abs(d-baseDate)>366*86400000;});
+    const standardHit=/超标准|超限|超过.*限额|超预算|违规|不得报销/.test(text);
+    const payees=rows.map(function(x){return x.payee;}).filter(usable),ocrParties=atts.map(function(a){return a.ocrData&&a.ocrData.party;}).filter(usable),payeeMismatch=payees.length&&ocrParties.length&&ocrParties.some(function(p){return !payees.some(function(x){const a=cleanToken(x),b=cleanToken(p);return a===b||a.indexOf(b)>=0||b.indexOf(a)>=0;});});
+    const sensitive=scanSensitive(text),sensitiveHigh=sensitive.some(function(x){return x.level==='high';});
+    r.auditContext={ruleVersion:RULE_VERSION,businessType:normalizeBiz(r),checkedAt:new Date().toISOString(),missingMaterials:missing.map(function(x){return x.join('/');}),sensitiveHits:sensitive.map(function(x){return x.term;}),evidence:{ledgerRows:rows.length,attachments:atts.length,ocrDates:ocrDates.length}};
+    return [
+      {name:'OCR字段完整性',state:ocrMissing.length?'warn':'pass',detail:ocrMissing.length?'尚缺关键字段：'+ocrMissing.join('、'):'金额、日期、发票号码和收款方字段已取得'},
+      {name:'材料完整性',state:missing.length?'warn':'pass',detail:missing.length?'按'+normalizeBiz(r)+'规则待补：'+missing.map(function(x){return x.join('/');}).join('、'):'已按当前业务规则关联必要材料'},
+      {name:'金额勾稽',state:amountMismatch?'fail':'pass',detail:amountMismatch?'台账明细'+money(rowSum)+'与电子凭证'+money(r.amount)+'不一致':rows.length?'台账明细与电子凭证金额一致':'暂无明细差异信号，待后端支付数据复核'},
+      {name:'重复票据与影像',state:dupInvoices.length?'fail':imageDup?'warn':'pass',detail:dupInvoices.length?'命中跨单重复票号：'+dupInvoices.join('、'):imageDup?'命中跨单相同影像指纹，须人工复核':'未发现跨单重复票号或影像指纹'},
+      {name:'日期一致性',state:dateBad?'fail':'pass',detail:dateBad?'票据日期与业务日期跨度异常':'票据日期未发现异常跨度'},
+      {name:'政策标准',state:standardHit?'fail':'pass',detail:standardHit?'材料或历史事件中出现超标准/超限信号，请核定':'未发现明确超标准信号；适用 '+pack.basis},
+      {name:'收款方一致性',state:payeeMismatch?'warn':'pass',detail:payeeMismatch?'附件识别销售方与申请收款方不一致':'合同、票据或申请收款方未见冲突'},
+      {name:'敏感字符与词',state:sensitiveHigh?'fail':sensitive.length?'warn':'pass',detail:sensitive.length?'命中：'+sensitive.map(function(x){return x.term;}).join('、')+'；请核对业务说明和原始材料':'未发现配置库中的敏感字符或敏感词'}
+    ];
+  }
+
+  function rulePackHtml(r){const key=normalizeBiz(r),pack=RULE_PACKS[key]||RULE_PACKS['默认'],text=materialText(r);return '<div class="fe-standard-bar"><div><b>'+esc(key==='默认'?'通用财政支出':key)+'差异化审核要点</b><br>适用依据：'+esc(pack.basis)+'</div><span class="fe-version">规则 '+esc(RULE_VERSION)+'</span></div><div class="fe-points">'+pack.points.map(function(p){const ok=p[2].some(function(k){return text.indexOf(k)>=0;});return '<div class="fe-point '+(ok?'':'warn')+'"><i>'+(ok?'✓':'!')+'</i><div><b>'+esc(p[0])+'</b><p>'+esc(p[1])+'<br><span>'+(ok?'已在关联材料中取得相关信号':'待审核人结合原始影像核验')+'</span></p></div></div>';}).join('')+'</div>';}
+
+  function bindSensitiveInput(input){if(!input||input.dataset.feSensitiveBound==='1')return;input.dataset.feSensitiveBound='1';const hint=document.createElement('div');hint.className='fe-sensitive-hint';hint.setAttribute('role','status');input.insertAdjacentElement('afterend',hint);function update(){const hits=scanSensitive(input.value);input.classList.toggle('fe-sensitive-mark',hits.length>0);hint.classList.toggle('on',hits.length>0);hint.textContent=hits.length?'敏感提示：检测到“'+hits.map(function(x){return x.term;}).join('、')+'”。请确认业务表述和附件依据，提交后将进入智能审核。':'';}input.addEventListener('input',update);input.addEventListener('change',update);update();}
+  function bindSensitiveFields(){document.querySelectorAll('#p-pay input:not([type="number"]):not([type="date"]):not([type="file"]):not([type="checkbox"]):not([type="search"])').forEach(bindSensitiveInput);}
+
+  function ensureRecord(r){if(!r)return r;r.payment=r.payment||{};if(r.stage>=4&&r.payment.status!=='succeeded'){r.payment={status:'succeeded',transactionNo:r.payment.transactionNo||('HIS-'+String(r.id||'').replace(/\D/g,'')),paidAt:r.payment.paidAt||r.date,source:'历史数据迁移',amount:Number(r.amount)||0};}else if(!r.payment.status)r.payment.status='waiting';r.integration=r.integration||{processedEvents:[],lastError:''};r.integration.processedEvents=Array.isArray(r.integration.processedEvents)?r.integration.processedEvents:[];return r;}
+  function ensureAll(){F.records.forEach(ensureRecord);}
+  function nextVoucherNo(){const year=new Date().getFullYear(),n=F.records.filter(function(x){return x.account&&x.account.voucherNo;}).length+1;return '记-'+year+'-'+String(n).padStart(6,'0');}
+  const CONFIG=Object.assign({mode:'frontend-mock',apiVersion:'v1',baseUrl:'',endpoints:{paymentEvent:'/api/v1/payments/events',autoPost:'/api/v1/accounting/vouchers:auto-post',rules:'/api/v1/audit/rules',materials:'/api/v1/vouchers/{id}/materials'}},window.FINANCE_INTEGRATION_CONFIG||{});
+  async function backendAutoPost(event,r){const url=String(CONFIG.baseUrl||'').replace(/\/$/,'')+CONFIG.endpoints.autoPost;if(!CONFIG.baseUrl)throw new Error('尚未配置后端服务地址');const res=await fetch(url,{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json','Accept':'application/json','Idempotency-Key':event.eventId,'X-API-Version':CONFIG.apiVersion},body:JSON.stringify({event:event,voucher:{id:r.id,appNo:r.appNo,businessType:r.biz,amount:r.amount,date:r.date,party:r.party,materials:r.docs}})});const raw=await res.text();if(!res.ok)throw new Error('核算接口 '+res.status+'：'+raw.slice(0,160));return raw?JSON.parse(raw):{};}
+  async function acceptPaymentEvent(event){
+    if(!event||event.type!=='payment.succeeded')throw new Error('仅接受 payment.succeeded 事件');const p=event.payload||{},r=F.records.find(function(x){return x.id===p.recordId||x.appNo===p.appNo;});if(!r)throw new Error('未找到事件对应的电子凭证');ensureRecord(r);const eventId=String(event.eventId||'').trim();if(!eventId)throw new Error('支付事件缺少 eventId，无法保证幂等');
+    if(r.integration.processedEvents.indexOf(eventId)>=0)return {duplicate:true,record:r};if(r.stage>=4&&r.account&&r.account.voucherNo){r.integration.processedEvents.push(eventId);F.save();return {duplicate:true,record:r};}if(r.stage<3)throw new Error('电子凭证尚未审核通过，已阻断自动制证');if(Math.abs((Number(p.amount)||0)-(Number(r.amount)||0))>0.01)throw new Error('支付金额与电子凭证金额不一致，已阻断自动过账');
+    r.payment={status:'processing',transactionNo:p.transactionNo||'',paidAt:p.paidAt||event.occurredAt||new Date().toISOString(),source:event.source||'支付平台',amount:Number(p.amount)||0,eventId:eventId};r.integration.lastError='';F.event(r,'收到支付成功事件','事件 '+eventId+' 已通过金额与状态校验','支付事件适配器');F.save();renderPaymentAutomation();
+    try{
+      let result={};if(CONFIG.mode==='backend')result=await backendAutoPost(event,r);const entries=Array.isArray(result.entries)&&result.entries.length?result.entries:F.makeEntries(r);if(!balanceEntries(entries))throw new Error('自动生成分录借贷不平衡');
+      r.account.entries=entries;r.account.voucherNo=result.voucherNo||r.account.voucherNo||nextVoucherNo();r.account.status='自动过账成功';r.account.postedAt=result.postedAt||new Date().toISOString();r.account.source=CONFIG.mode==='backend'?'核算系统接口':'前端规则引擎';r.payment.status='succeeded';r.stage=Math.max(4,r.stage);r.integration.processedEvents.push(eventId);r.integration.lastError='';F.event(r,'支付成功后自动制证并过账','生成记账凭证 '+r.account.voucherNo+'；幂等键 '+eventId,CONFIG.mode==='backend'?'核算系统':'前端自动过账引擎');F.save();F.renderAll();return {duplicate:false,record:r};
+    }catch(err){r.payment.status='post_failed';r.integration.lastError=err.message;F.event(r,'自动过账失败',err.message,'接口适配器');F.save();F.renderAll();throw err;}
+  }
+  const Integration={version:VERSION,ruleVersion:RULE_VERSION,config:CONFIG,rules:RULE_PACKS,sensitiveRules:SENSITIVE_RULES,scanSensitive:scanSensitive,audit:auditChecks,acceptPaymentEvent:acceptPaymentEvent,configure:function(next){next=next||{};if(next.endpoints)Object.assign(CONFIG.endpoints,next.endpoints);Object.keys(next).forEach(function(k){if(k!=='endpoints')CONFIG[k]=next[k];});renderIntegrationCard();renderPaymentAutomation();return CONFIG;},simulatePaymentSuccess:function(id){const r=F.records.find(function(x){return x.id===id;});if(!r)return Promise.reject(new Error('未找到电子凭证'));return acceptPaymentEvent({eventId:'DEMO-PAY-'+Date.now()+'-'+String(r.id).replace(/\W/g,''),type:'payment.succeeded',occurredAt:new Date().toISOString(),source:'前端支付回调模拟器',payload:{recordId:r.id,appNo:r.appNo,transactionNo:'PAY-'+Date.now(),amount:Number(r.amount)||0,paidAt:new Date().toISOString()}});}};
+  window.FINANCE_INTEGRATION=Integration;
+
+  function installUI(){
+    document.title=document.title.indexOf('前端增强版')>=0?document.title:document.title+' · 前端增强版';
+    const auditBtn=document.querySelector('[data-fin-action="run-audit"]');if(auditBtn)auditBtn.textContent='执行八项智能校验';
+    const ruleHead=document.querySelector('[data-fin-page="audit-policy"] .fin-card-hd b');if(ruleHead)ruleHead.textContent='审核规则库 · 当前启用 8 项';
+    const auditGrid=document.querySelector('[data-fin-page="audit-workbench"] .fin-grid-2');if(auditGrid&&!document.getElementById('finDifferentialPoints'))auditGrid.insertAdjacentHTML('afterend','<div class="fin-card" style="margin-top:14px"><div class="fin-card-hd"><b>差异化审核要点与取证状态</b><span class="fin-badge good">按业务类型自动加载</span></div><div class="fin-card-bd" id="finDifferentialPoints"></div></div>');
+    const policyView=document.querySelector('[data-fin-page="audit-policy"]');if(policyView&&!document.getElementById('finIntegrationCard'))policyView.insertAdjacentHTML('beforeend','<div class="fin-card" style="margin-top:14px"><div class="fin-card-hd"><b>前后端融合契约</b><span class="fin-badge good">接口边界已预留</span></div><div class="fin-card-bd" id="finIntegrationCard"></div></div>');
+    const accountTabs=document.querySelector('[data-fin-tabs="account"]'),accountRules=document.querySelector('[data-fin-page="account-rules"]');if(accountTabs&&!document.querySelector('[data-fin-view="account-payment"]'))accountTabs.insertAdjacentHTML('beforeend','<button class="fin-tab" data-fin-view="account-payment">支付回调 · 自动过账</button>');
+    if(accountRules&&!document.querySelector('[data-fin-page="account-payment"]'))accountRules.insertAdjacentHTML('beforebegin','<div class="fin-view" data-fin-page="account-payment"><div class="fin-kpis" id="finPaymentKpis"></div><div class="fin-grid-2"><div class="fin-card"><div class="fin-card-hd"><b>支付成功事件</b><div class="fin-tools"><select id="finPaymentSelect" aria-label="选择待支付凭证"></select><button class="fin-btn primary" data-fin-ext-action="simulate-payment">模拟支付成功并自动过账</button></div></div><div class="fin-card-bd" id="finPaymentSource"></div></div><div class="fin-card"><div class="fin-card-hd"><b>自动制证与过账结果</b><span class="fin-badge good">幂等处理</span></div><div class="fin-card-bd" id="finPaymentResult"></div></div></div><div class="fin-card" style="margin-top:14px"><div class="fin-card-hd"><b>后端接入说明</b><span class="fin-badge gray">事件契约稳定</span></div><div class="fin-card-bd"><div class="fe-callout"><b>当前按钮只模拟支付平台发送成功事件。</b> 后期后端完成后，无需改变审核和制证页面，只需由支付服务调用 <code>FINANCE_INTEGRATION.acceptPaymentEvent(event)</code>，或把适配器切换为 backend 模式。事件必须携带唯一 eventId，重复回调不会重复记账。</div><pre class="fe-contract" id="finEventContract"></pre></div></div></div>');
+    const accountLabel=document.querySelector('.sys-mlabel[data-s="account"]'),dd=accountLabel&&accountLabel.parentElement&&accountLabel.parentElement.querySelector('.sys-dd');if(dd&&!dd.querySelector('[data-fv="account-payment"]')){const a=document.createElement('a');a.dataset.fv='account-payment';a.textContent='支付回调 · 自动过账';a.addEventListener('click',function(e){e.stopPropagation();F.open('account','account-payment');});dd.appendChild(a);}
+    const ruleWarn=document.querySelector('[data-fin-page="account-rules"] .fin-check.warn');if(ruleWarn){const b=ruleWarn.querySelector('b'),p=ruleWarn.querySelector('p'),badge=ruleWarn.querySelector('.fin-badge');if(b)b.textContent='自动过账闸门';if(p)p.textContent='仅审核通过且支付成功、金额一致、幂等校验通过时自动制证过账；异常转人工。';if(badge)badge.textContent='已启用';}
+    const entryBadge=document.querySelector('[data-fin-page="account-pending"] .fin-card:nth-child(2) .fin-card-hd .fin-badge');if(entryBadge){entryBadge.textContent='支持自动过账';entryBadge.className='fin-badge good';}
+    const hero=document.querySelector('#p-account .fin-hero-copy p');if(hero)hero.textContent='将审核通过的电子凭证映射到政府会计科目；收到支付成功事件后自动生成财务会计与预算会计双分录，并通过幂等校验完成过账。';
+    const payRows=document.getElementById('payRows');if(payRows)new MutationObserver(bindSensitiveFields).observe(payRows,{childList:true,subtree:true});bindSensitiveFields();renderIntegrationCard();renderPaymentAutomation();
+  }
+  function renderIntegrationCard(){const box=document.getElementById('finIntegrationCard');if(!box)return;box.innerHTML='<div class="fe-standard-bar"><div><b>前端规则与后端接口解耦</b><br>当前运行模式：'+esc(CONFIG.mode==='backend'?'后端接口':'前端完整模拟')+'；规则版本 '+esc(RULE_VERSION)+'</div><span class="fe-version">适配层 '+esc(VERSION)+'</span></div><div class="fe-api-grid"><div class="fe-api-item"><span>支付事件入口</span><code>payment.succeeded · eventId 幂等</code></div><div class="fe-api-item"><span>自动制证过账</span><code>POST '+esc(CONFIG.endpoints.autoPost)+'</code></div><div class="fe-api-item"><span>审核规则同步</span><code>GET '+esc(CONFIG.endpoints.rules)+'</code></div><div class="fe-api-item"><span>影像材料服务</span><code>GET/POST '+esc(CONFIG.endpoints.materials)+'</code></div></div><div class="fe-callout" style="margin-top:10px"><b>融合原则：</b>前端只依赖统一事件和JSON结果；后端接入后可替换存储、规则、支付和核算实现，不需要重写业务页面。</div>';}
+  function paymentStateText(r){if(r.payment.status==='succeeded')return '支付成功 · 已自动过账';if(r.payment.status==='processing')return '支付成功 · 正在自动过账';if(r.payment.status==='post_failed')return '支付成功 · 自动过账失败';if(r.stage<3)return '审核未完成';return '待支付成功事件';}
+  function renderPaymentAutomation(){
+    ensureAll();const rows=F.visible().filter(function(r){return r.stage>=3;}),sel=document.getElementById('finPaymentSelect');if(!sel)return;const old=sel.value;sel.innerHTML=rows.map(function(r){return '<option value="'+esc(r.id)+'">'+esc(r.id+' · '+r.biz+' · '+money(r.amount))+'</option>';}).join('');if(rows.some(function(r){return r.id===old;}))sel.value=old;else{const pending=rows.find(function(r){return r.stage===3;});if(pending)sel.value=pending.id;else if(rows[0])sel.value=rows[0].id;}const r=rows.length?F.get(sel.value):null;if(r)ensureRecord(r);
+    const k=document.getElementById('finPaymentKpis');if(k)k.innerHTML='<div class="fin-kpi"><span class="label">待支付回调</span><b>'+rows.filter(function(x){return x.stage===3&&x.payment.status==='waiting';}).length+'</b><small>审核通过待事件</small></div><div class="fin-kpi warn"><span class="label">过账处理中</span><b>'+rows.filter(function(x){return x.payment.status==='processing';}).length+'</b><small>已锁定幂等键</small></div><div class="fin-kpi good"><span class="label">自动过账成功</span><b>'+rows.filter(function(x){return x.stage>=4&&x.account&&x.account.voucherNo;}).length+'</b><small>已生成记账凭证</small></div><div class="fin-kpi danger"><span class="label">异常待处理</span><b>'+rows.filter(function(x){return x.payment.status==='post_failed';}).length+'</b><small>可重试不重复记账</small></div>';
+    const src=document.getElementById('finPaymentSource'),result=document.getElementById('finPaymentResult'),btn=document.querySelector('[data-fin-ext-action="simulate-payment"]');if(!r){if(src)src.innerHTML='<div class="fin-empty">暂无审核通过的业务</div>';if(result)result.innerHTML='';if(btn)btn.disabled=true;return;}if(btn){btn.disabled=r.stage!==3||r.payment.status==='processing';btn.textContent=r.stage>=4?'已支付并自动过账':'模拟支付成功并自动过账';}
+    const steps=[['审核通过',r.stage>=3],['支付成功',r.payment.status==='succeeded'||r.payment.status==='processing'||r.payment.status==='post_failed'],['自动制证',!!(r.account&&r.account.entries&&r.account.entries.length)],['自动过账',r.stage>=4&&!!(r.account&&r.account.voucherNo)]];if(src)src.innerHTML='<div class="fin-detail-title"><div><h3>'+esc(r.id)+'</h3><p>'+esc(r.summary)+'</p></div><span class="fin-badge '+(r.payment.status==='post_failed'?'danger':r.stage>=4?'good':'warn')+'">'+esc(paymentStateText(r))+'</span></div>'+F.meta(r)+'<div class="fe-payment-state"><span class="fin-badge gray">事件源：'+esc(r.payment.source||'等待支付平台')+'</span><span class="fin-badge gray">交易号：'+esc(r.payment.transactionNo||'—')+'</span></div><div class="fe-flow">'+steps.map(function(x,i){const current=!x[1]&&(i===0||steps[i-1][1]);return '<div class="fe-flow-step '+(x[1]?'done':current?'current':'')+'"><b>'+esc(x[0])+'</b><small>'+(x[1]?'已完成':current?'当前等待':'待流转')+'</small></div>';}).join('')+'</div>';
+    if(result){const has=r.account&&r.account.entries&&r.account.entries.length;result.innerHTML=has?'<div class="fin-detail-title"><div><h3>'+esc(r.account.voucherNo||'记账凭证草稿')+'</h3><p>处理来源：'+esc(r.account.source||'规则引擎')+'</p></div><span class="fin-badge '+(r.stage>=4?'good':'warn')+'">'+esc(r.account.status||'待处理')+'</span></div>'+F.entryTable(r)+(r.integration.lastError?'<div class="fin-note" style="color:#A43E3E;margin-top:9px">'+esc(r.integration.lastError)+'</div>':''):'<div class="fin-empty">收到支付成功事件后，系统将自动生成双分录、校验借贷平衡并登记记账凭证号，无需再次点击制证。</div>';}
+    const contract=document.getElementById('finEventContract');if(contract)contract.textContent=JSON.stringify({eventId:'pay_evt_唯一值',type:'payment.succeeded',occurredAt:new Date().toISOString(),source:'财政支付平台',payload:{recordId:r.id,appNo:r.appNo,transactionNo:'PAY202608230001',amount:Number(r.amount)||0,paidAt:new Date().toISOString()}},null,2);
+  }
+
+  F.auditChecks=auditChecks;
+  F.renderRules=function(){const box=document.getElementById('finPolicyRules');if(!box)return;const rs=[['R01','OCR字段完整性','金额、日期、票号、购销双方字段提取'],['R02','材料完整性','按业务类型动态检查必要材料'],['R03','金额勾稽','票据、明细、申请和支付金额核对'],['R04','重复票据与影像','票号与影像指纹跨单比对'],['R05','日期一致性','业务、票据、审批与支付日期检查'],['R06','政策标准','人员、地区、人数、天数与限额联动'],['R07','收款方一致性','合同、发票与实际收款账户核验'],['R08','敏感字符与词','高风险表述、不可见字符和敏感支出提示']];box.innerHTML=rs.map(function(x){return '<div class="fin-rule"><span class="fin-rule-no">'+x[0]+'</span><div><b>'+x[1]+'</b><p>'+x[2]+'</p></div><em>规则 '+RULE_VERSION+'</em></div>';}).join('');};
+  const originalRenderAudit=F.renderAudit;F.renderAudit=function(){originalRenderAudit();const r=F.get(F.selected),box=document.getElementById('finDifferentialPoints');if(box&&r)box.innerHTML=rulePackHtml(r);};
+  const originalRenderAccount=F.renderAccount;F.renderAccount=function(){ensureAll();originalRenderAccount();renderPaymentAutomation();};
+  document.addEventListener('change',function(e){if(e.target&&e.target.id==='finAuditSelect'){F.selected=e.target.value;F.renderAudit();}if(e.target&&e.target.id==='finPaymentSelect'){F.selected=e.target.value;renderPaymentAutomation();}});
+  document.addEventListener('click',async function(e){const b=e.target.closest('[data-fin-ext-action]');if(!b)return;if(b.dataset.finExtAction==='simulate-payment'){const sel=document.getElementById('finPaymentSelect'),id=sel&&sel.value;if(!id)return;b.disabled=true;b.textContent='正在接收支付事件…';try{const out=await Integration.simulatePaymentSuccess(id);alert(out.duplicate?'该支付事件已处理，不会重复记账。':'支付成功事件处理完成：已自动生成并过账 '+out.record.account.voucherNo);}catch(err){alert('自动过账未完成：'+err.message);}finally{renderPaymentAutomation();}}});
+  ensureAll();installUI();F.save();
+})();
+</script>
+
+<style id="threePublicControlStyles">
+/* 三公经费前端标准控制：国家→江苏省→苏州市分层继承 */
+.sys-mi[data-s="threepublic"] .sys-mlabel::before{content:"盾";font-size:12px;font-weight:800;text-shadow:none;color:#A65D14}
+#p-threepublic{padding:0}.tp-shell{padding:0}.tp-hero{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;padding:22px 24px;border:1px solid #C9DDE9;border-radius:11px;background:linear-gradient(135deg,#F5FAFD 0%,#EFF8F3 56%,#FFF8E8 100%);box-shadow:0 5px 18px rgba(20,66,98,.07)}
+.tp-hero h2{margin:4px 0 7px;font-size:22px;color:#173F61}.tp-hero p{margin:0;max-width:790px;color:var(--ink-soft);font-size:13px;line-height:1.7}.tp-kicker{font-size:11px;letter-spacing:1.2px;color:#267054;font-weight:800}.tp-version{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.tp-pill{display:inline-flex;align-items:center;padding:4px 9px;border-radius:999px;background:#E6F3EC;color:#246B4D;font-size:10.5px;font-weight:800}.tp-pill.warn{background:#FFF1D6;color:#8C5B0C}.tp-level-box{flex:none;min-width:200px;padding:12px;border:1px solid #D3E1E9;border-radius:9px;background:rgba(255,255,255,.86)}.tp-level-box label{display:block;margin-bottom:6px;font-size:11px;color:var(--ink-soft);font-weight:700}.tp-level-box select{width:100%;padding:9px;border:1px solid #BED0DC;border-radius:7px;background:#fff;color:var(--ink);font-family:inherit}
+.tp-tabs{display:flex;gap:7px;flex-wrap:wrap;margin:15px 0}.tp-tab{border:1px solid #C8D8E2;background:#fff;color:#35556D;padding:9px 13px;border-radius:8px;font-family:inherit;font-size:12px;font-weight:700;cursor:pointer}.tp-tab.on{border-color:#2874A6;background:#EAF4FB;color:#175B87;box-shadow:inset 0 -2px 0 #2874A6}.tp-view{display:none}.tp-view.on{display:block}
+.tp-overview{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.tp-module-card{padding:16px;border:1px solid #D4E1E9;border-radius:10px;background:#fff;box-shadow:0 3px 12px rgba(30,72,96,.05)}.tp-module-card .no{display:inline-flex;width:28px;height:28px;align-items:center;justify-content:center;border-radius:8px;background:#EAF4FB;color:#1D6693;font-weight:900}.tp-module-card h3{margin:11px 0 6px;font-size:15px}.tp-module-card p{margin:0;color:var(--ink-soft);font-size:11.5px;line-height:1.65}.tp-module-card ul{margin:10px 0 0;padding-left:18px;color:#455E70;font-size:11.5px;line-height:1.7}.tp-module-card button{margin-top:12px;border:0;border-radius:7px;background:#1E6D9D;color:#fff;padding:8px 11px;font-family:inherit;font-weight:700;cursor:pointer}
+.tp-hierarchy{margin-top:14px;padding:14px;border:1px solid #D8E3EA;border-radius:10px;background:#FAFCFD}.tp-hierarchy h3{margin:0 0 10px;font-size:14px}.tp-flowline{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;gap:8px}.tp-level-card{padding:11px;border-radius:8px;background:#fff;border:1px solid #D4E0E7}.tp-level-card b{display:block;font-size:12px;color:#244C67}.tp-level-card span{display:block;margin-top:4px;font-size:10.5px;line-height:1.55;color:var(--ink-soft)}.tp-arrow{display:flex;align-items:center;color:#7190A4;font-weight:900}
+.tp-workbench{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(320px,.75fr);gap:14px;align-items:start}.tp-card{border:1px solid #D3E0E8;border-radius:10px;background:#fff;box-shadow:0 3px 14px rgba(27,70,98,.05);overflow:hidden}.tp-card-hd{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:13px 15px;border-bottom:1px solid #DEE8EE;background:#F8FBFD}.tp-card-hd h3{margin:0;font-size:14px}.tp-card-hd p{margin:4px 0 0;font-size:10.5px;color:var(--ink-soft);line-height:1.5}.tp-card-bd{padding:15px}
+.tp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.tp-grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}.tp-field{min-width:0}.tp-field.full{grid-column:1/-1}.tp-field label{display:block;margin-bottom:5px;font-size:10.5px;color:#536B7A;font-weight:700}.tp-field input,.tp-field select{width:100%;box-sizing:border-box;padding:9px;border:1px solid #C8D7E0;border-radius:7px;background:#fff;color:var(--ink);font-family:inherit;font-size:12px}.tp-field input:focus,.tp-field select:focus{outline:2px solid rgba(44,119,165,.18);border-color:#4D91BB}.tp-field small{display:block;margin-top:4px;font-size:9.8px;line-height:1.5;color:#738895}.tp-checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:12px}.tp-checks label{display:flex;align-items:flex-start;gap:7px;padding:8px;border:1px solid #DAE5EB;border-radius:7px;background:#FAFCFD;font-size:10.5px;line-height:1.45;color:#425C6D}.tp-checks input{margin-top:2px;accent-color:#236F9E}.tp-section-title{grid-column:1/-1;margin:5px 0 -2px;padding-top:8px;border-top:1px dashed #D6E1E8;color:#224E69;font-size:11.5px;font-weight:800}
+.tp-summary-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:11px}.tp-metric{padding:10px;border:1px solid #DBE6EC;border-radius:8px;background:#F8FBFD}.tp-metric span{display:block;font-size:9.5px;color:var(--ink-soft)}.tp-metric b{display:block;margin-top:3px;font-size:15px;color:#1F536F}.tp-result-list{display:flex;flex-direction:column;gap:7px}.tp-result{display:flex;gap:8px;align-items:flex-start;padding:8px 9px;border:1px solid #DCE6EB;border-radius:7px;background:#FAFCFD}.tp-result i{flex:none;display:flex;width:18px;height:18px;align-items:center;justify-content:center;border-radius:50%;font-style:normal;font-size:10px;font-weight:900}.tp-result b{display:block;font-size:10.8px}.tp-result p{margin:2px 0 0;color:var(--ink-soft);font-size:9.8px;line-height:1.5}.tp-result.pass i{background:#E1F2E8;color:#1D704B}.tp-result.warn i{background:#FFF0CE;color:#94600A}.tp-result.fail{border-color:#EDC8C4;background:#FFF8F7}.tp-result.fail i{background:#FBE3E0;color:#A53B34}.tp-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.tp-action{border:0;border-radius:7px;padding:9px 11px;background:#1C6C9B;color:#fff;font-family:inherit;font-size:11px;font-weight:800;cursor:pointer}.tp-action.secondary{background:#EEF4F7;color:#355B70;border:1px solid #C9D9E2}.tp-action:disabled{background:#C7D1D7;color:#6E7C84;cursor:not-allowed}
+.tp-source-note{margin-top:11px;padding:9px 11px;border-left:4px solid #CE8A27;border-radius:5px;background:#FFF8E9;color:#77531A;font-size:10.5px;line-height:1.65}.tp-source-note b{color:#60400D}.tp-source-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.tp-source{padding:13px;border:1px solid #D6E2E9;border-radius:9px;background:#fff}.tp-source .scope{display:inline-block;padding:3px 7px;border-radius:999px;background:#EAF3F8;color:#296384;font-size:9.5px;font-weight:800}.tp-source h3{margin:9px 0 5px;font-size:13px}.tp-source p{margin:0;color:var(--ink-soft);font-size:10.5px;line-height:1.65}.tp-source a{display:inline-block;margin-top:8px;color:#1A6998;font-size:10.5px;font-weight:700;text-decoration:none}.tp-backend{margin-top:14px;padding:14px;border-radius:10px;background:#102F41;color:#D9EDF6}.tp-backend h3{margin:0 0 7px;color:#fff;font-size:13px}.tp-backend p{margin:0;color:#BFD7E3;font-size:10.5px;line-height:1.65}.tp-backend code{display:block;margin-top:9px;padding:10px;border-radius:6px;background:#0A2433;color:#D7F3E7;font-size:10px;line-height:1.55;white-space:pre-wrap;word-break:break-word}.tp-custom{display:none}.tp-custom.on{display:block}
+.tp-stage-flow{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:15px 0 12px}.tp-stage{position:relative;padding:9px 8px;border:1px solid #D9E5EB;border-radius:8px;background:#F8FBFD;text-align:center}.tp-stage b{display:block;font-size:10.5px;color:#31586F}.tp-stage small{font-size:9.3px;color:#7A8E9A}.tp-stage.done{border-color:#AAD5BE;background:#ECF7F1}.tp-stage.done b{color:#216B4A}.tp-stage.current{border-color:#E2C078;background:#FFF8E8}.tp-stage.current b{color:#8A5A0D}.tp-material{margin-top:15px;padding-top:14px;border-top:1px dashed #C9D9E2}.tp-material-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px}.tp-material-head h4{margin:0;font-size:13px;color:#224E69}.tp-material-head p{margin:3px 0 0;font-size:9.8px;line-height:1.5;color:var(--ink-soft)}.tp-material-state{flex:none;padding:4px 8px;border-radius:999px;background:#EEF3F6;color:#617684;font-size:9.5px;font-weight:800}.tp-material-state.ok{background:#E2F3E9;color:#216D4A}.tp-material-state.warn{background:#FFF0CE;color:#91600D}.tp-material-actions{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px}.tp-material-actions button{border:1px solid #C5D7E1;border-radius:7px;background:#F5F9FB;color:#315E78;padding:8px 10px;font-family:inherit;font-size:10.5px;font-weight:800;cursor:pointer}.tp-material-actions button.primary{border-color:#2878A6;background:#1E6E9C;color:#fff}.tp-material-actions button:disabled{opacity:.48;cursor:not-allowed}.tp-material-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.tp-material-empty{grid-column:1/-1;padding:14px;border:1px dashed #C8D7E0;border-radius:8px;background:#FAFCFD;color:#738894;text-align:center;font-size:10.5px;line-height:1.6}.tp-material-item{position:relative;display:grid;grid-template-columns:56px minmax(0,1fr);gap:9px;min-width:0;padding:8px;border:1px solid #D9E4EA;border-radius:8px;background:#fff}.tp-material-thumb{width:56px;height:54px;object-fit:cover;border-radius:6px;background:#EFF4F7;display:flex;align-items:center;justify-content:center;font-size:22px;color:#567183}.tp-material-name{font-size:10.5px;font-weight:800;color:#2E5064;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.tp-material-meta{margin-top:3px;font-size:9.4px;line-height:1.5;color:#728793}.tp-material-badges{display:flex;gap:4px;flex-wrap:wrap;margin-top:5px}.tp-material-badge{padding:2px 5px;border-radius:999px;background:#EAF3F8;color:#2B6688;font-size:8.8px;font-weight:700}.tp-material-badge.warn{background:#FFF0CE;color:#91600D}.tp-material-badge.ok{background:#E3F3EA;color:#236D4B}.tp-material-remove{position:absolute;right:5px;top:4px;width:20px;height:20px;border:0;border-radius:50%;background:#F7E9E7;color:#A23E37;cursor:pointer}.tp-material-summary{margin-top:9px;padding:9px 10px;border-left:4px solid #5B9FC4;border-radius:5px;background:#F1F8FC;color:#476475;font-size:10px;line-height:1.6}.tp-material-summary.ok{border-left-color:#4A9C73;background:#EDF8F2;color:#2F6B4E}.tp-material-summary.warn{border-left-color:#C88A28;background:#FFF8E9;color:#7B571B}
+@media(max-width:1050px){.tp-overview{grid-template-columns:1fr}.tp-workbench{grid-template-columns:1fr}.tp-source-grid{grid-template-columns:1fr}}@media(max-width:700px){.tp-hero{display:block;padding:17px}.tp-level-box{margin-top:12px}.tp-grid,.tp-grid.three,.tp-checks,.tp-summary-grid,.tp-material-list,.tp-stage-flow{grid-template-columns:1fr}.tp-flowline{grid-template-columns:1fr}.tp-arrow{justify-content:center;transform:rotate(90deg)}}
+</style>
+
+<script>
+/* ============ 三公经费标准控制：前端规则引擎 + 后端规则包接口 ============ */
+(function(){
+  'use strict';
+  var F=window.FIN_DEMO;
+  var VERSION='SGJF-2026.08-FE2';
+  var STORAGE_KEY='three_public_settings_v1';
+  var LEVELS={
+    national:{label:'国家',note:'执行中央现行基础制度与国家标准表'},
+    jiangsu:{label:'江苏省',note:'继承国家标准，并叠加江苏审批、采购和公务用车要求'},
+    suzhou:{label:'苏州市',note:'继承国家、江苏规则，并预留苏州市及本单位备案参数'}
+  };
+  var SOURCES=[
+    {scope:'国家·总则',title:'党政机关厉行节约反对浪费条例（2025年修订）',ref:'现行总约束',url:'https://jgswj.suzhou.gov.cn/szjgswj/tszs/202505/6b46e0d4f7c2476899ada3e2f1d15179.shtml',desc:'预算、因公临时出国、公务接待、公务用车等厉行节约总体要求。'},
+    {scope:'国家·出国',title:'因公临时出国经费管理办法',ref:'财行〔2013〕516号；标准表按财行〔2017〕434号调整',url:'https://xzzf.mof.gov.cn/zcfbyjd/201312/t20131227_1030433.htm',desc:'事前预算和计划审批、国际旅费、住宿费、伙食费及公杂费控制。'},
+    {scope:'江苏·出国',title:'江苏省财政厅转发因公临时出国经费管理办法',ref:'苏财行〔2014〕5号',url:'https://www.nsi.edu.cn/cwc/0d/06/c1236a3334/page.htm',desc:'江苏执行国家办法；公务机票采购等省级要求叠加控制。'},
+    {scope:'国家·接待',title:'党政机关国内公务接待管理规定',ref:'中办发〔2024〕7号',url:'https://www.ordos.gov.cn/xw_127672/jreeds/202510/t20251017_3842911.html',desc:'一次工作餐、陪餐比例、接待清单和禁限事项等结构化强规则。'},
+    {scope:'江苏/苏州·接待',title:'现行省市公务接待制度文件',ref:'苏办发〔2025〕6号；苏委办发〔2025〕9号',url:'https://www.jssvc.edu.cn/xxgg/202512/P020260109372185039916.pdf',desc:'页面采用省市文件层级；未公开统一金额由财务配置员维护，防止误用历史口径。'},
+    {scope:'国家·公车',title:'党政机关公务用车管理办法',ref:'中办发〔2017〕71号',url:'https://www.ggj.gov.cn/zcfg/flfg/202201/t20220126_34481.htm',desc:'车辆购置价格、排量、集中采购、新能源和运行预算控制。'},
+    {scope:'苏州·金额参考',title:'苏州市市级党政机关会议费定点场所标准',ref:'公开会议伙食费参考，不等同于现行公务接待限额',url:'https://czju.suzhou.gov.cn/zfcg/html/project/dec2bab6b0704655a5880d2c7e255568.shtml',desc:'仅用于初始化前端可配置值；正式支付前必须由主管部门确认接待工作餐标准。'}
+  ];
+  var DESTINATIONS=[
+    {id:'kr-seoul',label:'韩国·首尔/釜山/济州',currency:'USD',lodging:180,meal:70,misc:35},
+    {id:'kr-other',label:'韩国·其他城市',currency:'USD',lodging:150,meal:70,misc:35},
+    {id:'jp-tokyo',label:'日本·东京',currency:'JPY',lodging:20000,meal:10000,misc:5000},
+    {id:'jp-osaka',label:'日本·大阪/京都',currency:'JPY',lodging:18000,meal:10000,misc:5000},
+    {id:'jp-other',label:'日本·其他城市',currency:'JPY',lodging:9000,meal:10000,misc:5000},
+    {id:'sg',label:'新加坡',currency:'USD',lodging:220,meal:55,misc:40},
+    {id:'hk',label:'中国香港',currency:'HKD',lodging:1900,meal:500,misc:300},
+    {id:'mo',label:'中国澳门',currency:'HKD',lodging:1200,meal:500,misc:300},
+    {id:'tw',label:'中国台湾',currency:'USD',lodging:150,meal:60,misc:40},
+    {id:'de-berlin',label:'德国·柏林/汉堡',currency:'EUR',lodging:150,meal:60,misc:38},
+    {id:'de-frankfurt',label:'德国·法兰克福',currency:'EUR',lodging:180,meal:60,misc:38},
+    {id:'fr-paris',label:'法国·巴黎',currency:'EUR',lodging:180,meal:60,misc:40},
+    {id:'uk-london',label:'英国·伦敦',currency:'GBP',lodging:200,meal:45,misc:35},
+    {id:'us-washington',label:'美国·华盛顿',currency:'USD',lodging:260,meal:55,misc:45},
+    {id:'us-newyork',label:'美国·纽约',currency:'USD',lodging:270,meal:55,misc:45},
+    {id:'us-la',label:'美国·洛杉矶',currency:'USD',lodging:250,meal:55,misc:45},
+    {id:'ca-toronto',label:'加拿大·渥太华/多伦多/卡尔加里/蒙特利尔',currency:'USD',lodging:210,meal:55,misc:45},
+    {id:'ca-vancouver',label:'加拿大·温哥华',currency:'USD',lodging:240,meal:55,misc:45},
+    {id:'au-sydney',label:'澳大利亚·悉尼/墨尔本',currency:'USD',lodging:200,meal:60,misc:50},
+    {id:'nz',label:'新西兰',currency:'USD',lodging:180,meal:60,misc:45},
+    {id:'th-bangkok',label:'泰国·曼谷',currency:'USD',lodging:140,meal:50,misc:35},
+    {id:'my',label:'马来西亚',currency:'USD',lodging:110,meal:50,misc:35},
+    {id:'ae',label:'阿联酋',currency:'USD',lodging:200,meal:50,misc:40},
+    {id:'ru-moscow',label:'俄罗斯·莫斯科',currency:'USD',lodging:285,meal:45,misc:40},
+    {id:'in-delhi',label:'印度·新德里/加尔各答',currency:'USD',lodging:175,meal:50,misc:35},
+    {id:'vn-hanoi',label:'越南·河内',currency:'USD',lodging:90,meal:40,misc:30}
+  ];
+  var VEHICLE_RULES={
+    confidential:{label:'机要通信用车',price:120000,engine:1.6,approval:false},
+    emergency:{label:'应急保障及其他公务用车',price:180000,engine:1.8,approval:false},
+    enforcement:{label:'执法执勤一般用车',price:120000,engine:1.6,approval:false},
+    enforcementWork:{label:'执法执勤工作需要用车',price:180000,engine:1.8,approval:false},
+    newEnergy:{label:'新能源轿车',price:180000,engine:null,approval:false},
+    special:{label:'特殊用途公务用车',price:250000,engine:3.0,approval:true},
+    bus:{label:'大型客车',price:450000,engine:null,approval:true},
+    suv:{label:'江苏经批准国产越野车（SUV）',price:250000,engine:3.0,approval:true}
+  };
+  var MATERIAL_SPECS={
+    abroad:{name:'因公出国（境）原始材料',hint:'任务批件/审批、国际机票或行程单、住宿和国外城市间交通票据'},
+    reception:{name:'公务接待原始材料',hint:'派出单位公函、接待审批、接待清单、发票、菜单或消费明细'},
+    vehicle:{name:'公务用车原始材料',hint:'购置材料或派车单、发票、维修/结算明细及车辆证明'}
+  };
+  var state={level:'suzhou',receptionCap:150,capConfirmed:false,last:{abroad:null,reception:null,vehicle:null},materials:{abroad:{items:[],confirmed:false,busy:false,note:''},reception:{items:[],confirmed:false,busy:false,note:''},vehicle:{items:[],confirmed:false,busy:false,note:''}}};
+  try{var saved=JSON.parse(localStorage.getItem(STORAGE_KEY)||'null');if(saved){state.level=saved.level||state.level;state.receptionCap=Number(saved.receptionCap)||state.receptionCap;state.capConfirmed=!!saved.capConfirmed;}}catch(_){}
+  function persist(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify({level:state.level,receptionCap:state.receptionCap,capConfirmed:state.capConfirmed}));}catch(_){}}
+  function e(v){return String(v==null?'':v).replace(/[&<>"']/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];});}
+  function n(id){var x=document.getElementById(id);return Number(x&&x.value)||0;}
+  function v(id){var x=document.getElementById(id);return x?x.value:'';}
+  function c(id){var x=document.getElementById(id);return !!(x&&x.checked);}
+  function yuan(x){return '¥'+(Number(x)||0).toLocaleString('zh-CN',{minimumFractionDigits:2,maximumFractionDigits:2});}
+  function nativeMoney(x,cur){return (cur||'')+' '+(Number(x)||0).toLocaleString('zh-CN',{maximumFractionDigits:2});}
+  function add(out,stateName,label,detail){out.push({state:stateName,label:label,detail:detail});}
+  function status(checks){return checks.some(function(x){return x.state==='fail';})?'fail':checks.some(function(x){return x.state==='warn';})?'warn':'pass';}
+  function destination(){
+    var id=v('tpAbroadDest'),d=DESTINATIONS.find(function(x){return x.id===id;});
+    if(d)return d;
+    return {id:'custom',label:v('tpAbroadCustomName')||'自定义目的地',currency:v('tpAbroadCurrency')||'USD',lodging:n('tpAbroadCustomLodging'),meal:n('tpAbroadCustomMeal'),misc:n('tpAbroadCustomMisc')};
+  }
+  function evaluateAbroad(data){
+    data=data||{};
+    var d=data.destination||destination(),rank=data.rank||v('tpAbroadRank'),persons=data.persons==null?n('tpAbroadPersons'):Number(data.persons),days=data.days==null?n('tpAbroadDays'):Number(data.days),approvedDays=data.approvedDays==null?n('tpAbroadApprovedDays'):Number(data.approvedDays),nights=data.nights==null?n('tpAbroadNights'):Number(data.nights),fx=data.fx==null?n('tpAbroadFx'):Number(data.fx);
+    var lodgingActual=data.lodgingActual==null?n('tpAbroadLodging'):Number(data.lodgingActual),mealClaim=data.mealClaim==null?n('tpAbroadMeal'):Number(data.mealClaim),miscClaim=data.miscClaim==null?n('tpAbroadMisc'):Number(data.miscClaim),international=data.international==null?n('tpAbroadInternational'):Number(data.international),intercity=data.intercity==null?n('tpAbroadIntercity'):Number(data.intercity),budget=data.budget==null?n('tpAbroadBudget'):Number(data.budget);
+    var approved=data.approved==null?c('tpAbroadApproved'):!!data.approved,budgeted=data.budgeted==null?c('tpAbroadBudgeted'):!!data.budgeted,air=data.air==null?c('tpAbroadAir'):!!data.air,provided=data.provided==null?c('tpAbroadProvided'):!!data.provided;
+    var checks=[],lodgingCap=d.lodging*persons*nights,mealCap=d.meal*persons*days,miscCap=d.misc*persons*days;
+    var lodgingTotal=lodgingActual*persons*nights,mealTotal=mealClaim*persons*days,miscTotal=miscClaim*persons*days,total=(lodgingTotal+mealTotal+miscTotal)*fx+international+intercity;
+    add(checks,approved?'pass':'fail','事前审批',approved?'已确认出国计划与经费预算审批':'无预算或未履行计划审批不得安排出国');
+    add(checks,budgeted?'pass':'fail','预算控制',budgeted?'已纳入年度因公出国（境）预算':'未纳入预算，系统阻断');
+    add(checks,persons>0&&days>0&&nights>=0?'pass':'fail','人员与行程','人数 '+persons+' 人，申报 '+days+' 天、住宿 '+nights+' 晚');
+    add(checks,approvedDays>0&&days<=approvedDays?'pass':'fail','批准天数','批准 '+approvedDays+' 天；申报 '+days+' 天');
+    if(rank==='provincial')add(checks,'warn','住宿费','省部级人员可住普通套间据实报销，仍需票据和普通房型证明');
+    else add(checks,lodgingActual<=d.lodging?'pass':'fail','住宿费限额','单人每晚申报 '+nativeMoney(lodgingActual,d.currency)+'；标准 '+nativeMoney(d.lodging,d.currency));
+    add(checks,mealClaim<=d.meal&&(!provided||mealClaim===0)?'pass':'fail','伙食费','申报 '+nativeMoney(mealClaim,d.currency)+'/人天；标准 '+nativeMoney(d.meal,d.currency)+(provided?'；外方已供餐时不得重复领取':''));
+    add(checks,miscClaim<=d.misc?'pass':'fail','公杂费','申报 '+nativeMoney(miscClaim,d.currency)+'/人天；标准 '+nativeMoney(d.misc,d.currency));
+    add(checks,air?'pass':'fail','国际旅费与机票','须按批准路线和等级、优先选择规定渠道及经济合理航线');
+    add(checks,fx>0?'pass':'fail','折算汇率',fx>0?'已录入报销日/财务规定汇率：1 '+d.currency+' = '+fx+' 元':'汇率为动态财务参数，必须录入后计算');
+    add(checks,budget>0&&total<=budget?'pass':'fail','预算余额','本次 '+yuan(total)+'；可用预算 '+yuan(budget));
+    add(checks,total>0?'pass':'fail','申报金额',total>0?'测算申报总额 '+yuan(total):'请录入实际发生费用');
+    var st=status(checks);
+    return {kind:'abroad',version:VERSION,level:state.level,ruleLevel:LEVELS[state.level].label,destination:d,rank:rank,persons:persons,days:days,nights:nights,approvedDays:approvedDays,fx:fx,total:total,caps:{lodging:lodgingCap,meal:mealCap,misc:miscCap,currency:d.currency},checks:checks,status:st,canTransfer:st!=='fail',evaluatedAt:new Date().toISOString()};
+  }
+  function evaluateReception(data){
+    data=data||{};
+    var guests=data.guests==null?n('tpRecGuests'):Number(data.guests),companions=data.companions==null?n('tpRecCompanions'):Number(data.companions),meals=data.meals==null?n('tpRecMeals'):Number(data.meals),actual=data.actual==null?n('tpRecActual'):Number(data.actual),cap=data.cap==null?n('tpRecCap'):Number(data.cap);
+    var maxComp=guests<=10?3:Math.floor(guests/3),head=guests+companions,capTotal=head*cap*Math.min(meals,1),docs=(data.docs||{letter:c('tpRecLetter'),approval:c('tpRecApproval'),list:c('tpRecList'),invoice:c('tpRecInvoice')}),prohibited=(data.prohibited||{alcohol:c('tpRecAlcohol'),gift:c('tpRecGift'),tour:c('tpRecTour'),high:c('tpRecHigh')});
+    var confirmed=data.capConfirmed==null?c('tpRecCapConfirmed'):!!data.capConfirmed,checks=[];
+    add(checks,guests>0?'pass':'fail','接待对象','公务接待对象 '+guests+' 人');
+    add(checks,meals===1?'pass':'fail','工作餐次数','确有需要可安排一次工作餐；本次填报 '+meals+' 次');
+    add(checks,companions<=maxComp?'pass':'fail','陪餐比例','允许最多 '+maxComp+' 人；实际 '+companions+' 人');
+    add(checks,docs.letter?'pass':'fail','派出单位公函','无公函的公务活动原则上不予接待');
+    add(checks,docs.approval&&docs.list&&docs.invoice?'pass':'fail','审批与报销凭证','须具备审批依据、接待清单、财务票据及菜单/明细');
+    add(checks,!prohibited.alcohol&&!prohibited.gift&&!prohibited.tour&&!prohibited.high?'pass':'fail','禁限事项','不得提供香烟、高档酒水和高档菜肴，不得安排旅游娱乐、赠送礼品');
+    add(checks,confirmed?'pass':'warn','金额标准版本',confirmed?'财务配置员已确认当前本单位工作餐标准':'当前 '+yuan(cap)+'/人餐仅为前端配置值；须核验苏委办发〔2025〕9号及本单位口径');
+    add(checks,cap>0&&actual<=capTotal?'pass':'fail','工作餐金额','实际 '+yuan(actual)+'；按 '+head+' 人 × '+yuan(cap)+' 上限 = '+yuan(capTotal));
+    add(checks,actual>0?'pass':'fail','申报金额',actual>0?'本次申报 '+yuan(actual):'请录入实际接待费用');
+    var st=status(checks);
+    return {kind:'reception',version:VERSION,level:state.level,ruleLevel:LEVELS[state.level].label,guests:guests,companions:companions,maxCompanions:maxComp,meals:meals,headcount:head,configuredMealCap:cap,capConfirmed:confirmed,capTotal:capTotal,total:actual,checks:checks,status:st,canTransfer:st!=='fail'&&confirmed,evaluatedAt:new Date().toISOString()};
+  }
+  function evaluateVehicle(data){
+    data=data||{};
+    var kind=data.kind||v('tpVehKind'),type=data.type||v('tpVehType'),rule=VEHICLE_RULES[type]||VEHICLE_RULES.emergency,price=data.price==null?n('tpVehPrice'):Number(data.price),engine=data.engine==null?n('tpVehEngine'):Number(data.engine),amount=kind==='purchase'?price:(data.amount==null?n('tpVehAmount'):Number(data.amount)),budget=data.budget==null?n('tpVehBudget'):Number(data.budget);
+    var centralized=data.centralized==null?c('tpVehCentralized'):!!data.centralized,domestic=data.domestic==null?c('tpVehDomestic'):!!data.domestic,approved=data.approved==null?c('tpVehApproved'):!!data.approved,plate=data.plate==null?c('tpVehPlate'):!!data.plate,dispatch=data.dispatch==null?c('tpVehDispatch'):!!data.dispatch,invoice=data.invoice==null?c('tpVehInvoice'):!!data.invoice,privateUse=data.privateUse==null?c('tpVehPrivate'):!!data.privateUse;
+    var checks=[];
+    if(kind==='purchase'){
+      add(checks,price>0&&price<=rule.price?'pass':'fail','购置价格','实际 '+yuan(price)+'；'+rule.label+'上限 '+yuan(rule.price));
+      add(checks,rule.engine==null||engine<=rule.engine?'pass':'fail','排气量',rule.engine==null?'新能源轿车/大型客车按适用车型和采购配置控制':'实际 '+engine+'L；上限 '+rule.engine+'L');
+      add(checks,!rule.approval||approved?'pass':'fail','特殊审批',rule.approval?'该车型仅在工作需要并按程序报批后配置':'普通配置不触发特殊车型审批');
+      add(checks,centralized?'pass':'fail','政府集中采购','公务用车配备须执行政府集中采购');
+      add(checks,domestic?'pass':'fail','国产与新能源导向','应当选用国产汽车并优先选择新能源汽车');
+    }else{
+      add(checks,plate&&dispatch?'pass':'fail','车辆与派车依据','须绑定公务车辆号牌、派车单或公务出行任务');
+      add(checks,invoice?'pass':'fail','原始凭证','须上传发票、结算清单；维修项目还需审批/维修明细');
+      add(checks,!privateUse?'pass':'fail','公车私用/私车公养','检测到公车私用或私车公养时直接阻断');
+    }
+    add(checks,budget>0&&amount<=budget?'pass':'fail','年度预算余额','本次 '+yuan(amount)+'；可用预算 '+yuan(budget));
+    add(checks,amount>0?'pass':'fail','申报金额',amount>0?'本次申报 '+yuan(amount):'请录入购置价或运行维护费');
+    var st=status(checks);
+    return {kind:'vehicle',expenseKind:kind,version:VERSION,level:state.level,ruleLevel:LEVELS[state.level].label,vehicleType:type,vehicleLabel:rule.label,priceCap:rule.price,engineCap:rule.engine,total:amount,checks:checks,status:st,canTransfer:st!=='fail',evaluatedAt:new Date().toISOString()};
+  }
+  function materialRequiredGroups(kind){
+    if(kind==='abroad'){
+      var abroad=[{label:'出国任务/经费审批',roles:['出国任务/经费审批']},{label:'国际机票或行程单',roles:['国际机票/行程单']}];
+      if(n('tpAbroadLodging')>0&&n('tpAbroadNights')>0)abroad.push({label:'境外住宿票据',roles:['境外住宿票据']});
+      if(n('tpAbroadIntercity')>0)abroad.push({label:'国外城市间交通票据',roles:['国外城市间交通票据']});
+      return abroad;
+    }
+    if(kind==='reception')return [{label:'派出单位公函',roles:['派出单位公函']},{label:'接待审批',roles:['接待审批']},{label:'接待清单',roles:['接待清单']},{label:'接待发票',roles:['接待发票']},{label:'菜单或消费明细',roles:['菜单/消费明细']}];
+    if(v('tpVehKind')==='purchase')return [{label:'车辆采购审批/预算材料',roles:['车辆采购审批/预算材料']},{label:'采购合同/中标材料',roles:['采购合同/中标材料']},{label:'车辆购置发票',roles:['车辆购置发票']}];
+    var op=[{label:'派车单或公务用车任务',roles:['派车单/用车任务']},{label:'车辆运行费用票据',roles:['车辆运行票据']}];
+    if(/维修/.test(v('tpVehOpType')))op.push({label:'维修审批或结算明细',roles:['维修/结算明细']});
+    return op;
+  }
+  function materialRoles(kind,text){
+    var raw=String(text||''),s=raw.replace(/\s/g,'').toLowerCase(),roles=[],invoice=/发票|票据|收据|电子客票|invoice|receipt|taxi|statement/.test(s);
+    if(kind==='abroad'){
+      if(/出国任务|出访任务|因公出国|经费审批|预算审批|任务批件|出访批件|审批单/.test(s))roles.push('出国任务/经费审批');
+      if(/航空|航班|机票|客票|行程单|登机牌|airline|flight|boarding/.test(s))roles.push('国际机票/行程单');
+      if(/住宿|酒店|宾馆|旅馆|客房|房费|入住|退房|hotel|accommodation|room/.test(s)&&invoice)roles.push('境外住宿票据');
+      if(/城市间交通|铁路|火车|出租车|网约车|地铁|交通费|train|rail|taxi/.test(s)&&invoice)roles.push('国外城市间交通票据');
+      if(invoice&&!roles.some(function(x){return /票据|机票/.test(x);}))roles.push('其他境外费用票据');
+    }else if(kind==='reception'){
+      if(/派出单位公函|公务接待公函|接待函|来访函|来函|公务活动函/.test(s))roles.push('派出单位公函');
+      if(/接待审批|公务接待审批|接待申请|接待呈批/.test(s))roles.push('接待审批');
+      if(/接待清单|接待对象|陪餐人员|接待人数|接待时间|接待场所/.test(s))roles.push('接待清单');
+      if(/菜单|菜品|消费明细|结算清单|点菜单|餐饮明细/.test(s))roles.push('菜单/消费明细');
+      if(invoice)roles.push('接待发票');
+    }else{
+      if(/购车申请|车辆采购审批|采购预算|采购计划|配置审批|预算批复/.test(s))roles.push('车辆采购审批/预算材料');
+      if(/采购合同|购车合同|中标通知|成交通知|政府采购|采购协议/.test(s))roles.push('采购合同/中标材料');
+      if(/车辆合格证|整车出厂合格|车辆识别代号|车架号/.test(s))roles.push('车辆合格证');
+      if(/派车单|用车申请|公务用车任务|出车任务|出车记录/.test(s))roles.push('派车单/用车任务');
+      if(/维修|保养|工时费|配件|维修清单|结算明细|维修审批/.test(s))roles.push('维修/结算明细');
+      if(/[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼][a-z][a-z0-9]{5,6}/i.test(s)||/机动车行驶证|车辆号牌|车牌号/.test(s))roles.push('车辆号牌/行驶证');
+      if(invoice)roles.push(v('tpVehKind')==='purchase'?'车辆购置发票':'车辆运行票据');
+    }
+    return Array.from(new Set(roles.length?roles:['其他材料']));
+  }
+  function analyzeMaterial(kind,j,file,dataUrl,isPdf){
+    j=j||{};var source=[j.rawText,j.title,j.summary,j.kind,file.name].filter(Boolean).join('\n'),roles=materialRoles(kind,source),amount=Number(j.amount);
+    if(!Number.isFinite(amount)||amount<=0)amount=null;
+    var reasons=[];if(roles[0]==='其他材料')reasons.push('材料类型未可靠识别');
+    if(roles.some(function(x){return /发票|票据/.test(x);})&&amount==null)reasons.push('金额未可靠提取');
+    if(Number(j.confidence)>0&&Number(j.confidence)<65)reasons.push('文字置信度偏低');
+    if(isPdf)reasons.push('PDF已保留原件，当前浏览器仅按文件名初筛，请人工查看');
+    return {name:file.name,type:file.type||(isPdf?'application/pdf':'image/jpeg'),size:file.size||0,lastModified:file.lastModified||0,fingerprint:[file.name,file.size||0,file.lastModified||0].join('|'),dataUrl:dataUrl,roles:roles,role:roles[0],amount:amount,date:j.date||'',invoiceNo:j.no||j.invoiceNo||'',confidence:Number(j.confidence)||0,rawText:j.rawText||'',summary:j.summary||'',needsReview:reasons.length>0,reviewReasons:reasons,logicalKey:[roles[0],j.no||j.invoiceNo||'',j.date||'',amount==null?'':amount].join('|')};
+  }
+  function materialAggregate(kind){
+    var st=state.materials[kind],usable=(st.items||[]).filter(function(x){return !x.duplicateOf&&!x.error;}),present=Array.from(new Set(usable.reduce(function(out,x){return out.concat(x.roles||[]);},[]).filter(function(x){return x!=='其他材料';})));
+    var missing=materialRequiredGroups(kind).filter(function(g){return !g.roles.some(function(r){return present.indexOf(r)>=0;});}).map(function(g){return g.label;});
+    function sum(role){return Math.round(usable.filter(function(x){return (x.roles||[]).indexOf(role)>=0&&Number(x.amount)>0;}).reduce(function(s,x){return s+Number(x.amount);},0)*100)/100;}
+    var amounts={total:0};
+    if(kind==='abroad'){amounts.lodging=sum('境外住宿票据');amounts.air=sum('国际机票/行程单');amounts.intercity=sum('国外城市间交通票据');amounts.other=sum('其他境外费用票据');amounts.total=amounts.lodging+amounts.air+amounts.intercity+amounts.other;}
+    else if(kind==='reception'){amounts.expense=sum('接待发票');amounts.total=amounts.expense;}
+    else if(v('tpVehKind')==='purchase'){amounts.expense=sum('车辆购置发票');amounts.total=amounts.expense;}
+    else{amounts.expense=sum('车辆运行票据');amounts.total=amounts.expense;}
+    var review=(st.items||[]).filter(function(x){return x.error||x.duplicateOf||x.needsReview;}).length;
+    return {uploadedCount:st.items.length,successCount:usable.length,presentRoles:present,missing:missing,amounts:amounts,reviewCount:review,needsReview:review>0||missing.length>0};
+  }
+  function setChecked(id,val){var x=document.getElementById(id);if(x&&val)x.checked=true;}
+  function setAmount(id,val){var x=document.getElementById(id);if(x&&Number(val)>0)x.value=Math.round(Number(val)*100)/100;}
+  function applyMaterialAggregate(kind){
+    var agg=materialAggregate(kind),present=agg.presentRoles,items=state.materials[kind].items;
+    if(kind==='abroad'){
+      setChecked('tpAbroadApproved',present.indexOf('出国任务/经费审批')>=0);
+      setChecked('tpAbroadBudgeted',items.some(function(x){return /预算|经费审批/.test(x.rawText||x.name||'');}));
+      setChecked('tpAbroadAir',present.indexOf('国际机票/行程单')>=0);
+      var denom=Math.max(1,n('tpAbroadPersons'))*Math.max(1,n('tpAbroadNights'));if(agg.amounts.lodging)setAmount('tpAbroadLodging',agg.amounts.lodging/denom);
+      setAmount('tpAbroadInternational',agg.amounts.air);setAmount('tpAbroadIntercity',agg.amounts.intercity);
+    }else if(kind==='reception'){
+      setChecked('tpRecLetter',present.indexOf('派出单位公函')>=0);setChecked('tpRecApproval',present.indexOf('接待审批')>=0);setChecked('tpRecList',present.indexOf('接待清单')>=0);
+      setChecked('tpRecInvoice',present.indexOf('接待发票')>=0&&present.indexOf('菜单/消费明细')>=0);setAmount('tpRecActual',agg.amounts.expense);
+    }else if(v('tpVehKind')==='purchase'){
+      setChecked('tpVehCentralized',present.indexOf('采购合同/中标材料')>=0);setAmount('tpVehPrice',agg.amounts.expense);
+    }else{
+      setChecked('tpVehPlate',present.indexOf('车辆号牌/行驶证')>=0);setChecked('tpVehDispatch',present.indexOf('派车单/用车任务')>=0);
+      var invoiceReady=present.indexOf('车辆运行票据')>=0&&(!/维修/.test(v('tpVehOpType'))||present.indexOf('维修/结算明细')>=0);setChecked('tpVehInvoice',invoiceReady);setAmount('tpVehAmount',agg.amounts.expense);
+    }
+  }
+  function materialSnapshot(kind){
+    var st=state.materials[kind],agg=materialAggregate(kind);
+    return {confirmed:st.confirmed,uploadedCount:agg.uploadedCount,presentRoles:agg.presentRoles,missing:agg.missing,recognizedAmount:agg.amounts.total,reviewCount:agg.reviewCount,files:st.items.map(function(x){return {name:x.name,type:x.type,roles:x.roles,amount:x.amount,date:x.date,invoiceNo:x.invoiceNo,status:x.error?'ocr_failed':x.duplicateOf?'duplicate':x.needsReview?'review':'recognized'};})};
+  }
+  function materialCheck(kind){
+    var st=state.materials[kind],agg=materialAggregate(kind);
+    if(st.busy)return {state:'fail',label:'原始材料与OCR',detail:'正在逐份识别，请等待完成后确认'};
+    if(!st.items.length)return {state:'fail',label:'原始材料与OCR',detail:'尚未上传'+MATERIAL_SPECS[kind].name+'，不能带入支付申请'};
+    if(!st.confirmed)return {state:'fail',label:'原始材料与OCR',detail:'已上传 '+agg.uploadedCount+' 份，但职工尚未确认OCR和材料判断'};
+    if(agg.missing.length||agg.reviewCount)return {state:'warn',label:'原始材料与OCR',detail:'职工已确认；待审核复核：'+(agg.missing.length?'未自动识别'+agg.missing.join('、'):'')+(agg.missing.length&&agg.reviewCount?'；':'')+(agg.reviewCount?agg.reviewCount+'份材料需复核':'')};
+    return {state:'pass',label:'原始材料与OCR',detail:'已上传并确认 '+agg.uploadedCount+' 份，原图和OCR摘要将随支付申请流转'};
+  }
+  function materialPanelHtml(kind){
+    var spec=MATERIAL_SPECS[kind];
+    return '<div class="tp-stage-flow" data-tp-stages="'+kind+'"><div class="tp-stage done"><b>① 标准测算</b><small>录入事实并实时校验</small></div><div class="tp-stage current"><b>② 原件OCR</b><small>逐份识别并自动回填</small></div><div class="tp-stage"><b>③ 确认带入</b><small>携附件生成支付明细</small></div></div><section class="tp-material" data-tp-material="'+kind+'"><div class="tp-material-head"><div><h4>职工上传原始凭证 · 浏览器本地OCR</h4><p>'+e(spec.hint)+'；图片自动OCR，PDF保留原件并提示人工复核。</p></div><span class="tp-material-state" data-tp-material-state="'+kind+'">未上传</span></div><div class="tp-material-actions"><button type="button" class="primary" data-tp-upload-button="'+kind+'">＋ 上传原始材料</button><button type="button" data-tp-reocr="'+kind+'">🔍 重新OCR</button><button type="button" data-tp-confirm-material="'+kind+'">✓ 确认材料判断</button><button type="button" data-tp-clear-material="'+kind+'">清空重传</button><input type="file" data-tp-file="'+kind+'" accept="image/*,application/pdf" multiple style="display:none"></div><div class="tp-material-list" data-tp-material-list="'+kind+'"></div><div class="tp-material-summary" data-tp-material-summary="'+kind+'">上传后自动识别材料类型和金额。</div></section>';
+  }
+  function renderMaterials(kind){
+    var st=state.materials[kind],agg=materialAggregate(kind),list=document.querySelector('[data-tp-material-list="'+kind+'"]'),stateEl=document.querySelector('[data-tp-material-state="'+kind+'"]'),sum=document.querySelector('[data-tp-material-summary="'+kind+'"]');if(!list)return;
+    if(!st.items.length)list.innerHTML='<div class="tp-material-empty">请上传 '+e(MATERIAL_SPECS[kind].hint)+'。<br>系统自动识别材料类型、日期、票号、金额和收款方，并回填对应字段。</div>';
+    else list.innerHTML=st.items.map(function(x,i){var img=(x.type||'').indexOf('image/')===0&&x.dataUrl?'<img class="tp-material-thumb" src="'+x.dataUrl+'" alt="">':'<div class="tp-material-thumb">PDF</div>';var badges=(x.roles||['其他材料']).map(function(r){return '<span class="tp-material-badge">'+e(r)+'</span>';});badges.push('<span class="tp-material-badge '+(x.error||x.needsReview||x.duplicateOf?'warn':'ok')+'">'+(x.error?'OCR失败':x.duplicateOf?'疑似重复':x.needsReview?'需复核':'初筛通过')+'</span>');return '<div class="tp-material-item"><button type="button" class="tp-material-remove" data-tp-remove="'+kind+'" data-index="'+i+'">×</button>'+img+'<div><div class="tp-material-name" title="'+e(x.name)+'">'+e(x.name)+'</div><div class="tp-material-meta">'+(x.amount!=null?'识别金额 '+yuan(x.amount):'未提取金额')+(x.date?' · '+e(x.date):'')+(x.reviewReasons&&x.reviewReasons.length?'<br>'+e(x.reviewReasons.join('；')):'')+'</div><div class="tp-material-badges">'+badges.join('')+'</div></div></div>';}).join('');
+    if(stateEl){stateEl.className='tp-material-state '+(st.confirmed?'ok':st.items.length?'warn':'');stateEl.textContent=st.busy?'正在OCR…':st.confirmed?'✓ 职工已确认':st.items.length?'待确认':'未上传';}
+    if(sum){sum.className='tp-material-summary '+(st.confirmed?'ok':agg.needsReview?'warn':'');sum.textContent=st.busy?'正在逐份识别，请勿关闭页面…':st.confirmed?'✓ 原图、OCR摘要、材料角色和规则快照可直接带入支付申请。':st.note||(st.items.length?('已上传 '+agg.uploadedCount+' 份；识别金额 '+yuan(agg.amounts.total)+'；'+(agg.missing.length?'待补充/人工确认：'+agg.missing.join('、'):'材料角色初筛齐全，请核对后确认')):'上传后自动识别材料类型和金额。');}
+    var confirmBtn=document.querySelector('[data-tp-confirm-material="'+kind+'"]'),clearBtn=document.querySelector('[data-tp-clear-material="'+kind+'"]'),ocrBtn=document.querySelector('[data-tp-reocr="'+kind+'"]');if(confirmBtn)confirmBtn.disabled=st.busy||!st.items.length;if(clearBtn)clearBtn.disabled=st.busy||!st.items.length;if(ocrBtn)ocrBtn.disabled=st.busy||!st.items.some(function(x){return (x.type||'').indexOf('image/')===0;});
+    var stages=document.querySelector('[data-tp-stages="'+kind+'"]');if(stages){var nodes=stages.querySelectorAll('.tp-stage');nodes[1].className='tp-stage '+(st.items.length?'done':'current');nodes[2].className='tp-stage '+(st.confirmed?'done':st.items.length?'current':'');}
+    list.querySelectorAll('[data-tp-remove]').forEach(function(b){b.onclick=function(){st.items.splice(Number(b.dataset.index),1);st.confirmed=false;st.note='材料已变化，请重新确认。';applyMaterialAggregate(kind);renderAll();renderMaterials(kind);};});
+  }
+  async function addMaterialFiles(kind,files){
+    var st=state.materials[kind],incoming=Array.from(files||[]).slice(0,8);if(!incoming.length)return;if((files||[]).length>8)alert('一次最多处理8份材料，其余请分批上传。');
+    st.busy=true;st.confirmed=false;st.note='正在逐份识别…';renderMaterials(kind);
+    for(var i=0;i<incoming.length;i++){
+      var file=incoming[i],fingerprint=[file.name,file.size||0,file.lastModified||0].join('|');if(st.items.some(function(x){return x.fingerprint===fingerprint;}))continue;
+      var dataUrl='',isPdf=(file.type||'').indexOf('pdf')>=0,item;
+      try{
+        if((file.type||'').indexOf('image/')===0)dataUrl='data:image/jpeg;base64,'+await fileToImage(file);else dataUrl=await fileToDataURL(file);
+        var parsed=isPdf?{kind:'PDF',title:file.name,summary:'PDF原件待人工查看',rawText:file.name}:await docOcr(dataUrl,function(msg){st.note='第 '+(i+1)+'/'+incoming.length+' 份 · '+msg;renderMaterials(kind);});
+        item=analyzeMaterial(kind,parsed,file,dataUrl,isPdf);
+      }catch(err){item=analyzeMaterial(kind,{rawText:file.name,summary:'识别失败'},file,dataUrl,isPdf);item.error=err.message;item.needsReview=true;item.reviewReasons=[err.message];}
+      var specific=!!(item.invoiceNo||item.date||item.amount!=null),dup=specific?st.items.find(function(x){return !x.error&&x.logicalKey===item.logicalKey;}):null;if(dup){item.duplicateOf=dup.name;item.needsReview=true;item.reviewReasons.push('与“'+dup.name+'”的票号/日期/金额高度相似，不重复计入');}
+      st.items.push(item);applyMaterialAggregate(kind);renderAll();renderMaterials(kind);
+    }
+    st.busy=false;var agg=materialAggregate(kind);st.note='已处理 '+incoming.length+' 份，识别金额 '+yuan(agg.amounts.total)+(agg.needsReview?'；请核对黄色提示后确认':'；请核对后确认');renderAll();renderMaterials(kind);
+  }
+  async function reOcrMaterials(kind){
+    var st=state.materials[kind],imgs=st.items.filter(function(x){return (x.type||'').indexOf('image/')===0&&x.dataUrl;});if(!imgs.length){alert('没有可重新识别的图片材料。');return;}
+    st.busy=true;st.confirmed=false;renderMaterials(kind);
+    for(var i=0;i<imgs.length;i++){var old=imgs[i];try{var parsed=await docOcr(old.dataUrl,function(msg){st.note='重新识别第 '+(i+1)+'/'+imgs.length+' 份 · '+msg;renderMaterials(kind);});var fresh=analyzeMaterial(kind,parsed,{name:old.name,type:old.type,size:old.size,lastModified:old.lastModified},old.dataUrl,false);Object.assign(old,fresh);delete old.error;}catch(err){old.error=err.message;old.needsReview=true;old.reviewReasons=[err.message];}}
+    st.busy=false;st.note='重新OCR完成，请核对后确认。';applyMaterialAggregate(kind);renderAll();renderMaterials(kind);
+  }
+  function confirmMaterials(kind){
+    var st=state.materials[kind],agg=materialAggregate(kind);if(!st.items.length){alert('请先上传原始材料。');return;}
+    var warnings=[];if(agg.missing.length)warnings.push('未自动识别到：'+agg.missing.join('、'));if(agg.reviewCount)warnings.push(agg.reviewCount+'份材料被标记为需复核/疑似重复/OCR失败');
+    if(warnings.length&&!confirm(warnings.join('\n')+'\n\n如原件实际齐全且金额已核对，可继续确认；审核人仍可查看原图并退回。是否确认？'))return;
+    st.confirmed=true;st.note='职工已确认材料判断结果；现可与规则快照一起带入支付申请。';renderAll();renderMaterials(kind);
+  }
+  function clearMaterials(kind){
+    var st=state.materials[kind];if(st.items.length&&!confirm('确认清空已上传的'+MATERIAL_SPECS[kind].name+'？已回填的表单金额将保留，您可手动修改。'))return;st.items=[];st.confirmed=false;st.busy=false;st.note='';renderAll();renderMaterials(kind);
+  }
+  function reclassifyMaterials(kind){var st=state.materials[kind];st.items.forEach(function(x){x.roles=materialRoles(kind,[x.rawText,x.name,x.summary].filter(Boolean).join('\n'));x.role=x.roles[0];});st.confirmed=false;st.note='业务类型已变化，系统已重新判断材料角色，请再次确认。';applyMaterialAggregate(kind);}
+  function threePublicAttachments(kind,result){
+    var st=state.materials[kind],files=st.items.filter(function(x){return x.dataUrl;}).map(function(x){return {n:x.name,t:x.type||'image/jpeg',d:x.dataUrl,ocr:x.error?'三公经费材料OCR失败：'+x.error:'三公经费材料自动判断：'+(x.roles||['其他材料']).join('、')+'；'+(x.amount!=null?'金额'+yuan(x.amount):'未提取金额'),ocrData:{kind:x.role||'其他材料',roles:x.roles||[],title:x.name,date:x.date||null,amount:x.amount,invoiceNo:x.invoiceNo||'',summary:x.error?'OCR失败，须查看原图':x.duplicateOf?'疑似重复：'+x.duplicateOf:x.needsReview?'系统标记需人工复核':'自动初筛通过'}};});
+    var snapshot=JSON.stringify(result,null,2);files.push({n:'三公经费规则与OCR快照_'+kind+'_'+VERSION+'.json',t:'application/json',d:'data:application/json;charset=utf-8,'+encodeURIComponent(snapshot),ocr:'规则 '+VERSION+'；'+LEVELS[state.level].label+'；材料已确认 '+st.items.length+' 份；校验状态 '+result.status,ocrData:{kind:'三公经费规则快照',title:VERSION,date:new Date().toISOString().slice(0,10),amount:result.total,summary:'填单标准、OCR材料摘要与校验结论留痕'}});
+    return files;
+  }
+  function checkHtml(x){var icon=x.state==='pass'?'✓':x.state==='warn'?'!':'×';return '<div class="tp-result '+x.state+'"><i>'+icon+'</i><div><b>'+e(x.label)+'</b><p>'+e(x.detail)+'</p></div></div>';}
+  function renderResult(kind,result,metrics){
+    var mcheck=materialCheck(kind);result.checks.push(mcheck);result.materials=materialSnapshot(kind);result.status=status(result.checks);result.canTransfer=result.canTransfer&&state.materials[kind].confirmed&&!state.materials[kind].busy&&state.materials[kind].items.length>0;
+    state.last[kind]=result;
+    var box=document.getElementById('tp'+kind.charAt(0).toUpperCase()+kind.slice(1)+'Result');
+    if(!box)return;
+    box.innerHTML='<div class="tp-summary-grid">'+metrics.map(function(x){return '<div class="tp-metric"><span>'+e(x[0])+'</span><b>'+e(x[1])+'</b></div>';}).join('')+'</div><div class="tp-result-list">'+result.checks.map(checkHtml).join('')+'</div>';
+    var btn=document.querySelector('[data-tp-transfer="'+kind+'"]');if(btn){btn.disabled=!result.canTransfer;btn.title=result.canTransfer?'标准和材料均已确认，可直接携附件带入支付申请':'存在阻断项、标准未确认或OCR材料尚未确认';}
+  }
+  function renderAbroad(){
+    var r=evaluateAbroad();
+    renderResult('abroad',r,[['目的地',r.destination.label],['币种',r.destination.currency],['境外定额合计',nativeMoney(r.caps.lodging+r.caps.meal+r.caps.misc,r.caps.currency)],['折合申报总额',yuan(r.total)]]);
+    var custom=document.getElementById('tpAbroadCustom');if(custom)custom.classList.toggle('on',v('tpAbroadDest')==='custom');
+  }
+  function renderReception(){
+    state.receptionCap=n('tpRecCap')||state.receptionCap;state.capConfirmed=c('tpRecCapConfirmed');persist();
+    var r=evaluateReception();
+    renderResult('reception',r,[['接待对象',r.guests+' 人'],['陪餐上限',r.maxCompanions+' 人'],['金额控制上限',yuan(r.capTotal)],['本次申报',yuan(r.total)]]);
+  }
+  function renderVehicle(){
+    var r=evaluateVehicle(),purchase=v('tpVehKind')==='purchase',p=document.getElementById('tpVehPurchaseFields'),o=document.getElementById('tpVehOperationFields');
+    if(p)p.style.display=purchase?'grid':'none';if(o)o.style.display=purchase?'none':'grid';
+    renderResult('vehicle',r,[['费用类型',purchase?'车辆购置':'运行维护'],['适用标准',r.vehicleLabel],['价格上限',purchase?yuan(r.priceCap):'年度预算内'],['本次申报',yuan(r.total)]]);
+  }
+  function syncLevel(){
+    var sel=document.getElementById('tpLevel');if(sel)state.level=sel.value||state.level;persist();
+    document.querySelectorAll('[data-tp-level-label]').forEach(function(x){x.textContent=LEVELS[state.level].label;});
+    var summary=document.getElementById('tpLevelSummary');if(summary)summary.textContent=LEVELS[state.level].note;
+  }
+  function renderAll(){syncLevel();renderAbroad();renderReception();renderVehicle();['abroad','reception','vehicle'].forEach(renderMaterials);}
+  function sourceHtml(){return SOURCES.map(function(s){return '<article class="tp-source"><span class="scope">'+e(s.scope)+'</span><h3>'+e(s.title)+'</h3><p><b>'+e(s.ref)+'</b><br>'+e(s.desc)+'</p><a href="'+e(s.url)+'" target="_blank" rel="noopener">查看公开依据 ↗</a></article>';}).join('');}
+  function overviewHtml(){
+    return '<div class="tp-overview">'+
+      '<article class="tp-module-card"><span class="no">01</span><h3>因公出国（境）费</h3><p>国家城市标准表为金额底座，江苏和苏州继承并叠加预算、计划、机票采购与材料要求。</p><ul><li>住宿、伙食、公杂费按币种和人天自动计算</li><li>任务批件、机票、住宿票据逐份OCR并自动回填</li><li>标准和材料确认后携原件带入支付申请</li></ul><button data-tp-open="abroad">进入填单控制</button></article>'+
+      '<article class="tp-module-card"><span class="no">02</span><h3>公务接待费</h3><p>按2024年国家规定和2025年江苏、苏州文件，优先把可确定的结构性红线做成强校验。</p><ul><li>一次工作餐、陪餐人数比例自动计算</li><li>公函、审批、接待清单、发票和菜单OCR分类</li><li>识别金额自动回填，确认后一键带入支付</li></ul><button data-tp-open="reception">进入填单控制</button></article>'+
+      '<article class="tp-module-card"><span class="no">03</span><h3>公务用车购置及运行维护费</h3><p>购置价格、排量、车型审批、集中采购和年度运行预算一体控制。</p><ul><li>12万/1.6L、18万/1.8L等车型限额联动</li><li>采购合同、车辆发票、派车单和维修明细OCR</li><li>识别金额、号牌和材料状态自动回填支付明细</li></ul><button data-tp-open="vehicle">进入填单控制</button></article>'+
+      '</div><section class="tp-hierarchy"><h3>规则继承关系 · 当前选择：<span data-tp-level-label>苏州市</span></h3><div class="tp-flowline"><div class="tp-level-card"><b>国家基础规则</b><span>确定经费定义、审批红线、城市标准表、接待比例及车辆购置上限。</span></div><div class="tp-arrow">→</div><div class="tp-level-card"><b>江苏省叠加规则</b><span>继承国家规则，叠加省级公务机票采购、公车管理及接待制度。</span></div><div class="tp-arrow">→</div><div class="tp-level-card"><b>苏州市 / 本单位参数</b><span>继承上级规则，金额未公开或需备案的参数由财务配置员维护并保留版本快照。</span></div></div><div class="tp-source-note"><b id="tpLevelSummary"></b><br>规则采用“上级强规则不可放宽、本级可以加严”的合并方式。每次带入支付申请时保存规则版本、输入值、校验结论和时间，后端接入后可直接复核。</div></section>';
+  }
+  function buildPanel(){
+    var sheet=document.querySelector('.sheet');if(!sheet||document.getElementById('p-threepublic'))return;
+    var panel=document.createElement('div');panel.className='panel';panel.id='p-threepublic';
+    panel.innerHTML='<div class="tp-shell"><section class="tp-hero"><div><div class="tp-kicker">风险管控 · OCR材料闭环 · 填单时自动控制</div><h2>三公经费标准控制中心</h2><p>按照差旅费的办理方式，把因公出国（境）、公务接待、公务用车做成“标准测算 → 原件OCR → 职工确认 → 携附件带入支付申请”的闭环。经办人无需在支付申请中重复上传，同一批原件、OCR摘要和规则快照全程流转。</p><div class="tp-version"><span class="tp-pill">规则包 '+VERSION+'</span><span class="tp-pill">国家 → 江苏 → 苏州继承</span><span class="tp-pill warn">苏州接待金额需财务确认</span></div></div><div class="tp-level-box"><label>当前执行层级</label><select id="tpLevel"><option value="suzhou">苏州市（推荐）</option><option value="jiangsu">江苏省</option><option value="national">国家</option></select></div></section>'+
+    '<nav class="tp-tabs" aria-label="三公经费控制子页面"><button class="tp-tab on" data-tp-view="overview">总览</button><button class="tp-tab" data-tp-view="abroad">因公出国（境）</button><button class="tp-tab" data-tp-view="reception">公务接待</button><button class="tp-tab" data-tp-view="vehicle">公务用车</button><button class="tp-tab" data-tp-view="sources">标准依据与接口</button></nav>'+
+    '<section class="tp-view on" data-tp-page="overview">'+overviewHtml()+'</section>'+
+    '<section class="tp-view" data-tp-page="abroad"><div class="tp-workbench"><div class="tp-card"><div class="tp-card-hd"><div><h3>因公临时出国（境）经费录入</h3><p>常用目的地标准取自现行国家表；未列城市可录入标准并等待后端规则库下发。</p></div><span class="tp-pill">财行〔2013〕516号 / 〔2017〕434号</span></div><div class="tp-card-bd"><div class="tp-grid three"><div class="tp-field full"><label>国家 / 城市标准</label><select id="tpAbroadDest"></select></div><div class="tp-custom full" id="tpAbroadCustom"><div class="tp-grid three"><div class="tp-field"><label>目的地名称</label><input id="tpAbroadCustomName" placeholder="国家·城市"></div><div class="tp-field"><label>币种</label><input id="tpAbroadCurrency" value="USD"></div><div class="tp-field"><label>住宿标准 / 人晚</label><input id="tpAbroadCustomLodging" type="number" min="0"></div><div class="tp-field"><label>伙食标准 / 人天</label><input id="tpAbroadCustomMeal" type="number" min="0"></div><div class="tp-field"><label>公杂标准 / 人天</label><input id="tpAbroadCustomMisc" type="number" min="0"></div></div></div>'+
+    '<div class="tp-field"><label>人员职级</label><select id="tpAbroadRank"><option value="regular">厅局级及以下</option><option value="provincial">省部级</option></select></div><div class="tp-field"><label>出国人数</label><input id="tpAbroadPersons" type="number" min="1" value="1"></div><div class="tp-field"><label>申报天数</label><input id="tpAbroadDays" type="number" min="1" value="1"></div><div class="tp-field"><label>批准天数</label><input id="tpAbroadApprovedDays" type="number" min="1" value="1"></div><div class="tp-field"><label>住宿晚数</label><input id="tpAbroadNights" type="number" min="0" value="0"></div><div class="tp-field"><label>折算汇率（1外币=人民币）</label><input id="tpAbroadFx" type="number" min="0" step="0.000001" placeholder="按财务规定日期录入"></div><div class="tp-section-title">实际申报金额</div><div class="tp-field"><label>住宿费 / 人晚（外币）</label><input id="tpAbroadLodging" type="number" min="0"></div><div class="tp-field"><label>伙食费 / 人天（外币）</label><input id="tpAbroadMeal" type="number" min="0"></div><div class="tp-field"><label>公杂费 / 人天（外币）</label><input id="tpAbroadMisc" type="number" min="0"></div><div class="tp-field"><label>国际旅费（人民币）</label><input id="tpAbroadInternational" type="number" min="0"></div><div class="tp-field"><label>国外城市间交通（人民币）</label><input id="tpAbroadIntercity" type="number" min="0"></div><div class="tp-field"><label>本项目预算余额（人民币）</label><input id="tpAbroadBudget" type="number" min="0"></div></div>'+
+    '<div class="tp-checks"><label><input id="tpAbroadApproved" type="checkbox">已完成出国计划和经费审批</label><label><input id="tpAbroadBudgeted" type="checkbox">已纳入年度因公出国（境）预算</label><label><input id="tpAbroadAir" type="checkbox">机票、舱位和路线符合采购及等级要求</label><label><input id="tpAbroadProvided" type="checkbox">外方已提供伙食（勾选后伙食费应为0）</label></div></div></div>'+
+    '<aside class="tp-card"><div class="tp-card-hd"><div><h3>实时合规结果</h3><p>红色为阻断，黄色须人工复核。</p></div><span class="tp-pill" data-tp-level-label></span></div><div class="tp-card-bd"><div id="tpAbroadResult"></div><div class="tp-actions"><button class="tp-action" data-tp-transfer="abroad">合规明细带入支付申请</button><button class="tp-action secondary" data-tp-export="abroad">导出校验JSON</button></div><div class="tp-source-note"><b>说明：</b>页面内置常用目的地子集。完整国家/城市表及动态汇率应在后端上线后从规则服务和财务汇率服务获取。</div></div></aside></div></section>'+
+    '<section class="tp-view" data-tp-page="reception"><div class="tp-workbench"><div class="tp-card"><div class="tp-card-hd"><div><h3>国内公务接待费录入</h3><p>结构红线直接强控；苏州金额标准由财务配置员确认。</p></div><span class="tp-pill">中办发〔2024〕7号</span></div><div class="tp-card-bd"><div class="tp-grid"><div class="tp-field"><label>接待对象人数</label><input id="tpRecGuests" type="number" min="1" value="1"></div><div class="tp-field"><label>陪餐人数</label><input id="tpRecCompanions" type="number" min="0" value="0"></div><div class="tp-field"><label>工作餐次数</label><input id="tpRecMeals" type="number" min="0" value="1"></div><div class="tp-field"><label>实际工作餐金额（元）</label><input id="tpRecActual" type="number" min="0"></div><div class="tp-field"><label>本单位现行工作餐上限（元/人餐）</label><input id="tpRecCap" type="number" min="0" value="150"><small>150元仅为苏州公开会议伙食费参考初始化值，不自动视为现行接待限额。</small></div><div class="tp-field"><label>金额标准状态</label><label style="display:flex;gap:7px;align-items:flex-start;padding:8px;border:1px solid #D8E3EA;border-radius:7px"><input id="tpRecCapConfirmed" type="checkbox" style="width:auto;margin-top:2px">已由财务配置员核验现行文件及本单位标准</label></div></div>'+
+    '<div class="tp-section-title">必备材料与禁限事项</div><div class="tp-checks"><label><input id="tpRecLetter" type="checkbox">派出单位公函或公务活动依据</label><label><input id="tpRecApproval" type="checkbox">接待审批依据</label><label><input id="tpRecList" type="checkbox">接待清单（对象、人数、时间、场所）</label><label><input id="tpRecInvoice" type="checkbox">财务票据及菜单/消费明细</label><label><input id="tpRecAlcohol" type="checkbox">含香烟或高档酒水</label><label><input id="tpRecGift" type="checkbox">含礼品、礼金、有价证券或土特产</label><label><input id="tpRecTour" type="checkbox">安排旅游、娱乐、健身或演出</label><label><input id="tpRecHigh" type="checkbox">高档菜肴、私人会所或高消费场所</label></div></div></div>'+
+    '<aside class="tp-card"><div class="tp-card-hd"><div><h3>实时合规结果</h3><p>金额标准未确认时不可带入支付。</p></div><span class="tp-pill warn">省市现行文件</span></div><div class="tp-card-bd"><div id="tpReceptionResult"></div><div class="tp-actions"><button class="tp-action" data-tp-transfer="reception">合规明细带入支付申请</button><button class="tp-action secondary" data-tp-export="reception">导出校验JSON</button></div><div class="tp-source-note"><b>稳妥设计：</b>公开渠道可确认苏办发〔2025〕6号、苏委办发〔2025〕9号及国家结构规则，但未取得可核验的苏州市统一餐费金额全文，因此金额由配置员确认并留痕，避免误用旧标准。</div></div></aside></div></section>'+
+    '<section class="tp-view" data-tp-page="vehicle"><div class="tp-workbench"><div class="tp-card"><div class="tp-card-hd"><div><h3>公务用车购置及运行维护费录入</h3><p>购置标准强控，运行费用按年度预算、车辆和任务三项联动。</p></div><span class="tp-pill">中办发〔2017〕71号 / 苏办发〔2018〕55号</span></div><div class="tp-card-bd"><div class="tp-grid"><div class="tp-field"><label>费用类型</label><select id="tpVehKind"><option value="operation">运行维护费</option><option value="purchase">车辆购置</option></select></div><div class="tp-field"><label>车辆类别 / 适用标准</label><select id="tpVehType"></select></div></div>'+
+    '<div class="tp-grid" id="tpVehPurchaseFields" style="display:none;margin-top:11px"><div class="tp-field"><label>实际购置价格（元）</label><input id="tpVehPrice" type="number" min="0"></div><div class="tp-field"><label>发动机排量（L）</label><input id="tpVehEngine" type="number" min="0" step="0.1"></div></div>'+
+    '<div class="tp-grid" id="tpVehOperationFields" style="margin-top:11px"><div class="tp-field"><label>运行费用项目</label><select id="tpVehOpType"><option>维修（护）费</option><option>燃料费</option><option>保险费</option><option>过路过桥费</option><option>租赁及其他</option></select></div><div class="tp-field"><label>本次申报金额（元）</label><input id="tpVehAmount" type="number" min="0"></div></div>'+
+    '<div class="tp-grid" style="margin-top:11px"><div class="tp-field"><label>本项目年度预算余额（元）</label><input id="tpVehBudget" type="number" min="0"></div></div><div class="tp-checks"><label><input id="tpVehCentralized" type="checkbox">已履行政府集中采购（购置）</label><label><input id="tpVehDomestic" type="checkbox">选用国产并优先新能源车型（购置）</label><label><input id="tpVehApproved" type="checkbox">特殊车型/SUV/大型客车已按程序报批</label><label><input id="tpVehPlate" type="checkbox">已绑定公务车辆号牌（运行）</label><label><input id="tpVehDispatch" type="checkbox">已有派车单或公务任务依据（运行）</label><label><input id="tpVehInvoice" type="checkbox">发票、维修/结算明细完整（运行）</label><label><input id="tpVehPrivate" type="checkbox">存在公车私用或私车公养（勾选即阻断）</label></div></div></div>'+
+    '<aside class="tp-card"><div class="tp-card-hd"><div><h3>实时合规结果</h3><p>价格、排量、预算和用途自动控制。</p></div><span class="tp-pill" data-tp-level-label></span></div><div class="tp-card-bd"><div id="tpVehicleResult"></div><div class="tp-actions"><button class="tp-action" data-tp-transfer="vehicle">合规明细带入支付申请</button><button class="tp-action secondary" data-tp-export="vehicle">导出校验JSON</button></div><div class="tp-source-note"><b>苏州适用方式：</b>当前按“苏州继承江苏，江苏继承国家”的规则合并。运行维护费不虚构固定年度金额，按后端预算余额和单位车辆定额实时控制。</div></div></aside></div></section>'+
+    '<section class="tp-view" data-tp-page="sources"><div class="tp-source-grid">'+sourceHtml()+'</div><div class="tp-backend"><h3>后端融合接口已预留</h3><p>前端规则包保持稳定JSON结构。后端上线后，规则服务下发有效期、地区、人员级别、金额和材料要求；校验服务返回同样的 checks 结果，支付申请仍保存规则快照。</p><code id="tpBackendContract"></code><div class="tp-actions"><button class="tp-action" data-tp-export="rules">导出完整规则包JSON</button></div></div></section></div>';
+    ['abroad','reception','vehicle'].forEach(function(kind){var body=panel.querySelector('[data-tp-page="'+kind+'"] .tp-card:first-child .tp-card-bd');if(body)body.insertAdjacentHTML('beforeend',materialPanelHtml(kind));});
+    var pay=document.getElementById('p-pay');if(pay)sheet.insertBefore(panel,pay);else sheet.appendChild(panel);
+    var dest=document.getElementById('tpAbroadDest');if(dest)dest.innerHTML=DESTINATIONS.map(function(x){return '<option value="'+e(x.id)+'">'+e(x.label)+' · '+e(x.currency)+'（住'+x.lodging+'/餐'+x.meal+'/杂'+x.misc+'）</option>';}).join('')+'<option value="custom">其他目的地 · 录入现行标准</option>';
+    var types=document.getElementById('tpVehType');if(types)types.innerHTML=Object.keys(VEHICLE_RULES).map(function(k){var x=VEHICLE_RULES[k];return '<option value="'+k+'">'+e(x.label)+'</option>';}).join('');
+    var level=document.getElementById('tpLevel');if(level)level.value=state.level;
+    var cap=document.getElementById('tpRecCap'),confirmed=document.getElementById('tpRecCapConfirmed');if(cap)cap.value=state.receptionCap;if(confirmed)confirmed.checked=state.capConfirmed;
+    var contract=document.getElementById('tpBackendContract');if(contract)contract.textContent=JSON.stringify({getRules:'GET /api/v1/standards/three-public?region=320507&date=YYYY-MM-DD',validate:'POST /api/v1/standards/three-public:validate',materials:'POST /api/v1/vouchers/{id}/materials',request:{category:'official_reception',regionCode:'320507',occurredAt:'YYYY-MM-DD',facts:{},materials:[{materialId:'前端临时ID',role:'接待发票',ocr:{amount:1200,invoiceNo:'票号'},confirmedByOperator:true}],ruleVersion:VERSION},response:{status:'pass|warn|fail',checks:[],ruleSnapshot:{},materialChecks:[]}},null,2);
+  }
+  function buildMenu(){
+    var menu=document.getElementById('sysMenu');if(!menu||menu.querySelector('[data-s="threepublic"]'))return;
+    var item=document.createElement('div');item.className='sys-mi';item.dataset.s='threepublic';
+    item.innerHTML='<button type="button" class="sys-mlabel" data-s="threepublic">三公经费风险控制 <i>▾</i></button><div class="sys-dd"><a data-tp-menu="overview">标准控制总览</a><a data-tp-menu="abroad">因公出国（境）</a><a data-tp-menu="reception">公务接待</a><a data-tp-menu="vehicle">公务用车</a><a data-tp-menu="sources">标准依据与版本</a></div>';
+    var pay=menu.querySelector('.sys-mi[data-s="pay"]');if(pay)menu.insertBefore(item,pay);else menu.appendChild(item);
+    var label=item.querySelector('.sys-mlabel');label.addEventListener('click',function(ev){ev.stopPropagation();var was=item.classList.contains('open');menu.querySelectorAll('.sys-mi').forEach(function(x){x.classList.remove('open');});open('overview');if(!was)item.classList.add('open');});
+    item.querySelectorAll('[data-tp-menu]').forEach(function(a){a.addEventListener('click',function(ev){ev.stopPropagation();open(a.dataset.tpMenu);menu.querySelectorAll('.sys-mi').forEach(function(x){x.classList.remove('open');});});});
+  }
+  function open(view){
+    view=view||'overview';
+    document.querySelectorAll('.panel').forEach(function(x){x.classList.remove('on');});var panel=document.getElementById('p-threepublic');if(panel)panel.classList.add('on');
+    document.querySelectorAll('#p-threepublic [data-tp-page]').forEach(function(x){x.classList.toggle('on',x.dataset.tpPage===view);});
+    document.querySelectorAll('#p-threepublic [data-tp-view]').forEach(function(x){x.classList.toggle('on',x.dataset.tpView===view);});
+    var menu=document.getElementById('sysMenu');if(menu)menu.querySelectorAll('.sys-mi').forEach(function(x){x.classList.toggle('active',x.dataset.s==='threepublic');});
+    var bar=document.getElementById('catbar');if(bar){bar.style.display='flex';bar.classList.remove('calc-mode');bar.dataset.breadcrumb='当前位置：首页 / 三公经费风险控制 / '+({overview:'标准控制总览',abroad:'因公出国（境）',reception:'公务接待',vehicle:'公务用车',sources:'标准依据与版本'}[view]||'标准控制');}
+    try{if(typeof pauseCLGeo==='function')pauseCLGeo();var sh=document.querySelector('.sheet');if(sh)sh.scrollTo({top:0,behavior:'smooth'});window.scrollTo({top:0,behavior:'smooth'});}catch(_){}
+    renderAll();
+  }
+  function exportJson(kind){
+    var payload=kind==='rules'?API.exportRulePackage():state.last[kind];if(!payload)return;
+    var blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json;charset=utf-8'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=(kind==='rules'?'三公经费规则包-':'三公经费校验-'+kind+'-')+VERSION+'.json';a.click();setTimeout(function(){URL.revokeObjectURL(a.href);},300);
+  }
+  function transfer(kind){
+    var r=state.last[kind];if(!r||!r.canTransfer){alert('当前存在标准阻断项、金额标准未确认，或原始材料尚未完成OCR和职工确认，不能带入支付申请。');return;}
+    if(typeof payAddRow!=='function'||typeof mainNav!=='function'){alert('支付申请模块尚未就绪。');return;}
+    var m;if(kind==='abroad')m={cat:'因公出国（境）费',code:'30212',content:'因公出国（境）费 · '+r.destination.label+' · '+r.persons+'人'+r.days+'天'};
+    else if(kind==='reception')m={cat:'公务接待费',code:'30217',content:'国内公务接待费 · 接待'+r.guests+'人/陪餐'+r.companions+'人'};
+    else m={cat:'公务用车购置及运行维护费',code:r.expenseKind==='purchase'?'31013':'30231',content:(r.expenseKind==='purchase'?'公务用车购置 · ':'公务用车运行维护费 · ')+r.vehicleLabel};
+    mainNav('pay');var form=document.querySelector('#paySub button[data-v="form"]');if(form&&!form.classList.contains('on'))form.click();
+    var cat=document.getElementById('payCat');if(cat&&Array.from(cat.options).some(function(o){return o.value===m.cat;}))cat.value=m.cat;
+    if(typeof pushPayUndo==='function')pushPayUndo();var src='three-public-'+kind,atts=threePublicAttachments(kind,r),target=null;
+    document.querySelectorAll('#payRows .pay-row').forEach(function(row){if(!target&&row.dataset.mod===src)target=row;});
+    if(!target)document.querySelectorAll('#payRows .pay-row').forEach(function(row){if(!target&&!row.querySelector('.pm').value&&!row.querySelector('.pd').value)target=row;});
+    if(target){target.querySelector('.pm').value=Math.round(r.total*100)/100;target.querySelector('.pd').value=m.content;var subject=target.querySelector('.pc-sel'),custom=target.querySelector('.pc-custom');if(subject)subject.value=m.code;if(custom)custom.style.display='none';target.dataset.mod=src;target.dataset.materialConfirmed='1';target.dataset.threePublicSnapshot=JSON.stringify(r);target._atts=atts;if(typeof renderAtts==='function')renderAtts(target);if(typeof subjectLocalGuess==='function')subjectLocalGuess(target);if(typeof payCalc==='function')payCalc();}
+    else payAddRow({pm:r.total,pd:m.content,pc:m.code,src:src,atts:atts,materialConfirmed:true,threePublicSnapshot:JSON.stringify(r)});
+    var rows=document.getElementById('payRows');if(rows)rows.scrollIntoView({behavior:'smooth',block:'start'});
+    alert('已带入支付申请：原始凭证、OCR摘要、材料判断和规则版本 '+VERSION+' 的快照均已随明细携带。只需继续填写收款信息即可保存或提交。');
+  }
+  function bind(){
+    var panel=document.getElementById('p-threepublic');if(!panel)return;
+    panel.querySelectorAll('[data-tp-view],[data-tp-open]').forEach(function(x){x.addEventListener('click',function(){open(x.dataset.tpView||x.dataset.tpOpen);});});
+    function factChanged(ev){var page=ev.target.closest('[data-tp-page]'),kind=page&&page.dataset.tpPage;if(kind&&state.materials[kind]&&!ev.target.closest('.tp-material')){if(ev.target.id==='tpVehKind')reclassifyMaterials('vehicle');else if(state.materials[kind].confirmed){state.materials[kind].confirmed=false;state.materials[kind].note='表单信息已修改，请重新确认OCR材料判断。';}}renderAll();}
+    panel.addEventListener('input',factChanged);panel.addEventListener('change',factChanged);
+    panel.querySelectorAll('[data-tp-transfer]').forEach(function(x){x.addEventListener('click',function(){transfer(x.dataset.tpTransfer);});});
+    panel.querySelectorAll('[data-tp-export]').forEach(function(x){x.addEventListener('click',function(){exportJson(x.dataset.tpExport);});});
+    panel.querySelectorAll('[data-tp-upload-button]').forEach(function(x){x.addEventListener('click',function(){var input=panel.querySelector('[data-tp-file="'+x.dataset.tpUploadButton+'"]');if(input)input.click();});});
+    panel.querySelectorAll('[data-tp-file]').forEach(function(input){input.addEventListener('change',async function(){await addMaterialFiles(input.dataset.tpFile,input.files);input.value='';});});
+    panel.querySelectorAll('[data-tp-reocr]').forEach(function(x){x.addEventListener('click',function(){reOcrMaterials(x.dataset.tpReocr);});});
+    panel.querySelectorAll('[data-tp-confirm-material]').forEach(function(x){x.addEventListener('click',function(){confirmMaterials(x.dataset.tpConfirmMaterial);});});
+    panel.querySelectorAll('[data-tp-clear-material]').forEach(function(x){x.addEventListener('click',function(){clearMaterials(x.dataset.tpClearMaterial);});});
+  }
+  function recordSpecialSnapshot(r){
+    try{var rows=(typeof LEDGER!=='undefined'&&Array.isArray(LEDGER))?LEDGER.filter(function(x){return x.appNo===r.appNo;}):[];var raw=rows.map(function(x){return x.threePublicSnapshot;}).find(Boolean);return raw?(typeof raw==='string'?JSON.parse(raw):raw):null;}catch(_){return null;}
+  }
+  function installAudit(){
+    if(!F||typeof F.auditChecks!=='function')return;var original=F.auditChecks;
+    F.auditChecks=function(r){var out=original(r),text=[r&&r.biz,r&&r.summary].join(' '),special=/因公出国|出国（境）|公务接待|公务用车|公车/.test(text),snap=recordSpecialSnapshot(r);if(special||snap){out.push({name:'三公经费专项控制',state:snap?(snap.status==='fail'?'fail':snap.status==='warn'?'warn':'pass'):'warn',detail:snap?'规则 '+(snap.version||'—')+'；'+LEVELS[snap.level||'suzhou'].label+'；'+snap.checks.filter(function(x){return x.state!=='pass';}).map(function(x){return x.label+'：'+x.detail;}).join('；'):'未取得填单阶段的三公经费规则快照，须返回标准控制中心复核'});}return out;};
+    var oldRules=F.renderRules;if(typeof oldRules==='function')F.renderRules=function(){oldRules();var box=document.getElementById('finPolicyRules');if(box&&!box.querySelector('[data-rule="R09"]'))box.insertAdjacentHTML('beforeend','<div class="fin-rule" data-rule="R09"><span class="fin-rule-no">R09</span><div><b>三公经费专项控制</b><p>国家—江苏—苏州规则继承、填单实时阻断、金额配置确认和规则快照复核</p></div><em>规则 '+VERSION+'</em></div>');};
+    var auditBtn=document.querySelector('[data-fin-action="run-audit"]');if(auditBtn)auditBtn.textContent='执行八项通用 + 三公专项校验';
+  }
+  function installIntegration(){
+    if(window.FINANCE_INTEGRATION){var I=window.FINANCE_INTEGRATION;I.config.endpoints.threePublicRules='/api/v1/standards/three-public';I.config.endpoints.threePublicValidate='/api/v1/standards/three-public:validate';I.rules['因公出国（境）费']={basis:'财行〔2013〕516号、财行〔2017〕434号、苏财行〔2014〕5号',version:VERSION};I.rules['公务接待费']={basis:'中办发〔2024〕7号、苏办发〔2025〕6号、苏委办发〔2025〕9号',version:VERSION};I.rules['公务用车购置及运行维护费']={basis:'中办发〔2017〕71号、苏办发〔2018〕55号',version:VERSION};}
+  }
+  var API={version:VERSION,levels:LEVELS,sources:SOURCES,destinations:DESTINATIONS,vehicleRules:VEHICLE_RULES,evaluateAbroad:evaluateAbroad,evaluateReception:evaluateReception,evaluateVehicle:evaluateVehicle,open:open,classifyMaterial:function(kind,text){return materialRoles(kind,text);},getMaterialSnapshot:materialSnapshot,confirmMaterials:confirmMaterials,configure:function(next){next=next||{};if(next.level&&LEVELS[next.level])state.level=next.level;if(Number(next.receptionCap)>0)state.receptionCap=Number(next.receptionCap);if(next.capConfirmed!=null)state.capConfirmed=!!next.capConfirmed;persist();var sel=document.getElementById('tpLevel'),cap=document.getElementById('tpRecCap'),confirmed=document.getElementById('tpRecCapConfirmed');if(sel)sel.value=state.level;if(cap)cap.value=state.receptionCap;if(confirmed)confirmed.checked=state.capConfirmed;renderAll();return state;},exportRulePackage:function(){return {version:VERSION,generatedAt:new Date().toISOString(),inheritance:['national','jiangsu','suzhou'],levels:LEVELS,sources:SOURCES,destinations:DESTINATIONS,vehicleRules:VEHICLE_RULES,materialWorkflow:{stages:['standard_validation','browser_ocr','operator_confirmation','payment_transfer'],imageOcr:'browser-local',pdfMode:'retain-original-and-manual-review',requirements:{abroad:['出国任务/经费审批','国际机票/行程单','按申报项目动态要求住宿和交通票据'],reception:['派出单位公函','接待审批','接待清单','接待发票','菜单/消费明细'],vehiclePurchase:['车辆采购审批/预算材料','采购合同/中标材料','车辆购置发票'],vehicleOperation:['派车单/用车任务','车辆运行票据','维修业务动态要求维修/结算明细']}},reception:{structuralRules:{workMealsMax:1,companions:'guests<=10 ? 3 : floor(guests/3)'},localConfiguredMealCap:state.receptionCap,capConfirmed:state.capConfirmed,warning:'金额须依据苏委办发〔2025〕9号和本单位现行口径由财务配置员确认'},api:{rules:'/api/v1/standards/three-public',validate:'/api/v1/standards/three-public:validate',materials:'/api/v1/vouchers/{id}/materials'}};}};
+  window.THREE_PUBLIC_CONTROL=API;
+  buildPanel();buildMenu();bind();installIntegration();installAudit();renderAll();
 })();
 </script>
 
